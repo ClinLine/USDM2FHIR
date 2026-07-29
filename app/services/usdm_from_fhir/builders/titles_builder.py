@@ -23,7 +23,7 @@ class _Coding(TypedDict, total=False):
 
 
 class _CodeableConcept(TypedDict, total=False):
-    coding: _Coding | None
+    coding: list[_Coding] | None
 
 
 class _Label(TypedDict, total=False):
@@ -45,11 +45,12 @@ class TitlesBuilder(AbstractSectionBuilder):
         idx = 0
 
         for label in labels:
-            type_code: str | None = (
-                (label.get("type") or {})
-                .get("coding", {})
-                .get("code")
+            coding_field = (label.get("type") or {}).get("coding") or []
+            # FHIR coding is always an array; guard against legacy dict shape too
+            first_coding: dict = (
+                coding_field[0] if isinstance(coding_field, list) else coding_field
             )
+            type_code: str | None = first_coding.get("code") if isinstance(first_coding, dict) else None
             if not type_code:
                 # USDM StudyTitle requires a type — skip labels without one
                 continue

@@ -26,7 +26,7 @@ class _Coding(TypedDict, total=False):
 
 
 class _CodeableConcept(TypedDict, total=False):
-    coding: _Coding | None
+    coding: list[_Coding] | None
 
 
 class _Endpoint(TypedDict, total=False):
@@ -42,6 +42,15 @@ class _Objective(TypedDict, total=False):
     name: str | None
     type: _CodeableConcept | None
     outcomeMeasure: list[_OutcomeMeasure] | None
+
+
+def _first_coding_code(codeable_concept: dict | None) -> str | None:
+    """Return the code of the first coding entry in a CodeableConcept, or None."""
+    if not codeable_concept:
+        return None
+    coding = codeable_concept.get("coding") or []
+    first = coding[0] if isinstance(coding, list) and coding else (coding if isinstance(coding, dict) else {})
+    return first.get("code") if isinstance(first, dict) else None
 
 
 class ObjectivesBuilder(AbstractSectionBuilder):
@@ -60,11 +69,7 @@ class ObjectivesBuilder(AbstractSectionBuilder):
             obj_id = f"Objective_{i}"
 
             # --- level (optional) -------------------------------------------
-            type_code: str | None = (
-                (fhir_obj.get("type") or {})
-                .get("coding", {})
-                .get("code")
-            )
+            type_code: str | None = _first_coding_code(fhir_obj.get("type"))
             level = context.lookup_code(OBJECTIVE_LEVEL, type_code) if type_code else None
 
             # --- endpoints ---------------------------------------------------
@@ -98,11 +103,7 @@ class ObjectivesBuilder(AbstractSectionBuilder):
             ep_id = f"Endpoint_{obj_index}_{j}"
             display: str = (om.get("endpoint") or {}).get("display") or ""
 
-            type_code: str | None = (
-                (om.get("type") or {})
-                .get("coding", {})
-                .get("code")
-            )
+            type_code: str | None = _first_coding_code(om.get("type"))
             level = context.lookup_code(ENDPOINT_LEVEL, type_code) if type_code else None
 
             endpoint: dict = {

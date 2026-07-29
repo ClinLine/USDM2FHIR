@@ -57,6 +57,10 @@ class IdentifiersBuilder(AbstractSectionBuilder):
             # str — id of the organization that issued this identifier
             scope_id: str = self._resolve_scope_id(identifier, orgs_by_name)
 
+            # skip if we couldn't resolve the issuing organization
+            if not scope_id:
+                continue
+
             si_id = f"StudyIdentifier_{i}"
             result.append({
                 "id": si_id,
