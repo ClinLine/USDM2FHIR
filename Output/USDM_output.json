@@ -6,6 +6,10 @@
     "label": null,
     "versions": [
       {
+        "id": "StudyVersion_0",
+        "extensionAttributes": [],
+        "versionIdentifier": "Not Available",
+        "rationale": "",
         "studyDesigns": [
           {
             "id": "StudyDesign_1",
@@ -316,7 +320,6 @@
             "label": "Eli Lilly",
             "type": {
               "id": "Organization_0_Type",
-              "name": "ORGANIZATION_0_TYPE",
               "code": "C17998",
               "decode": "Unknown",
               "codeSystem": "http://www.cdisc.org",
@@ -331,7 +334,6 @@
             "label": "ClinicalTrials.gov",
             "type": {
               "id": "Organization_1_Type",
-              "name": "ORGANIZATION_1_TYPE",
               "code": "C93453",
               "decode": "Clinical Study Registry",
               "codeSystem": "http://www.cdisc.org",
@@ -341,7 +343,6 @@
             "instanceType": "Organization",
             "legalAddress": {
               "id": "Organization_1_Address",
-              "name": "ORGANIZATION_1_ADDRESS",
               "text": "   ",
               "lines": [],
               "city": "",
@@ -355,9 +356,6 @@
             "managedSites": []
           }
         ],
-        "versionIdentifier": "Not Available",
-        "rationale": "",
-        "extensionAttributes": [],
         "documentVersionIds": [],
         "amendments": [],
         "businessTherapeuticAreas": [],

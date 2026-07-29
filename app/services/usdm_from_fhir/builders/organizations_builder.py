@@ -84,7 +84,6 @@ def _make_org(org_id: str, label: str, name: str, code: str, decode: str) -> dic
         "label": label,
         "type": {
             "id": type_id,
-            "name": type_id.upper(),
             "code": code,
             "decode": decode,
             **CDISC_CODE_SYSTEM,
@@ -103,7 +102,6 @@ def _make_ct_gov_org(org_id: str) -> dict:
     org.update({
         "legalAddress": {
             "id": address_id,
-            "name": address_id.upper(),
             "text": "   ",
             "lines": [],
             "city": "",
