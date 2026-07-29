@@ -176,6 +176,84 @@ def wrap_coding_arrays(obj):
             wrap_coding_arrays(item)
 
 
+def assemble_paths(result_map):
+    """
+    Group (cell_id, target_path, target_group, value, resource_name) tuples into
+    indexed paths (via add_index_path_by_name) and materialize them as a single
+    nested dict (via paths_to_json). Direction-agnostic: used both to build a FHIR
+    resource (create_fhir_resource) and a USDM document (CreateUsdm.create_usdm_resource).
+    """
+    result_map = sorted(result_map, key=lambda t: (t[1], t[0]))
+    pairs=[]
+    group=""
+    path=""
+    cell_id_to_idx = {}
+    idx=0
+    id_level={}
+    subdef={}
+    prev_cell_id = ""
+    for m in range(20): # support up to 20 levels of subgrouping
+        id_level[m]=0
+        subdef[m]=""
+    for cell_id, target_path, target_group, value, resourcename in result_map:
+        subgroup=parse_semicolon_list_safe(target_group)
+        path_idx=target_path
+        for m in range(len(subgroup)):
+            sg=subgroup[m]
+            if m==0:
+                sub_path=head_through_class(target_path, sg)
+                lookup_key = (sub_path, cell_id)
+                #if sg=="characteristic":
+                #    print(cell_id, lookup_key,value)
+
+                # based id no per cell id, but on the subgrouping, so that all paths with the same subgrouping get the same index
+                if cell_id != prev_cell_id:
+                    if lookup_key in cell_id_to_idx:
+                        idx = cell_id_to_idx[lookup_key]
+                    elif sg == group:
+                        idx+=1
+                    else:
+                        idx=0
+                    group=sg
+                    path=target_path
+                    cell_id_to_idx[lookup_key] = idx  # remember first one
+                elif target_path == path and len(subgroup) == 1:
+                    idx+=1
+                # lower level value - no increase in index, but reset to 0 if subgrouping changes
+                elif target_path != path and lookup_key in cell_id_to_idx:
+                    idx = cell_id_to_idx[lookup_key]
+                    path=target_path
+                elif target_path != path:
+                    idx=0
+                    group=sg
+                    path=target_path
+
+                id_level[0]=idx
+
+            else:
+               # print (sg, subdef[m], id_level[m])
+                if subdef[m] != sg or cell_id != prev_cell_id:
+                    id_level[m]=0
+                    subdef[m]=sg
+                else:
+                    id_level[m]=id_level[m]+1
+                #print (sg, subdef[m], id_level[m])
+
+            try:
+               # if len(subgroup) > 1:
+                   # print("before:", m, cell_id, idx, id_level[m], path_idx)
+                path_idx=add_index_path_by_name(path_idx, sg, id_level[m], 0)
+               # if len(subgroup) > 1:
+               #     print("after:", path_idx)
+            except:
+                path_idx=path_idx # No array path, use as is
+        prev_cell_id = cell_id
+        if value is not None and value != "[]" and value != "{}" and value != " " and value != "":
+            pairs.append((path_idx, value))
+
+    return paths_to_json(pairs)
+
+
 def create_fhir_resource(ResultMap, RowIds, resource_type, data):
     # Get the mapping information from csv Mapping file based on the USDM mapping
     # save the corresponding information to the FHIR message
@@ -189,76 +267,8 @@ def create_fhir_resource(ResultMap, RowIds, resource_type, data):
                 "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
             ]
         },
-    }    
-    ResultMap = sorted(ResultMap, key=lambda t: (t[1], t[0]))
-    pairs=[]
-    group=""
-    path=""
-    cell_id_to_idx = {}
-    idx=0
-    id_level={}
-    subdef={}
-    prev_cell_id = ""
-    for m in range(20): # support up to 20 levels of subgrouping
-        id_level[m]=0
-        subdef[m]=""
-    for cell_id, fhir_path, fhir_group, value, fhir_resourcename in ResultMap:
-        subgroup=parse_semicolon_list_safe(fhir_group)
-        fhir_path_idx=fhir_path
-        for m in range(len(subgroup)):
-            sg=subgroup[m]
-            if m==0: 
-                sub_path=head_through_class(fhir_path, sg)
-                lookup_key = (sub_path, cell_id)
-                #if sg=="characteristic":
-                #    print(cell_id, lookup_key,value)
-                    
-                # based id no per cell id, but on the subgrouping, so that all paths with the same subgrouping get the same index
-                if cell_id != prev_cell_id:
-                    if lookup_key in cell_id_to_idx:
-                        idx = cell_id_to_idx[lookup_key]
-                    elif sg == group:
-                        idx+=1
-                    else:
-                        idx=0
-                    group=sg
-                    path=fhir_path
-                    cell_id_to_idx[lookup_key] = idx  # remember first one
-                elif fhir_path == path and len(subgroup) == 1:
-                    idx+=1
-                # lower level value - no increase in index, but reset to 0 if subgrouping changes
-                elif fhir_path != path and lookup_key in cell_id_to_idx:
-                    idx = cell_id_to_idx[lookup_key]
-                    path=fhir_path
-                elif fhir_path != path:
-                    idx=0
-                    group=sg
-                    path=fhir_path
-                
-                id_level[0]=idx 
-                
-            else:
-               # print (sg, subdef[m], id_level[m])
-                if subdef[m] != sg or cell_id != prev_cell_id:
-                    id_level[m]=0 
-                    subdef[m]=sg
-                else:
-                    id_level[m]=id_level[m]+1    
-                #print (sg, subdef[m], id_level[m])
-                            
-            try:
-               # if len(subgroup) > 1: 
-                   # print("before:", m, cell_id, idx, id_level[m], fhir_path_idx)
-                fhir_path_idx=add_index_path_by_name(fhir_path_idx, sg, id_level[m], 0)
-               # if len(subgroup) > 1: 
-               #     print("after:", fhir_path_idx)
-            except:
-                fhir_path_idx=fhir_path_idx # No array path, use as is
-        prev_cell_id = cell_id
-        if value is not None and value != "[]" and value != "{}" and value != " " and value != "":
-            pairs.append((fhir_path_idx, value))
-
-    x = paths_to_json(pairs)
+    }
+    x = assemble_paths(ResultMap)
     fhir_resource.update(x)
     wrap_coding_arrays(fhir_resource)
     return fhir_resource
@@ -428,6 +438,31 @@ def add_index_path(fhir_path, segmentLevel, idx):
     return ".".join(new_parts)
 
 
+def parse_path(path: str) -> list:
+    """Parse a dot path with array notation (e.g. 'coding[0].display') into a list of keys."""
+    tokens = []
+    for part in path.split('.'):
+        match = re.match(r'(\w+)\[(\d+)\]', part)
+        if match:
+            tokens.append(match.group(1))
+            tokens.append(int(match.group(2)))
+        else:
+            tokens.append(part)
+    return tokens
+
+
+def get_by_path(obj, path: str):
+    """Navigate obj following a dot path with array notation. Returns None if any segment is missing."""
+    for key in parse_path(path):
+        if obj is None:
+            return None
+        if isinstance(key, int):
+            obj = obj[key] if isinstance(obj, list) and key < len(obj) else None
+        else:
+            obj = obj.get(key) if isinstance(obj, dict) else None
+    return obj
+
+
 def paths_to_json(path_value_pairs: list[tuple[str, any]]) -> dict:
     """
     Transform multiple path-value pairs into a single merged JSON structure.
@@ -462,18 +497,6 @@ def paths_to_json(path_value_pairs: list[tuple[str, any]]) -> dict:
             obj[final_key] = value
         else:
             obj[final_key] = value
-    
-    def parse_path(path: str) -> list:
-        """Parse path with array notation into list of keys."""
-        tokens = []
-        for part in path.split('.'):
-            match = re.match(r'(\w+)\[(\d+)\]', part)
-            if match:
-                tokens.append(match.group(1))
-                tokens.append(int(match.group(2)))
-            else:
-                tokens.append(part)
-        return tokens
     
     result = {}
     for path, value in path_value_pairs:

@@ -33,3 +33,5 @@ Thumbs.db
 # mypy
 .mypy_cache/
 
+/schemas/
+/todo/
