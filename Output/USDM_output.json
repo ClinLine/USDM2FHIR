@@ -507,21 +507,9 @@
             "instanceType": "StudyIdentifier"
           },
           {
-            "id": "StudyIdentifier_1",
-            "text": "NCT04077723",
-            "scopeId": "",
-            "instanceType": "StudyIdentifier"
-          },
-          {
             "id": "StudyIdentifier_2",
             "text": "BP41072",
             "scopeId": "Organization_1",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_3",
-            "text": "2019-000416-28",
-            "scopeId": "",
             "instanceType": "StudyIdentifier"
           },
           {
@@ -595,6 +583,41 @@
               "instanceType": "Code"
             },
             "instanceType": "Organization"
+          }
+        ],
+        "dateValues": [
+          {
+            "id": "GovernanceDate_0",
+            "extensionAttributes": [],
+            "name": "D_ISSUED",
+            "label": "Last update posted (Clinical gov provider)",
+            "description": "Design approval date",
+            "type": {
+              "id": "Code_36",
+              "code": "C215664",
+              "decode": "Issued Date",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "dateValue": "2026-05-29",
+            "geographicScopes": [
+              {
+                "id": "GeographicScope_0",
+                "extensionAttributes": [],
+                "type": {
+                  "id": "Code_37",
+                  "code": "C68846",
+                  "decode": "Global",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "code": null,
+                "instanceType": "GeographicScope"
+              }
+            ],
+            "instanceType": "GovernanceDate"
           }
         ],
         "documentVersionIds": [],

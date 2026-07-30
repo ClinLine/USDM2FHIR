@@ -40,3 +40,14 @@ ENDPOINT_LEVEL: dict[str, dict] = {
     "exploratory": {"code": "C163560", "decode": "Exploratory Endpoint"},
 }
 
+# ResearchStudy.progressStatus[].state.coding.code  →  GovernanceDate.type Code
+# Only "update-posting" is confirmed/needed — all other progressStatus states
+# are intentionally ignored by DateValuesBuilder (out of scope for now).
+GOVERNANCE_DATE_TYPE: dict[str, dict] = {
+    "update-posting": {"code": "C215664", "decode": "Issued Date"},
+}
+
+# Fixed GeographicScope used for the D_ISSUED GovernanceDate until per-country
+# progressStatus mapping is needed.
+GEOGRAPHIC_SCOPE_GLOBAL: dict = {"code": "C68846", "decode": "Global"}
+

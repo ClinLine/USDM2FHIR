@@ -19,6 +19,7 @@ from app.services.usdm_from_fhir.builders.organizations_builder import Organizat
 from app.services.usdm_from_fhir.builders.identifiers_builder import IdentifiersBuilder
 from app.services.usdm_from_fhir.builders.titles_builder import TitlesBuilder
 from app.services.usdm_from_fhir.builders.objectives_builder import ObjectivesBuilder
+from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -51,6 +52,7 @@ class FhirToUsdmService:
         IdentifiersBuilder(),     # priority 20
         TitlesBuilder(),          # priority 30
         ObjectivesBuilder(),      # priority 40
+        DateValuesBuilder(),      # priority 52
     ]
 
     def build(self, fhir_data: dict) -> dict:
@@ -93,7 +95,7 @@ class FhirToUsdmService:
             version["studyDesigns"] = [study_design]
 
         # --- top-level version fields ----------------------------------------
-        for field in ("studyIdentifiers", "titles", "organizations"):
+        for field in ("studyIdentifiers", "titles", "organizations", "dateValues"):
             val = ctx.get(f"version.{field}")
             if val is not None:
                 version[field] = val
