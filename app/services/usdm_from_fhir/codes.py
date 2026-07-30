@@ -120,3 +120,13 @@ STUDY_PHASE: dict[str, dict] = {
     "phase-4":         {"code": "C15603",  "decode": "Phase IV Trial"},
 }
 
+# ResearchStudy.studyDesign[].coding[].code (SEVCO)  →  StudyDesign.characteristics Code.
+# Mirrors readi_core StudyDesignMappedTypes::getAllocationMapping() joined with
+# ResearchStudyDesignBuilder's SEVCO:01003 emission (only RANDOMIZED has a
+# mapping there; NON_RANDOMIZED returns null / has no FHIR coding), so this
+# table intentionally has a single entry — an unmatched studyDesign SEVCO code
+# simply means "no characteristics", not "unknown allocation".
+STUDY_DESIGN_CHARACTERISTIC: dict[str, dict] = {
+    "SEVCO:01003": {"code": "C46079", "decode": "Randomized"},
+}
+

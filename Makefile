@@ -5,7 +5,7 @@ REGISTRY = ghcr.io/efrosionelu/usdm2fhir
 PORT = 8000
 FHIR_VALIDATOR = $(shell which fhir-validator 2>/dev/null || echo /Users/fybromania/Library/Python/3.9/bin/fhir-validator)
 
-.PHONY: setup execute_example execute_example_fhir_to_usdm run jsonata-inspect jsonata-query yaml-to-csv docker-build docker-run docker-stop docker-push validate
+.PHONY: setup execute_example execute_example_fhir_to_usdm run jsonata-inspect jsonata-query yaml-to-csv docker-build docker-run docker-stop docker-push validate run
 
 setup:
 	python3 -m venv venv
@@ -25,7 +25,7 @@ yaml-to-csv:
 		--mappings-dir $(or $(MAPPINGS_DIR),app/config/mappings) \
 		--output $(or $(OUTPUT),Map/USDM2FHIR.csv)
 
-
+run:
 	$(PYTHON) -m uvicorn main:app --reload --host 0.0.0.0 --port $(PORT)
 
 # Evaluează o expresie JSONata și afișează metadata rezultatului.

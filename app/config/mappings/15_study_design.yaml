@@ -31,3 +31,15 @@ mappings:
     usdm_class: StudyDesign
     usdm_attribute: population.cohorts
 
+  - item: Study Design allocation (randomized characteristic)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        $randomized := characteristics[code = "C46079"];
+        $randomized ? {id & "_allocation": {"coding": [{"system": "https://fevir.net/sevco", "code": "SEVCO:01003", "display": "randomized assignment"}]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: characteristics
+
