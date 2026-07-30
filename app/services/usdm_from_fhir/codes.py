@@ -103,3 +103,20 @@ PURPOSE_SUB_TYPE: dict[str, dict] = {
     "prevalence":       {"code": "C215675", "decode": "Prevalence Study"},
 }
 
+# ResearchStudy.phase.coding[].code (FHIR research-study-phase system)  →
+# StudyDesign.studyPhase.standardCode Code.
+# Confirmed against app/config/mappings/07_phase.yaml and readi_core
+# StudyPhaseType::getStudyPhaseMapping() / ::getStudyPhaseFhirMapping()
+# (src/Doctrine/ORM/Type/StudyPhaseType.php) — decode strings are the CDISC
+# side ("Phase I Trial" etc.), not the FHIR display text ("Phase 1").
+STUDY_PHASE: dict[str, dict] = {
+    "n-a":             {"code": "C48660",  "decode": "Not Applicable"},
+    "early-phase-1":   {"code": "C54721",  "decode": "Phase 0 Trial"},
+    "phase-1":         {"code": "C15600",  "decode": "Phase I Trial"},
+    "phase-1-phase-2": {"code": "C15693",  "decode": "Phase I/II Trial"},
+    "phase-2":         {"code": "C15601",  "decode": "Phase II Trial"},
+    "phase-2-phase-3": {"code": "C15694",  "decode": "Phase II/III Trial"},
+    "phase-3":         {"code": "C15602",  "decode": "Phase III Trial"},
+    "phase-4":         {"code": "C15603",  "decode": "Phase IV Trial"},
+}
+

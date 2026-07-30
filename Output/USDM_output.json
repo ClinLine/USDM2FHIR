@@ -35,6 +35,20 @@
               }
             ],
             "subTypes": [],
+            "studyPhase": {
+              "id": "AliasCode_0",
+              "extensionAttributes": [],
+              "standardCode": {
+                "id": "Code_38",
+                "code": "C15693",
+                "decode": "Phase I/II Trial",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "instanceType": "Code"
+              },
+              "standardCodeAliases": [],
+              "instanceType": "AliasCode"
+            },
             "objectives": [
               {
                 "id": "Objective_0",
@@ -614,7 +628,7 @@
             "label": "Last update posted (Clinical gov provider)",
             "description": "Design approval date",
             "type": {
-              "id": "Code_38",
+              "id": "Code_39",
               "code": "C215664",
               "decode": "Issued Date",
               "codeSystem": "http://www.cdisc.org",
@@ -627,7 +641,7 @@
                 "id": "GeographicScope_0",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_39",
+                  "id": "Code_40",
                   "code": "C68846",
                   "decode": "Global",
                   "codeSystem": "http://www.cdisc.org",

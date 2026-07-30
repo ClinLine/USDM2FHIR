@@ -21,6 +21,7 @@ from app.services.usdm_from_fhir.builders.titles_builder import TitlesBuilder
 from app.services.usdm_from_fhir.builders.objectives_builder import ObjectivesBuilder
 from app.services.usdm_from_fhir.builders.study_design_type_builder import StudyDesignTypeBuilder
 from app.services.usdm_from_fhir.builders.purpose_type_builder import PurposeTypeBuilder
+from app.services.usdm_from_fhir.builders.phase_builder import PhaseBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 
 # ---------------------------------------------------------------------------
@@ -56,6 +57,7 @@ class FhirToUsdmService:
         ObjectivesBuilder(),      # priority 40
         StudyDesignTypeBuilder(), # priority 41
         PurposeTypeBuilder(),     # priority 50
+        PhaseBuilder(),           # priority 51
         DateValuesBuilder(),      # priority 52
     ]
 
@@ -133,7 +135,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("intentTypes", "subTypes", "objectives"):   # extend as more builders are added
+        for key in ("intentTypes", "subTypes", "studyPhase", "objectives"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val
