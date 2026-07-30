@@ -13,7 +13,28 @@
         "studyDesigns": [
           {
             "id": "StudyDesign_1",
+            "extensionAttributes": [],
             "name": "STUDYDESIGN_1",
+            "label": "",
+            "studyType": {
+              "id": "Code_36",
+              "code": "C98388",
+              "decode": "Interventional Study",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "intentTypes": [
+              {
+                "id": "Code_37",
+                "code": "C49656",
+                "decode": "Treatment Study",
+                "codeSystem": "http://www.cdisc.org",
+                "codeSystemVersion": "2025-09-26",
+                "instanceType": "Code"
+              }
+            ],
+            "subTypes": [],
             "objectives": [
               {
                 "id": "Objective_0",
@@ -496,7 +517,7 @@
                 "instanceType": "Objective"
               }
             ],
-            "instanceType": "StudyDesign"
+            "instanceType": "InterventionalStudyDesign"
           }
         ],
         "studyIdentifiers": [
@@ -593,7 +614,7 @@
             "label": "Last update posted (Clinical gov provider)",
             "description": "Design approval date",
             "type": {
-              "id": "Code_36",
+              "id": "Code_38",
               "code": "C215664",
               "decode": "Issued Date",
               "codeSystem": "http://www.cdisc.org",
@@ -606,7 +627,7 @@
                 "id": "GeographicScope_0",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_37",
+                  "id": "Code_39",
                   "code": "C68846",
                   "decode": "Global",
                   "codeSystem": "http://www.cdisc.org",

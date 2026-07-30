@@ -19,6 +19,8 @@ from app.services.usdm_from_fhir.builders.organizations_builder import Organizat
 from app.services.usdm_from_fhir.builders.identifiers_builder import IdentifiersBuilder
 from app.services.usdm_from_fhir.builders.titles_builder import TitlesBuilder
 from app.services.usdm_from_fhir.builders.objectives_builder import ObjectivesBuilder
+from app.services.usdm_from_fhir.builders.study_design_type_builder import StudyDesignTypeBuilder
+from app.services.usdm_from_fhir.builders.purpose_type_builder import PurposeTypeBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 
 # ---------------------------------------------------------------------------
@@ -52,6 +54,8 @@ class FhirToUsdmService:
         IdentifiersBuilder(),     # priority 20
         TitlesBuilder(),          # priority 30
         ObjectivesBuilder(),      # priority 40
+        StudyDesignTypeBuilder(), # priority 41
+        PurposeTypeBuilder(),     # priority 50
         DateValuesBuilder(),      # priority 52
     ]
 
@@ -117,14 +121,25 @@ class FhirToUsdmService:
             return None
 
         sd_id = "StudyDesign_1"
-        study_design: dict = {"id": sd_id, "name": sd_id.upper()}
+        study_design: dict = {
+            "id": sd_id,
+            "extensionAttributes": [],
+            "name": sd_id.upper(),
+            "label": "",
+        }
+
+        study_type = sd_bag.get("studyType")
+        if study_type is not None:
+            study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("objectives",):   # extend as more builders are added
+        for key in ("intentTypes", "subTypes", "objectives"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val
 
-        study_design["instanceType"] = "StudyDesign"
+        # Set by StudyDesignTypeBuilder alongside studyType (side-channel key,
+        # same pattern as OrganizationsBuilder's 'version._orgsByName').
+        study_design["instanceType"] = sd_bag.get("_instanceType") or "StudyDesign"
         return study_design
 

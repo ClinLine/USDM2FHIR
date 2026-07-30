@@ -51,3 +51,55 @@ GOVERNANCE_DATE_TYPE: dict[str, dict] = {
 # progressStatus mapping is needed.
 GEOGRAPHIC_SCOPE_GLOBAL: dict = {"code": "C68846", "decode": "Global"}
 
+# ResearchStudy.studyDesign[].coding.code (SEVCO)  →  StudyDesign.studyType Code
+# + StudyDesign.instanceType.
+# Mirrors readi_core StudyDesignMappedTypes::getStudyTypeFhirMapping() (SEVCO
+# side) joined with ::getStudyTypeMapping() (CDISC side); "instance_type"
+# mirrors the branching in StudyDesignsSectionBuilder::build() (interventionModel
+# set → InterventionalStudyDesign, observationalModel set → ObservationalStudyDesign).
+# SEVCO:01038 (expanded access) intentionally omitted — readi_core does not
+# define an instanceType for it either.
+STUDY_DESIGN_TYPE: dict[str, dict] = {
+    "SEVCO:01001": {"code": "C98388", "decode": "Interventional Study", "instance_type": "InterventionalStudyDesign"},
+    "SEVCO:01002": {"code": "C16084", "decode": "Observational Study", "instance_type": "ObservationalStudyDesign"},
+}
+
+# ResearchStudy.purposeType[].coding.code  →  StudyDesign.intentTypes Code.
+# FHIR-side codes come from app/config/mappings/06_purpose_type.yaml ("purpose
+# Intent" row). The intentTypes/subTypes split mirrors readi_core
+# StudyDesignMappedTypes::getPrimaryPurposeMapping()'s 'sdtmC66736' flag — true
+# means the code belongs to the CDISC SDTM Trial Intent Type (C66736) codelist
+# and goes to intentTypes; everything else goes to subTypes.
+# "treatment" confirmed against Input/pilot_FHIR.json; the rest are the sibling
+# codes from the same YAML $Recode table, all with sdtmC66736 = true.
+PURPOSE_INTENT_TYPE: dict[str, dict] = {
+    "treatment":                {"code": "C49656",  "decode": "Treatment Study"},
+    "prevention":                {"code": "C49657",  "decode": "Prevention Study"},
+    "diagnostic":                {"code": "C49653",  "decode": "Diagnosis Study"},
+    "screening":                 {"code": "C71485",  "decode": "Screening Study"},
+    "supportive-care":           {"code": "C71486",  "decode": "Supportive Care Study"},
+    "health-services-research":  {"code": "C15245",  "decode": "Health Services Research"},
+    "device-feasibility":        {"code": "C139174", "decode": "Device Feasibility Study"},
+    "basic-science":             {"code": "C15714",  "decode": "Basic Science"},
+}
+
+# ResearchStudy.purposeType[].coding.code  →  StudyDesign.subTypes Code.
+# Same FHIR array as PURPOSE_INTENT_TYPE (purposeType.coding) — distinguished
+# by code, per app/config/mappings/06_purpose_type.yaml ("purpose SubType" row).
+# All codes below have no 'sdtmC66736' flag in getPrimaryPurposeMapping() (i.e.
+# it's absent/false), which is why they land in subTypes and not intentTypes.
+# safety/efficacy/pharmacokinetic confirmed against Input/CDISC_Pilot_Study_v4_FIXED.json;
+# the rest follow the same "<Name> Study" CDISC decode pattern.
+PURPOSE_SUB_TYPE: dict[str, dict] = {
+    "safety":           {"code": "C49667",  "decode": "Safety Study"},
+    "efficacy":         {"code": "C49666",  "decode": "Efficacy Study"},
+    "pharmacokinetic":  {"code": "C49663",  "decode": "Pharmacokinetic Study"},
+    "pharmacodynamic":  {"code": "C49662",  "decode": "Pharmacodynamic Study"},
+    "bioequivalence":   {"code": "C49665",  "decode": "Bioequivalence Study"},
+    "dose-response":    {"code": "C127803", "decode": "Dose-Response Study"},
+    "pharmacogenetic":  {"code": "C129001", "decode": "Pharmacogenetic Study"},
+    "pharmacogenomic":  {"code": "C49661",  "decode": "Pharmacogenomic Study"},
+    "incidence":        {"code": "C215653", "decode": "Incidence Study"},
+    "prevalence":       {"code": "C215675", "decode": "Prevalence Study"},
+}
+
