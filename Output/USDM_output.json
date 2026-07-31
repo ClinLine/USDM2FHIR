@@ -665,6 +665,124 @@
             "instanceType": "GovernanceDate"
           }
         ],
+        "roles": [
+          {
+            "id": "StudyRole_0",
+            "extensionAttributes": [],
+            "name": "STUDYROLE_0",
+            "label": "Study Subject",
+            "description": "",
+            "code": {
+              "id": "Code_42",
+              "code": "C41189",
+              "decode": "Study Subject",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_0"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [],
+            "masking": {
+              "id": "Masking_0",
+              "extensionAttributes": [],
+              "text": "Masked",
+              "isMasked": false,
+              "instanceType": "Masking"
+            },
+            "notes": [],
+            "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_1",
+            "extensionAttributes": [],
+            "name": "STUDYROLE_1",
+            "label": "Care Provider",
+            "description": "",
+            "code": {
+              "id": "Code_43",
+              "code": "C17445",
+              "decode": "Care Provider",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_0"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [],
+            "masking": {
+              "id": "Masking_1",
+              "extensionAttributes": [],
+              "text": "Masked",
+              "isMasked": false,
+              "instanceType": "Masking"
+            },
+            "notes": [],
+            "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_2",
+            "extensionAttributes": [],
+            "name": "STUDYROLE_2",
+            "label": "Investigator",
+            "description": "",
+            "code": {
+              "id": "Code_44",
+              "code": "C25936",
+              "decode": "Investigator",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_0"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [],
+            "masking": {
+              "id": "Masking_2",
+              "extensionAttributes": [],
+              "text": "Masked",
+              "isMasked": false,
+              "instanceType": "Masking"
+            },
+            "notes": [],
+            "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_3",
+            "extensionAttributes": [],
+            "name": "STUDYROLE_3",
+            "label": "Outcomes Assessor",
+            "description": "",
+            "code": {
+              "id": "Code_45",
+              "code": "C207599",
+              "decode": "Outcomes Assessor",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_0"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [],
+            "masking": {
+              "id": "Masking_3",
+              "extensionAttributes": [],
+              "text": "Masked",
+              "isMasked": false,
+              "instanceType": "Masking"
+            },
+            "notes": [],
+            "instanceType": "StudyRole"
+          }
+        ],
         "documentVersionIds": [],
         "amendments": [],
         "businessTherapeuticAreas": [],

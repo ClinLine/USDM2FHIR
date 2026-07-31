@@ -24,6 +24,7 @@ from app.services.usdm_from_fhir.builders.characteristics_builder import Charact
 from app.services.usdm_from_fhir.builders.purpose_type_builder import PurposeTypeBuilder
 from app.services.usdm_from_fhir.builders.phase_builder import PhaseBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
+from app.services.usdm_from_fhir.builders.masking_roles_builder import MaskingRolesBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -61,6 +62,7 @@ class FhirToUsdmService:
         PurposeTypeBuilder(),     # priority 50
         PhaseBuilder(),           # priority 51
         DateValuesBuilder(),      # priority 52
+        MaskingRolesBuilder(),    # priority 55
     ]
 
     def build(self, fhir_data: dict) -> dict:
@@ -103,7 +105,7 @@ class FhirToUsdmService:
             version["studyDesigns"] = [study_design]
 
         # --- top-level version fields ----------------------------------------
-        for field in ("studyIdentifiers", "titles", "organizations", "dateValues"):
+        for field in ("studyIdentifiers", "titles", "organizations", "dateValues", "roles"):
             val = ctx.get(f"version.{field}")
             if val is not None:
                 version[field] = val

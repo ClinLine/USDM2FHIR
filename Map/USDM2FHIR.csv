@@ -421,6 +421,28 @@ Study Design allocation (randomized characteristic),"study.versions.studyDesigns
   $randomized := characteristics[code = ""C46079""];
   $randomized ? {id & ""_allocation"": {""coding"": [{""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01003"", ""display"": ""randomized assignment""}]}} : null
 )",ResearchStudy,studyDesign,studyDesign,StudyDesign,characteristics
+Study Design masking (masked roles → SEVCO blinding codes),"study.versions.roles[
+  (code.code = ""C41189"" or code.code = ""C17445"" or code.code = ""C25936"" or code.code = ""C207599"")
+  and masking.isMasked = true
+].(
+  $Recode := function($c) {
+    $c = ""C41189"" ? {""code"": ""SEVCO:01060"", ""display"": ""Blinding of study participants""} :
+    $c = ""C17445"" ? {""code"": ""SEVCO:01061"", ""display"": ""Blinding of intervention providers""} :
+    $c = ""C25936"" ? {""code"": ""SEVCO:01063"", ""display"": ""Blinding of investigators""} :
+    $c = ""C207599"" ? {""code"": ""SEVCO:01062"", ""display"": ""Blinding of outcome assessors""} :
+    null
+  };
+  $sevco := $Recode(code.code);
+  $sevco ? {id: {""coding"": [{""system"": ""https://fevir.net/sevco"", ""code"": $sevco.code, ""display"": $sevco.display}]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyRole,masking
+Study Design masking (open label — no masked role found),"study.versions.(
+  $maskingRoles := roles[
+    code.code = ""C41189"" or code.code = ""C17445"" or code.code = ""C25936"" or code.code = ""C207599""
+  ];
+  $count($maskingRoles) > 0 and $count($maskingRoles[masking.isMasked = true]) = 0 ?
+    {id & ""_masking_none"": {""text"": ""Design Masking: None (Open Label)""}} :
+    null
+)",ResearchStudy,studyDesign,studyDesign,StudyVersion,roles
 Extension age range (artifact-useContext from plannedAge),"study.versions.studyDesigns.population.plannedAge.(
   $minVal  := minValue.value;
   $minUnit := minValue.unit.standardCode.decode;

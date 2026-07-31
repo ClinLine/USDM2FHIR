@@ -130,3 +130,27 @@ STUDY_DESIGN_CHARACTERISTIC: dict[str, dict] = {
     "SEVCO:01003": {"code": "C46079", "decode": "Randomized"},
 }
 
+# ResearchStudy.studyDesign[].coding[].code (SEVCO)  →  StudyRole (masking) Code.
+# Mirrors readi_core StudyDesignMappedTypes::getMaskingMapping() (who -> CDISC
+# code) joined with the HL7 FHIR R5 study-design ValueSet
+# (https://www.hl7.org/fhir/R5/codesystem-study-design.html) for the SEVCO
+# side; SEVCO:01063 (investigator) isn't on that page and was confirmed
+# separately. There is no positive FHIR code for "no masking" — open-label is
+# only ever represented as a free-text studyDesign[] entry (see
+# MASKING_NONE_TEXT_MARKER), never a coding.
+MASKING_WHO: dict[str, dict] = {
+    "SEVCO:01060": {"code": "C41189",  "decode": "Study Subject"},
+    "SEVCO:01061": {"code": "C17445",  "decode": "Care Provider"},
+    "SEVCO:01063": {"code": "C25936",  "decode": "Investigator"},
+    "SEVCO:01062": {"code": "C207599", "decode": "Outcomes Assessor"},
+}
+
+# Canonical order from readi_core StudyDesignMappedTypes::getAllMaskingMapping()
+# — emitted in full, all isMasked=false, when masking is explicitly NONE/open-label.
+MASKING_ALL_ORDER: list[str] = ["SEVCO:01060", "SEVCO:01061", "SEVCO:01063", "SEVCO:01062"]
+
+# Substring (case-insensitive) that marks a studyDesign[].text entry as the
+# open-label/no-masking declaration, e.g. "Design Masking: None (Open Label)"
+# (confirmed in Input/pilot_FHIR.json).
+MASKING_NONE_TEXT_MARKER = "open label"
+
