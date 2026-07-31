@@ -14,8 +14,12 @@ from app.services.usdm_from_fhir.codes import CDISC_CODE_SYSTEM
 
 
 class UsdmBuildContext:
-    def __init__(self, fhir_data: dict) -> None:
+    def __init__(self, fhir_data: dict, bundle_entries: list[dict] | None = None) -> None:
         self.fhir: dict = fhir_data
+
+        # When the input was a Bundle, the full list of entry resources is kept here
+        # so that builders can look up related resources (Group, Location, etc.).
+        self.bundle_entries: list[dict] = bundle_entries or []
 
         # Global counters — unique across all builders in the same build
         self._code_counter: int = 1

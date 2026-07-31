@@ -65,8 +65,48 @@ class FhirToUsdmService:
         MaskingRolesBuilder(),    # priority 55
     ]
 
+    # -------------------------------------------------------------------------
+    # Bundle / single-resource detection
+    # -------------------------------------------------------------------------
+
+    @staticmethod
+    def _resolve_input(fhir_data: dict) -> tuple[dict, list[dict]]:
+        """
+        Accept either:
+          - a plain FHIR ResearchStudy resource, or
+          - a FHIR Bundle (resourceType=="Bundle") / Bundle-like collection
+            (has an "entry" list without resourceType).
+
+        Returns ``(research_study_dict, bundle_entries)`` where *bundle_entries*
+        is the flat list of resource dicts extracted from the bundle (empty when
+        the input was a single resource).
+
+        For bundles, the *first* entry whose resourceType is "ResearchStudy" is
+        used.  If none is found, the first entry is used as a fallback.
+        """
+        entries_raw: list = fhir_data.get("entry", [])
+
+        # Not a bundle — return as-is
+        if not entries_raw or not isinstance(entries_raw, list):
+            return fhir_data, []
+
+        # Flatten entries: each entry may be {"resource": {...}} or the resource itself
+        bundle_entries: list[dict] = []
+        for e in entries_raw:
+            if isinstance(e, dict):
+                bundle_entries.append(e.get("resource", e))
+
+        # Pick the first ResearchStudy (or fall back to the first entry)
+        research_study: dict | None = next(
+            (r for r in bundle_entries if r.get("resourceType") == "ResearchStudy"),
+            bundle_entries[0] if bundle_entries else fhir_data,
+        )
+
+        return research_study, bundle_entries
+
     def build(self, fhir_data: dict) -> dict:
-        ctx = UsdmBuildContext(fhir_data)
+        research_study, bundle_entries = self._resolve_input(fhir_data)
+        ctx = UsdmBuildContext(research_study, bundle_entries=bundle_entries)
 
         for builder in sorted(self._BUILDERS, key=lambda b: b.get_priority()):
             result = builder.build(ctx)

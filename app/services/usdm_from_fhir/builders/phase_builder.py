@@ -38,7 +38,12 @@ class PhaseBuilder(AbstractSectionBuilder):
         return 51
 
     def build(self, context: UsdmBuildContext) -> dict | None:
-        phase: _CodeableConcept = context.fhir.get("phase") or {}
+        phase_raw = context.fhir.get("phase")
+        # "phase" may be a single CodeableConcept dict or a list of them —
+        # normalise to a single dict (first element when it's a list).
+        if isinstance(phase_raw, list):
+            phase_raw = phase_raw[0] if phase_raw else None
+        phase: _CodeableConcept = phase_raw or {}
         coding = phase.get("coding") or []
         code = coding[0].get("code") if coding and isinstance(coding[0], dict) else None
 
