@@ -23,6 +23,7 @@ from app.services.usdm_from_fhir.builders.studyDesign.study_design_type_builder 
 from app.services.usdm_from_fhir.builders.studyDesign.characteristics_builder import CharacteristicsBuilder
 from app.services.usdm_from_fhir.builders.studyDesign.purpose_type_builder import PurposeTypeBuilder
 from app.services.usdm_from_fhir.builders.studyDesign.phase_builder import PhaseBuilder
+from app.services.usdm_from_fhir.builders.studyDesign.population_builder import PopulationBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 from app.services.usdm_from_fhir.builders.masking_roles_builder import MaskingRolesBuilder
 from app.services.usdm_from_fhir.builders.studyDesign.comparison_group_builder import ComparisonGroupBuilder
@@ -66,6 +67,7 @@ class FhirToUsdmService:
         ObjectivesBuilder(),      # priority 40
         StudyDesignTypeBuilder(), # priority 41
         CharacteristicsBuilder(), # priority 42
+        PopulationBuilder(),      # priority 45
         PurposeTypeBuilder(),     # priority 50
         PhaseBuilder(),           # priority 51
         DateValuesBuilder(),      # priority 52
@@ -190,7 +192,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "objectives", "arms", "studyCells", "epochs", "elements"):   # extend as more builders are added
+        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "objectives", "population", "arms", "studyCells", "epochs", "elements"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val

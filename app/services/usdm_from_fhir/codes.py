@@ -180,3 +180,35 @@ DATA_ORIGIN_TYPE_WITHIN_STUDY: dict = {"code": "C188866", "decode": "Data Genera
 # above, same readi_core ArmsSectionBuilder constant.
 DATA_ORIGIN_DESCRIPTION_WITHIN_STUDY = "Data collected from subjects"
 
+# ResearchStudy.classifier[].coding[].code (FEvIR CodeSystem 419455)  →
+# StudyDesignPopulation.plannedSex Code.
+# Confirmed against Input/pilot_FHIR.json + app/config/mappings/04_classifier.yaml.
+# Mirrors readi_core StandardCriteriaType::getSexMapping() — FHIR only carries
+# the two positive-inclusion flags (no direct "ALL"/"FEMALE"/"MALE" enum), so
+# plannedSex is simply the set of Code entries whose flag is present.
+CLASSIFIER_SEX: dict[str, dict] = {
+    "includes-females": {"code": "C16576", "decode": "Female"},
+    "includes-males":   {"code": "C20197", "decode": "Male"},
+}
+
+# ResearchStudy.classifier[].coding[].code (FEvIR CodeSystem 419455)  →
+# StudyDesignPopulation.includesHealthySubjects boolean.
+# Confirmed against Input/pilot_FHIR.json + app/config/mappings/04_classifier.yaml.
+CLASSIFIER_HEALTHY_VOLUNTEERS: dict[str, bool] = {
+    "includes-healthy-volunteers":     True,
+    "does-not-include-healthy-volunteers": False,
+}
+
+# Free-text unit word from ResearchStudy.classifier[].text (e.g. "Minimum Age:
+# 18 Years") → StudyDesignPopulation.plannedAge.{min,max}Value.unit Code.
+# Mirrors readi_core StandardCriteriaType::getDateUnitMapping(). Keyed by the
+# singular lower-cased unit word — the caller strips a trailing "s" first.
+AGE_UNIT: dict[str, dict] = {
+    "year":   {"code": "C29848", "decode": "Year"},
+    "month":  {"code": "C29846", "decode": "Month"},
+    "week":   {"code": "C29844", "decode": "Week"},
+    "day":    {"code": "C25301", "decode": "Day"},
+    "hour":   {"code": "C25529", "decode": "Hour"},
+    "minute": {"code": "C48154", "decode": "Minute"},
+}
+
