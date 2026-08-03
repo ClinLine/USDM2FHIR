@@ -624,6 +624,150 @@
                 "instanceType": "StudyArm"
               }
             ],
+            "studyCells": [
+              {
+                "id": "StudyCell_1",
+                "extensionAttributes": [],
+                "armId": "StudyArm_0",
+                "epochId": "StudyEpoch_1",
+                "elementIds": [
+                  "StudyElement_Screening"
+                ],
+                "instanceType": "StudyCell"
+              },
+              {
+                "id": "StudyCell_2",
+                "extensionAttributes": [],
+                "armId": "StudyArm_0",
+                "epochId": "StudyEpoch_2",
+                "elementIds": [
+                  "StudyElement_StudyArm_0"
+                ],
+                "instanceType": "StudyCell"
+              },
+              {
+                "id": "StudyCell_3",
+                "extensionAttributes": [],
+                "armId": "StudyArm_1",
+                "epochId": "StudyEpoch_1",
+                "elementIds": [
+                  "StudyElement_Screening"
+                ],
+                "instanceType": "StudyCell"
+              },
+              {
+                "id": "StudyCell_4",
+                "extensionAttributes": [],
+                "armId": "StudyArm_1",
+                "epochId": "StudyEpoch_2",
+                "elementIds": [
+                  "StudyElement_StudyArm_1"
+                ],
+                "instanceType": "StudyCell"
+              },
+              {
+                "id": "StudyCell_5",
+                "extensionAttributes": [],
+                "armId": "StudyArm_2",
+                "epochId": "StudyEpoch_1",
+                "elementIds": [
+                  "StudyElement_Screening"
+                ],
+                "instanceType": "StudyCell"
+              },
+              {
+                "id": "StudyCell_6",
+                "extensionAttributes": [],
+                "armId": "StudyArm_2",
+                "epochId": "StudyEpoch_2",
+                "elementIds": [
+                  "StudyElement_StudyArm_2"
+                ],
+                "instanceType": "StudyCell"
+              }
+            ],
+            "epochs": [
+              {
+                "id": "StudyEpoch_1",
+                "extensionAttributes": [],
+                "name": "Screening",
+                "label": "Screening",
+                "description": "Screening Epoch",
+                "type": {
+                  "id": "Code_52",
+                  "code": "C202487",
+                  "decode": "Screening Epoch",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "previousId": null,
+                "nextId": "StudyEpoch_2",
+                "notes": [],
+                "instanceType": "StudyEpoch"
+              },
+              {
+                "id": "StudyEpoch_2",
+                "extensionAttributes": [],
+                "name": "Treatment",
+                "label": "Treatment",
+                "description": "Treatment Epoch",
+                "type": {
+                  "id": "Code_53",
+                  "code": "C101526",
+                  "decode": "Treatment Epoch",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "previousId": "StudyEpoch_1",
+                "nextId": null,
+                "notes": [],
+                "instanceType": "StudyEpoch"
+              }
+            ],
+            "elements": [
+              {
+                "id": "StudyElement_Screening",
+                "extensionAttributes": [],
+                "name": "SE_StudyElement_Screening",
+                "label": "",
+                "description": "",
+                "studyInterventionIds": [],
+                "notes": [],
+                "instanceType": "StudyElement"
+              },
+              {
+                "id": "StudyElement_StudyArm_0",
+                "extensionAttributes": [],
+                "name": "SE_StudyElement_StudyArm_0",
+                "label": "",
+                "description": "",
+                "studyInterventionIds": [],
+                "notes": [],
+                "instanceType": "StudyElement"
+              },
+              {
+                "id": "StudyElement_StudyArm_1",
+                "extensionAttributes": [],
+                "name": "SE_StudyElement_StudyArm_1",
+                "label": "",
+                "description": "",
+                "studyInterventionIds": [],
+                "notes": [],
+                "instanceType": "StudyElement"
+              },
+              {
+                "id": "StudyElement_StudyArm_2",
+                "extensionAttributes": [],
+                "name": "SE_StudyElement_StudyArm_2",
+                "label": "",
+                "description": "",
+                "studyInterventionIds": [],
+                "notes": [],
+                "instanceType": "StudyElement"
+              }
+            ],
             "instanceType": "InterventionalStudyDesign"
           }
         ],
