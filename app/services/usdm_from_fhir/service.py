@@ -25,6 +25,7 @@ from app.services.usdm_from_fhir.builders.purpose_type_builder import PurposeTyp
 from app.services.usdm_from_fhir.builders.phase_builder import PhaseBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 from app.services.usdm_from_fhir.builders.masking_roles_builder import MaskingRolesBuilder
+from app.services.usdm_from_fhir.builders.comparison_group_builder import ComparisonGroupBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -63,6 +64,7 @@ class FhirToUsdmService:
         PhaseBuilder(),           # priority 51
         DateValuesBuilder(),      # priority 52
         MaskingRolesBuilder(),    # priority 55
+        ComparisonGroupBuilder(), # priority 60
     ]
 
     # -------------------------------------------------------------------------
@@ -179,7 +181,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "objectives"):   # extend as more builders are added
+        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "objectives", "arms"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val

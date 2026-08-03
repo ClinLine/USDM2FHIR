@@ -154,3 +154,29 @@ MASKING_ALL_ORDER: list[str] = ["SEVCO:01060", "SEVCO:01061", "SEVCO:01063", "SE
 # (confirmed in Input/pilot_FHIR.json).
 MASKING_NONE_TEXT_MARKER = "open label"
 
+# contained Group.code.text (referenced by comparisonGroup[].eligibility.reference)
+# → StudyArm.type Code.
+# readi_core's FHIR export does not emit ArmMappedTypes::getArmTypeMapping()
+# anywhere directly; the Group.code.text values below are inferred by
+# title-casing the PHP enum constants (EXPERIMENTAL, ACTIVE_COMPARATOR, ...)
+# and pairing them with that same table's CDISC code/decode. Only "Experimental"
+# is confirmed against Input/pilot_FHIR.json — the rest follow the identical
+# naming convention but are unconfirmed against real data.
+ARM_TYPE: dict[str, dict] = {
+    "Experimental":       {"code": "C174266", "decode": "Investigational Arm"},
+    "Active Comparator":  {"code": "C174267", "decode": "Active Comparator Arm"},
+    "Placebo Comparator": {"code": "C174268", "decode": "Placebo Comparator Arm"},
+    "Sham Comparator":    {"code": "C174269", "decode": "Sham Comparator Arm"},
+    "No Intervention":    {"code": "C174270", "decode": "No Intervention Arm"},
+    "Other":              {"code": "EXT0013",  "decode": "Other Arm Type"},
+    "Unknown":            {"code": "C17998",  "decode": "Unknown"},
+}
+
+# StudyArm.dataOriginType — fixed for every arm in readi_core's ArmsSectionBuilder
+# (all study arms are "Data Generated Within Study", never external/sourced data).
+DATA_ORIGIN_TYPE_WITHIN_STUDY: dict = {"code": "C188866", "decode": "Data Generated Within Study"}
+
+# StudyArm.dataOriginDescription — fixed text paired with DATA_ORIGIN_TYPE_WITHIN_STUDY
+# above, same readi_core ArmsSectionBuilder constant.
+DATA_ORIGIN_DESCRIPTION_WITHIN_STUDY = "Data collected from subjects"
+

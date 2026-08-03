@@ -58,3 +58,5 @@ docker-push:
 #   mkdir -p schemas/r4 && curl -L https://www.hl7.org/fhir/R4/fhir.schema.json.zip -o /tmp/fhir.schema.json.zip && unzip -o /tmp/fhir.schema.json.zip -d schemas/r4/
 validate:
 	$(FHIR_VALIDATOR) --path ./Output/MyNewFile.json --action validate
+claude_unsafe:
+	claude --allow-dangerously-skip-permissions;
