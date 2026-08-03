@@ -43,8 +43,11 @@ _VERSION_EMPTY_FIELDS: list[str] = [
     "administrableProducts",
     "medicalDevices",
     "productOrganizationRoles",
+    "biomedicalConcepts",
+    "bcCategories",
     "bcSurrogates",
     "conditions",
+    "dictionaries",
     "notes",
 ]
 
