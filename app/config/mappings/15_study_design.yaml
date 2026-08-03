@@ -20,16 +20,23 @@ mappings:
     usdm_class: StudyDesign
     usdm_attribute: studyType
 
-  - item: Study Design cohort design (uncontrolled when cohorts <= 1 and arms <= 1)
+  - item: Study Design cohort design (from intervention model)
     usdm_path: |
       study.versions.studyDesigns.(
-        $count(population.cohorts) <= 1 and $count(arms) <= 1 ? {id & "_uncontrolled": {"coding": [{"system": "https://fevir.net/sevco", "code": "SEVCO:01016", "display": "uncontrolled cohort design"}]}} : null
+        $Recode := function($c) {
+          $c = "C82640" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01016", "display": "uncontrolled cohort design"} :
+          $c = "C82639" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01011", "display": "parallel cohort design"} :
+          $c = "C82637" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01012", "display": "crossover cohort design"} :
+          null
+        };
+        $sevco := $Recode(model.code);
+        $sevco ? {id & "_cohort_design": {"coding": [$sevco]}} : null
       )
     fhir_resource: ResearchStudy
     fhir_path: studyDesign
     fhir_index: studyDesign
     usdm_class: StudyDesign
-    usdm_attribute: population.cohorts
+    usdm_attribute: model
 
   - item: Study Design allocation (randomized characteristic)
     usdm_path: |
