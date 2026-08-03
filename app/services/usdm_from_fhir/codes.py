@@ -64,6 +64,26 @@ STUDY_DESIGN_TYPE: dict[str, dict] = {
     "SEVCO:01002": {"code": "C16084", "decode": "Observational Study", "instance_type": "ObservationalStudyDesign"},
 }
 
+# ResearchStudy.studyDesign[].coding[].code (SEVCO)  →  StudyDesign.model Code
+# (intervention model / cohort design).
+# Mirrors readi_core StudyDesignMappedTypes::getInterventionModelFhirMapping()
+# (SEVCO side) joined with ::getInterventionModelMapping() (CDISC side); see
+# also app/config/mappings/15_study_design.yaml ("Study Design cohort design"
+# row) for the forward direction. Only SINGLE_GROUP/PARALLEL/CROSSOVER have a
+# FHIR SEVCO coding in readi_core — FACTORIAL/SEQUENTIAL/UNKNOWN (intervention)
+# and the whole observational-model table have none, so they're intentionally
+# absent here.
+STUDY_DESIGN_MODEL: dict[str, dict] = {
+    "SEVCO:01016": {"code": "C82640", "decode": "Single Group Study"},
+    "SEVCO:01011": {"code": "C82639", "decode": "Parallel Study"},
+    "SEVCO:01012": {"code": "C82637", "decode": "Crossover Study"},
+}
+
+# Fallback when studyDesign[] carries none of the STUDY_DESIGN_MODEL SEVCO
+# codes above — mirrors readi_core StudyDesignMappedTypes::getInterventionModelMapping()'s
+# self::UNKNOWN case (used for CTIS data with no determinable intervention model).
+STUDY_DESIGN_MODEL_UNKNOWN: dict = {"code": "C17998", "decode": "Unknown"}
+
 # ResearchStudy.purposeType[].coding.code  →  StudyDesign.intentTypes Code.
 # FHIR-side codes come from app/config/mappings/06_purpose_type.yaml ("purpose
 # Intent" row). The intentTypes/subTypes split mirrors readi_core

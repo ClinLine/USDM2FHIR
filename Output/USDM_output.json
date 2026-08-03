@@ -24,9 +24,17 @@
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
+            "model": {
+              "id": "Code_38",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
             "intentTypes": [
               {
-                "id": "Code_41",
+                "id": "Code_42",
                 "code": "C49656",
                 "decode": "Treatment Study",
                 "codeSystem": "http://www.cdisc.org",
@@ -39,7 +47,7 @@
               "id": "AliasCode_1",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_42",
+                "id": "Code_43",
                 "code": "C15693",
                 "decode": "Phase I/II Trial",
                 "codeSystem": "http://www.cdisc.org",
@@ -63,7 +71,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_49",
+                "id": "Code_50",
                 "code": "C49659",
                 "decode": "OPEN LABEL",
                 "codeSystem": "http://www.cdisc.org",
@@ -572,7 +580,7 @@
               "plannedCompletionNumber": null,
               "plannedSex": [
                 {
-                  "id": "Code_38",
+                  "id": "Code_39",
                   "code": "C16576",
                   "decode": "Female",
                   "codeSystem": "http://www.cdisc.org",
@@ -580,7 +588,7 @@
                   "instanceType": "Code"
                 },
                 {
-                  "id": "Code_39",
+                  "id": "Code_40",
                   "code": "C20197",
                   "decode": "Male",
                   "codeSystem": "http://www.cdisc.org",
@@ -600,7 +608,7 @@
                     "id": "AliasCode_0",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_40",
+                      "id": "Code_41",
                       "code": "C29848",
                       "decode": "Year",
                       "codeSystem": "http://www.cdisc.org",
@@ -627,7 +635,7 @@
                 "label": "Part I",
                 "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_50",
+                  "id": "Code_51",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -636,7 +644,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_51",
+                  "id": "Code_52",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -654,7 +662,7 @@
                 "label": "Part II",
                 "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_52",
+                  "id": "Code_53",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -663,7 +671,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_53",
+                  "id": "Code_54",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -681,7 +689,7 @@
                 "label": "Part III",
                 "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_54",
+                  "id": "Code_55",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -690,7 +698,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_55",
+                  "id": "Code_56",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -772,7 +780,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_56",
+                  "id": "Code_57",
                   "code": "C202487",
                   "decode": "Screening Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -791,7 +799,7 @@
                 "label": "Treatment",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_57",
+                  "id": "Code_58",
                   "code": "C101526",
                   "decode": "Treatment Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -943,7 +951,7 @@
             "label": "Last update posted (Clinical gov provider)",
             "description": "Design approval date",
             "type": {
-              "id": "Code_43",
+              "id": "Code_44",
               "code": "C215664",
               "decode": "Issued Date",
               "codeSystem": "http://www.cdisc.org",
@@ -956,7 +964,7 @@
                 "id": "GeographicScope_0",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_44",
+                  "id": "Code_45",
                   "code": "C68846",
                   "decode": "Global",
                   "codeSystem": "http://www.cdisc.org",
@@ -978,7 +986,7 @@
             "label": "Study Subject",
             "description": "",
             "code": {
-              "id": "Code_45",
+              "id": "Code_46",
               "code": "C41189",
               "decode": "Study Subject",
               "codeSystem": "http://www.cdisc.org",
@@ -1007,7 +1015,7 @@
             "label": "Care Provider",
             "description": "",
             "code": {
-              "id": "Code_46",
+              "id": "Code_47",
               "code": "C17445",
               "decode": "Care Provider",
               "codeSystem": "http://www.cdisc.org",
@@ -1036,7 +1044,7 @@
             "label": "Investigator",
             "description": "",
             "code": {
-              "id": "Code_47",
+              "id": "Code_48",
               "code": "C25936",
               "decode": "Investigator",
               "codeSystem": "http://www.cdisc.org",
@@ -1065,7 +1073,7 @@
             "label": "Outcomes Assessor",
             "description": "",
             "code": {
-              "id": "Code_48",
+              "id": "Code_49",
               "code": "C207599",
               "decode": "Outcomes Assessor",
               "codeSystem": "http://www.cdisc.org",
