@@ -18,8 +18,8 @@ from __future__ import annotations
 
 from app.services.usdm_from_fhir.base_builder import AbstractSectionBuilder
 from app.services.usdm_from_fhir.context import UsdmBuildContext
-from app.services.usdm_from_fhir.builders.studyDesign.epochs_builder import SCREENING_EPOCH_ID, TREATMENT_EPOCH_ID
-from app.services.usdm_from_fhir.builders.studyDesign.elements_builder import SCREENING_ELEMENT_ID
+from app.services.usdm_from_fhir.builders.study_design.epochs_builder import SCREENING_EPOCH_ID, TREATMENT_EPOCH_ID
+from app.services.usdm_from_fhir.builders.study_design.elements_builder import SCREENING_ELEMENT_ID
 
 
 class StudyCellsBuilder(AbstractSectionBuilder):

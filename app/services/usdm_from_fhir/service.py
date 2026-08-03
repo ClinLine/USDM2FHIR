@@ -18,18 +18,19 @@ from app.services.usdm_from_fhir.base_builder import AbstractSectionBuilder
 from app.services.usdm_from_fhir.builders.organizations_builder import OrganizationsBuilder
 from app.services.usdm_from_fhir.builders.identifiers_builder import IdentifiersBuilder
 from app.services.usdm_from_fhir.builders.titles_builder import TitlesBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.objectives_builder import ObjectivesBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.study_design_type_builder import StudyDesignTypeBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.characteristics_builder import CharacteristicsBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.purpose_type_builder import PurposeTypeBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.phase_builder import PhaseBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.population_builder import PopulationBuilder
+from app.services.usdm_from_fhir.builders.study_design.objectives_builder import ObjectivesBuilder
+from app.services.usdm_from_fhir.builders.study_design.study_design_type_builder import StudyDesignTypeBuilder
+from app.services.usdm_from_fhir.builders.study_design.characteristics_builder import CharacteristicsBuilder
+from app.services.usdm_from_fhir.builders.study_design.purpose_type_builder import PurposeTypeBuilder
+from app.services.usdm_from_fhir.builders.study_design.phase_builder import PhaseBuilder
+from app.services.usdm_from_fhir.builders.study_design.population_builder import PopulationBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 from app.services.usdm_from_fhir.builders.masking_roles_builder import MaskingRolesBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.comparison_group_builder import ComparisonGroupBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.epochs_builder import EpochsBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.elements_builder import ElementsBuilder
-from app.services.usdm_from_fhir.builders.studyDesign.study_cells_builder import StudyCellsBuilder
+from app.services.usdm_from_fhir.builders.study_design.blinding_schema_builder import BlindingSchemaBuilder
+from app.services.usdm_from_fhir.builders.study_design.comparison_group_builder import ComparisonGroupBuilder
+from app.services.usdm_from_fhir.builders.study_design.epochs_builder import EpochsBuilder
+from app.services.usdm_from_fhir.builders.study_design.elements_builder import ElementsBuilder
+from app.services.usdm_from_fhir.builders.study_design.study_cells_builder import StudyCellsBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -72,6 +73,7 @@ class FhirToUsdmService:
         PhaseBuilder(),           # priority 51
         DateValuesBuilder(),      # priority 52
         MaskingRolesBuilder(),    # priority 55
+        BlindingSchemaBuilder(),  # priority 56
         ComparisonGroupBuilder(), # priority 60
         EpochsBuilder(),          # priority 61
         ElementsBuilder(),        # priority 62
@@ -192,7 +194,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "objectives", "population", "arms", "studyCells", "epochs", "elements"):   # extend as more builders are added
+        for key in ("intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val

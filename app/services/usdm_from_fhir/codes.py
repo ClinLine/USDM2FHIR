@@ -154,6 +154,21 @@ MASKING_ALL_ORDER: list[str] = ["SEVCO:01060", "SEVCO:01061", "SEVCO:01063", "SE
 # (confirmed in Input/pilot_FHIR.json).
 MASKING_NONE_TEXT_MARKER = "open label"
 
+# Number of masked roles (from the same MaskingRolesBuilder result reused by
+# BlindingSchemaBuilder) → StudyDesign.blindingSchema Code.
+# Mirrors readi_core StudyDesignMappedTypes::getBlindingSchemaMapping(), keyed
+# there by the internal masking-level constant (NONE/SINGLE/DOUBLE/TRIPLE)
+# rather than a count — FHIR has no such level field, only per-role codings,
+# so the level is reconstructed from how many roles are masked. QUADRUPLE (4
+# masked roles) is intentionally absent: getBlindingSchemaMapping() has no
+# case for it either and falls through to `default => null`.
+BLINDING_SCHEMA_BY_MASKED_COUNT: dict[int, dict] = {
+    0: {"code": "C49659", "decode": "OPEN LABEL"},
+    1: {"code": "C28233", "decode": "SINGLE BLIND"},
+    2: {"code": "C15228", "decode": "DOUBLE BLIND"},
+    3: {"code": "C0012X", "decode": "TRIPLE BLIND"},
+}
+
 # contained Group.code.text (referenced by comparisonGroup[].eligibility.reference)
 # → StudyArm.type Code.
 # readi_core's FHIR export does not emit ArmMappedTypes::getArmTypeMapping()
