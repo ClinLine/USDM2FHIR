@@ -15,10 +15,14 @@ app/config/mappings/04_classifier.yaml for the forward direction and
 Input/pilot_FHIR.json for a confirmed real-world example.
 plannedEnrollmentNumber comes from recruitment.targetNumber (see
 app/config/mappings/11_recruitment.yaml).
+description comes from a classifier[].text entry prefixed "Study Population
+Source:" (StandardCriteriaType::STUDY_POPULATION free text) — the prefix is
+a label, same convention as the "Minimum/Maximum Age:"/"IPDSharingDescription:"
+classifier text entries readi_core's ResearchClassifierBuilder.php emits; not
+in that file yet, but confirmed against real FHIR classifier[] data.
 
 Not sourced from FHIR (left empty/None — no confirmed mapping exists anywhere
 in app/config/mappings/ for these):
-  - description (StandardCriteriaType::STUDY_POPULATION free text)
   - notes (StandardCriteriaType::GENDER_BASED marker)
   - cohorts (ResearchStudy.comparisonGroup is already fully claimed by
     ComparisonGroupBuilder as arms; telling cohort entries apart from arm
@@ -43,6 +47,10 @@ from app.services.usdm_from_fhir.codes import (
 # "Minimum Age: 18 Years" / "Maximum Age: 100 Years" — confirmed shape in
 # Input/pilot_FHIR.json and Output/pilot_FHIR.json (see 04_classifier.yaml).
 _AGE_TEXT_RE = re.compile(r"^(Minimum|Maximum) Age:\s*([\d.]+)\s*([A-Za-z]+)", re.IGNORECASE)
+
+# "Study Population Source: <free text>" — label prefix for the free-text
+# population description classifier entry.
+_POPULATION_SOURCE_RE = re.compile(r"^Study Population Source:\s*(.+)$", re.IGNORECASE | re.DOTALL)
 
 
 class _Coding(TypedDict, total=False):
@@ -74,8 +82,15 @@ class PopulationBuilder(AbstractSectionBuilder):
         includes_healthy = self._build_includes_healthy(classifier_codes)
         planned_age = self._build_planned_age(context, classifiers)
         enrollment = self._build_enrollment(context)
+        description = self._build_description(classifiers)
 
-        if not planned_sex and includes_healthy is None and planned_age is None and enrollment is None:
+        if (
+            not planned_sex
+            and includes_healthy is None
+            and planned_age is None
+            and enrollment is None
+            and description is None
+        ):
             return None
 
         pop_id = context.next_id("StudyDesignPopulation")
@@ -84,7 +99,7 @@ class PopulationBuilder(AbstractSectionBuilder):
             "extensionAttributes": [],
             "name": pop_id.upper(),
             "label": "",
-            "description": None,
+            "description": description,
             "includesHealthySubjects": includes_healthy if includes_healthy is not None else False,
             "plannedEnrollmentNumber": enrollment,
             "plannedCompletionNumber": None,
@@ -182,6 +197,17 @@ class PopulationBuilder(AbstractSectionBuilder):
             "unit": unit,
             "instanceType": "Quantity",
         }
+
+    @staticmethod
+    def _build_description(classifiers: list[_Classifier]) -> str | None:
+        for entry in classifiers:
+            text = entry.get("text") if isinstance(entry, dict) else None
+            if not text:
+                continue
+            match = _POPULATION_SOURCE_RE.match(text.strip())
+            if match:
+                return match.group(1).strip()
+        return None
 
     @staticmethod
     def _build_enrollment(context: UsdmBuildContext) -> dict | None:
