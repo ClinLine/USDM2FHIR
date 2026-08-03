@@ -5,7 +5,7 @@ REGISTRY = ghcr.io/efrosionelu/usdm2fhir
 PORT = 8000
 FHIR_VALIDATOR = $(shell which fhir-validator 2>/dev/null || echo /Users/fybromania/Library/Python/3.9/bin/fhir-validator)
 
-.PHONY: setup execute_example execute_example_fhir_to_usdm run jsonata-inspect jsonata-query yaml-to-csv docker-build docker-run docker-stop docker-push validate run
+.PHONY: setup execute_example execute_example_fhir_to_usdm run jsonata-inspect jsonata-query yaml-to-csv docker-build docker-run docker-stop docker-push validate validate-usdm run
 
 setup:
 	python3 -m venv venv
@@ -17,6 +17,12 @@ execute_example:
 
 execute_example_fhir_to_usdm:
 	$(PYTHON) -m app.command.fhir_to_usdm --fhir Input/pilot_FHIR.json --output Output/USDM_output.json
+
+# Validate Output/USDM_output.json against the SDR conformance service (URL from .env)
+# Usage: make validate-usdm
+# Optional: make validate-usdm FILE=Output/USDM_output.json FLAGS="--json"
+validate_usdm:
+	$(PYTHON) -m app.command.validate_usdm --file $(or $(FILE),Output/USDM_output.json) $(FLAGS)
 # Merge all YAML mapping files into Map/USDM2FHIR.csv
 # Usage: make yaml-to-csv
 # Optional: make yaml-to-csv MAPPINGS_DIR=app/config/mappings OUTPUT=Map/USDM2FHIR.csv

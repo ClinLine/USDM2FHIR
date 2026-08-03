@@ -26,3 +26,6 @@ tzdata==2025.2
 uvicorn==0.50.1
 xlrd==2.0.2
 PyYAML>=6.0
+requests>=2.32.0
+python-dotenv>=1.0.0
+rich>=13.0.0
