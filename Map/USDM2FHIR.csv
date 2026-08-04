@@ -450,6 +450,9 @@ Study Design masking (open label — no masked role found),"study.versions.(
     {id & ""_masking_none"": {""text"": ""Design Masking: None (Open Label)""}} :
     null
 )",ResearchStudy,studyDesign,studyDesign,StudyVersion,roles
+Study Population Source (population description free text),"study.versions.studyDesigns.(
+  population.description ? {id & ""_population_source"": {""text"": ""Study Population Source: "" & population.description}} : null
+)",ResearchStudy,classifier,classifier,StudyDesignPopulation,description
 Extension age range (artifact-useContext from plannedAge),"study.versions.studyDesigns.population.plannedAge.(
   $minVal  := minValue.value;
   $minUnit := minValue.unit.standardCode.decode;

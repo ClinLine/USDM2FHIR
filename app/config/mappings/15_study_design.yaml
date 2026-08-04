@@ -88,3 +88,14 @@ mappings:
     usdm_class: StudyVersion
     usdm_attribute: roles
 
+  - item: Study Population Source (population description free text)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        population.description ? {id & "_population_source": {"text": "Study Population Source: " & population.description}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: classifier
+    fhir_index: classifier
+    usdm_class: StudyDesignPopulation
+    usdm_attribute: description
+
