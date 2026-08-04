@@ -383,6 +383,22 @@ def create_fhir_resources(result_map, row_ids,output_file="file.json"):
             
             MyResources.append(MyResource)
 
+    PractitionerRole_map = [item for item in result_map if item[4] == "PractitionerRole"]
+    for i in row_ids:
+        StudySubGroup_map = [item for item in PractitionerRole_map if item[0]==i]
+        if StudySubGroup_map != []:
+            MyResource=create_fhir_resource(
+            StudySubGroup_map,
+            row_ids,
+            "PractitionerRole",
+                {
+                    "versionId": args.version,
+                    "lastUpdated": args.updated
+                }
+                 )
+
+            MyResources.append(MyResource)
+
     create_fhir_output(MyResources, output_file=output_file)
 
 def add_index_path_by_name(fhir_path: str, segment_name: str, idx: int, occurrence: int = 0) -> str:

@@ -105,6 +105,12 @@ def _build_fhir_resources(result_map: list, row_ids: list, resource_id: str, ver
         if sub:
             resources.append(create_fhir_resource(sub, row_ids, "EvidenceVariable", meta))
 
+    practitioner_role_map = [item for item in result_map if item[4] == "PractitionerRole"]
+    for row_id in row_ids:
+        sub = [item for item in practitioner_role_map if item[0] == row_id]
+        if sub:
+            resources.append(create_fhir_resource(sub, row_ids, "PractitionerRole", meta))
+
     research_studies = [r for r in resources if r.get("resourceType") == "ResearchStudy"]
     contained_candidates = [r for r in resources if r.get("resourceType") != "ResearchStudy"]
 

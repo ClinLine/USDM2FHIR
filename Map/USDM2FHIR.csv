@@ -474,3 +474,13 @@ Extension age range (artifact-useContext from plannedAge),"study.versions.studyD
     }
   }} : null
 )",ResearchStudy,extension,extension,PopulationDefinition,plannedAge
+Associated party name (assigned person),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].text}",ResearchStudy,associatedParty.name,associatedParty,AssignedPerson,text
+Associated party role code,"study.versions.roles[code.code = ""EXT0003""].{id: ""sponsor-investigator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display,"study.versions.roles[code.code = ""EXT0003""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system,"study.versions.roles[code.code = ""EXT0003""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party reference (points to contained PractitionerRole),"study.versions.roles[code.code = ""EXT0003""].{id: ""#"" & id}",ResearchStudy,associatedParty.party.reference,associatedParty,StudyRole,id
+Associated party reference type,"study.versions.roles[code.code = ""EXT0003""].{id: ""PractitionerRole""}",ResearchStudy,associatedParty.party.type,associatedParty,,
+Contained PractitionerRole id,"study.versions.roles[code.code = ""EXT0003""].{id: id}",PractitionerRole,id,,StudyRole,id
+Contained PractitionerRole code text (assigned person job title),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
+Contained PractitionerRole organization display (role label),"study.versions.roles[code.code = ""EXT0003""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
+Contained PractitionerRole practitioner display (assigned person name),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
