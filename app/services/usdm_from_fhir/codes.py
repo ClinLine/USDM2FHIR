@@ -215,6 +215,34 @@ DATA_ORIGIN_TYPE_WITHIN_STUDY: dict = {"code": "C188866", "decode": "Data Genera
 # above, same readi_core ArmsSectionBuilder constant.
 DATA_ORIGIN_DESCRIPTION_WITHIN_STUDY = "Data collected from subjects"
 
+# ResearchStudy.associatedParty[].role.coding[].code (research-study-party-role system)
+# → StudyRole.code Code.
+#
+# Only the 4 codes that readi_core actually emits and maps back to USDM roles:
+#   lead-sponsor        ← RolesSectionBuilder (owner/LEAD)
+#                          SponsorsMappedTypes::LEAD_SPONSOR_STUDY_ROLE_CDISC_CODE = 'C70793'
+#   sponsor-investigator← RolesSectionBuilder (responsible party SPONSOR_INVESTIGATOR)
+#                          StudyDesignMappedTypes::getResponsiblePartyMapping → EXT0003
+#   primary-investigator← RolesSectionBuilder (responsible party PRINCIPAL_INVESTIGATOR)
+#                          StudyDesignMappedTypes::getResponsiblePartyMapping → C19924
+#   collaborator        ← RolesSectionBuilder (COLLABORATOR sponsor)
+#                          UsdmBuildContext::getCollaboratorMapping → EXT0004
+#
+# All other codes from FhirConstants (sponsor, study-chair, recruitment-contact,
+# general-contact, sub-investigator, funding-source, irb, data-monitoring) are NOT
+# mapped to any USDM StudyRole in readi_core — builders that consume them skip
+# unrecognised codes via lookup_code returning None.
+ASSOCIATED_PARTY_ROLE: dict[str, dict] = {
+    "lead-sponsor":          {"code": "C70793", "decode": "Sponsor"},
+    "sponsor-investigator":  {"code": "EXT0003", "decode": "Sponsor-Investigator"},
+    "primary-investigator":  {"code": "C19924", "decode": "Principal investigator"},
+    "collaborator":          {"code": "EXT0004", "decode": "Collaborator"},
+}
+
+# Fixed Organization.type code used when the affiliation type is unknown.
+# Mirrors readi_core's Organization::getType() fallback.
+ORG_TYPE_UNKNOWN: dict = {"code": "C17998", "decode": "Unknown"}
+
 # ResearchStudy.classifier[].coding[].code (FEvIR CodeSystem 419455)  →
 # StudyDesignPopulation.plannedSex Code.
 # Confirmed against Input/pilot_FHIR.json + app/config/mappings/04_classifier.yaml.

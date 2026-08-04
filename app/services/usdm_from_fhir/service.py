@@ -27,6 +27,7 @@ from app.services.usdm_from_fhir.builders.study_design.phase_builder import Phas
 from app.services.usdm_from_fhir.builders.study_design.population_builder import PopulationBuilder
 from app.services.usdm_from_fhir.builders.date_values_builder import DateValuesBuilder
 from app.services.usdm_from_fhir.builders.masking_roles_builder import MaskingRolesBuilder
+from app.services.usdm_from_fhir.builders.associated_party_roles_builder import AssociatedPartyRolesBuilder
 from app.services.usdm_from_fhir.builders.study_design.blinding_schema_builder import BlindingSchemaBuilder
 from app.services.usdm_from_fhir.builders.study_design.comparison_group_builder import ComparisonGroupBuilder
 from app.services.usdm_from_fhir.builders.study_design.epochs_builder import EpochsBuilder
@@ -76,6 +77,7 @@ class FhirToUsdmService:
         DateValuesBuilder(),      # priority 52
         MaskingRolesBuilder(),    # priority 55
         BlindingSchemaBuilder(),  # priority 56
+        AssociatedPartyRolesBuilder(), # priority 57
         ComparisonGroupBuilder(), # priority 60
         EpochsBuilder(),          # priority 61
         ElementsBuilder(),        # priority 62
