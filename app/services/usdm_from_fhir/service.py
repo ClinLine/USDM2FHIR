@@ -33,6 +33,8 @@ from app.services.usdm_from_fhir.builders.study_design.comparison_group_builder 
 from app.services.usdm_from_fhir.builders.study_design.epochs_builder import EpochsBuilder
 from app.services.usdm_from_fhir.builders.study_design.elements_builder import ElementsBuilder
 from app.services.usdm_from_fhir.builders.study_design.study_cells_builder import StudyCellsBuilder
+from app.services.usdm_from_fhir.builders.study_design.indications_builder import IndicationsBuilder
+from app.services.usdm_from_fhir.builders.study_design.contra_indications_builder import ContraIndicationsBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -82,6 +84,8 @@ class FhirToUsdmService:
         EpochsBuilder(),          # priority 61
         ElementsBuilder(),        # priority 62
         StudyCellsBuilder(),      # priority 63
+        IndicationsBuilder(),     # priority 34
+        ContraIndicationsBuilder(), # priority 35
     ]
 
     # -------------------------------------------------------------------------
@@ -198,13 +202,97 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements"):   # extend as more builders are added
+        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements", "indications"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val
+
+        # --- Build extensionAttributes from contraIndications -----------------
+        # Mirrors StudyDesignsSectionBuilder::buildAttributesFrom() (readi_core).
+        # Each contra-indication becomes one ExtensionAttribute wrapping a
+        # ValueExtensionClass with child attributes for id/name/label/code.
+        contra_indications: list[dict] = sd_bag.get("contraIndications") or []
+        extension_attrs: list[dict] = []
+        for contra in contra_indications:
+            ea = self._build_contra_indication_extension(ctx, contra)
+            if ea:
+                extension_attrs.append(ea)
+        if extension_attrs:
+            study_design["extensionAttributes"] = extension_attrs
 
         # Set by StudyDesignTypeBuilder alongside studyType (side-channel key,
         # same pattern as OrganizationsBuilder's 'version._orgsByName').
         study_design["instanceType"] = sd_bag.get("_instanceType") or "StudyDesign"
         return study_design
+
+    # -------------------------------------------------------------------------
+    # ContraIndication → extensionAttribute builder
+    # -------------------------------------------------------------------------
+
+    @staticmethod
+    def _build_contra_indication_extension(ctx: UsdmBuildContext, contra: dict) -> dict | None:
+        """
+        Convert one contra-indication dict (name/label/code) into the nested
+        ExtensionAttribute structure that USDM uses for ContraIndications.
+        Mirrors StudyDesignsSectionBuilder::buildAttributesFrom() from readi_core.
+        """
+        name: str = contra.get("name") or ""
+        label: str = contra.get("label") or ""
+        code: dict | None = contra.get("code")
+
+        # Skip entirely empty entries (mirrors PHP early-return check)
+        if not name and not label and code is None:
+            return None
+
+        n = ctx.next_attr_counter()
+
+        # Child extension attributes
+        children: list[dict] = [
+            {
+                "id": f"ClassExtId_{n}",
+                "url": f"https://cdisc.org/usdm/extension-ContraIndication-{n}/attribute-id",
+                "valueId": f"ContraIndication_{n}",
+                "extensionAttributes": [],
+                "instanceType": "ExtensionAttribute",
+            }
+        ]
+        if name:
+            children.append({
+                "id": f"ClassExtName_{n}",
+                "url": f"https://cdisc.org/usdm/extension-ContraIndication-{n}/attribute-name",
+                "valueString": name,
+                "extensionAttributes": [],
+                "instanceType": "ExtensionAttribute",
+            })
+        if label:
+            children.append({
+                "id": f"ClassExtLabel_{n}",
+                "url": f"https://cdisc.org/usdm/extension-ContraIndication-{n}/attribute-label",
+                "valueString": label,
+                "extensionAttributes": [],
+                "instanceType": "ExtensionAttribute",
+            })
+        if code is not None:
+            children.append({
+                "id": f"ClassExtCode_{n}",
+                "url": f"https://cdisc.org/usdm/extension-ContraIndication-{n}/attribute-code",
+                "valueCode": code,
+                "extensionAttributes": [],
+                "instanceType": "ExtensionAttribute",
+            })
+
+        value_ext_class: dict = {
+            "id": f"ExtensionClass_ContraIndic_{n}",
+            "url": f"https://cdisc.org/usdm/extension-ContraIndic/class{n}",
+            "extensionAttributes": children,
+            "instanceType": "ExtensionClass",
+        }
+
+        return {
+            "id": f"ExtensionAttribute_{n}",
+            "url": f"https://cdisc.org/usdm/extension-ContraIndic/classAttribute{n}",
+            "extensionAttributes": [],
+            "valueExtensionClass": value_ext_class,
+            "instanceType": "ExtensionAttribute",
+        }
 

@@ -854,6 +854,7 @@
                 "instanceType": "StudyElement"
               }
             ],
+            "indications": [],
             "instanceType": "InterventionalStudyDesign"
           }
         ],

@@ -59,12 +59,21 @@ class UsdmBuildContext:
         self._entity_counters[prefix] = idx + 1
         return f"{prefix}_{idx}"
 
+    def next_attr_counter(self) -> int:
+        """
+        1-based counter for extension attribute numbering.
+        Mirrors PHP UsdmBuildContext::nextAttributeCounter().
+        """
+        val = self._entity_counters.get("_attr_counter", 0) + 1
+        self._entity_counters["_attr_counter"] = val
+        return val
+
     # -------------------------------------------------------------------------
     # Factory helpers
     # -------------------------------------------------------------------------
 
     def make_code(self, code: str, decode: str) -> dict:
-        """Build a full USDM Code object from raw code + decode strings."""
+        """Build a full USDM Code object from raw code + decode strings (CDISC system)."""
         code_id = f"Code_{self._code_counter}"
         self._code_counter += 1
         return {
@@ -72,6 +81,29 @@ class UsdmBuildContext:
             "code": code,
             "decode": decode,
             **CDISC_CODE_SYSTEM,
+            "instanceType": "Code",
+        }
+
+    def make_code_with_system(
+        self,
+        code: str,
+        decode: str,
+        code_system: str,
+        code_system_version: str,
+    ) -> dict:
+        """
+        Build a USDM Code object with an explicit code system (e.g. SNOMED CT).
+        Use for condition/indication codes that are not CDISC-coded.
+        """
+        code_id = f"Code_{self._code_counter}"
+        self._code_counter += 1
+        return {
+            "id": code_id,
+            "extensionAttributes": [],
+            "code": code,
+            "codeSystem": code_system,
+            "codeSystemVersion": code_system_version,
+            "decode": decode,
             "instanceType": "Code",
         }
 

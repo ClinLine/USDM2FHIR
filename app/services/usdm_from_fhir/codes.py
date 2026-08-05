@@ -11,6 +11,23 @@ CDISC_CODE_SYSTEM = {
     "codeSystemVersion": "2025-09-26",
 }
 
+# Default SNOMED CT version used when building condition/indication codes
+# (the FHIR payload does not carry a version, so we fall back to this constant).
+SNOMED_CODE_SYSTEM = "Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)"
+SNOMED_CODE_SYSTEM_VERSION = "2025-02-01"
+
+# Maps FHIR coding.system URIs → USDM codeSystem display names.
+# Used by builders that construct Code objects from non-CDISC FHIR codings
+# (e.g. SNOMED CT condition codes on eligibility criteria).
+FHIR_SYSTEM_TO_USDM_CODE_SYSTEM: dict[str, str] = {
+    "http://snomed.info/sct": "Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)",
+    "http://loinc.org": "Logical Observation Identifiers Names and Codes (LOINC)",
+    "http://www.nlm.nih.gov/research/umls/rxnorm": "RxNorm",
+}
+
+# LOINC code that marks a "Condition" characteristic inside an eligibility Group.
+ELIGIBILITY_CONDITION_LOINC_CODE = "75323-6"
+
 # ---------------------------------------------------------------------------
 # Individual lookup tables
 # ---------------------------------------------------------------------------
