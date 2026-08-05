@@ -1,4 +1,4 @@
-description: "Study role mappings — role.code.code = EXT0003 (Sponsor-Investigator) → ResearchStudy.associatedParty + contained PractitionerRole"
+description: "Study role mappings — EXT0003 (Sponsor-Investigator), C19924 (Principal Investigator), EXT0004 (Collaborator) → ResearchStudy.associatedParty + contained PractitionerRole"
 
 mappings:
   - item: Associated party name (assigned person)
@@ -79,6 +79,180 @@ mappings:
   - item: Contained PractitionerRole practitioner display (assigned person name)
     usdm_path: |
       study.versions.roles[code.code = "EXT0003"].{id: assignedPersons[0].text}
+    fhir_resource: PractitionerRole
+    fhir_path: practitioner.display
+    usdm_class: AssignedPerson
+    usdm_attribute: text
+
+  # ---------------------------------------------------------------------------
+  # C19924 — Principal Investigator (primary-investigator)
+  # ---------------------------------------------------------------------------
+
+  - item: Associated party name — primary-investigator (assigned person)
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: assignedPersons[0].text}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.name
+    fhir_index: associatedParty
+    usdm_class: AssignedPerson
+    usdm_attribute: text
+
+  - item: Associated party role code — primary-investigator
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: "primary-investigator"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.code
+    fhir_index: associatedParty
+    usdm_class: Code
+    usdm_attribute: code
+
+  - item: Associated party role display — primary-investigator
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: code.decode}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.display
+    fhir_index: associatedParty
+    usdm_class: Code
+    usdm_attribute: decode
+
+  - item: Associated party role system — primary-investigator
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: "http://terminology.hl7.org/CodeSystem/research-study-party-role"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.system
+    fhir_index: associatedParty
+
+  - item: Associated party reference — primary-investigator (points to contained PractitionerRole)
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: "#" & id}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.party.reference
+    fhir_index: associatedParty
+    usdm_class: StudyRole
+    usdm_attribute: id
+
+  - item: Associated party reference type — primary-investigator
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: "PractitionerRole"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.party.type
+    fhir_index: associatedParty
+
+  - item: Contained PractitionerRole id — primary-investigator
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: id}
+    fhir_resource: PractitionerRole
+    fhir_path: id
+    usdm_class: StudyRole
+    usdm_attribute: id
+
+  - item: Contained PractitionerRole code text — primary-investigator (job title)
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: assignedPersons[0].jobTitle}
+    fhir_resource: PractitionerRole
+    fhir_path: code.text
+    fhir_index: code
+    usdm_class: AssignedPerson
+    usdm_attribute: jobTitle
+
+  - item: Contained PractitionerRole organization display — primary-investigator (role label)
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: label}
+    fhir_resource: PractitionerRole
+    fhir_path: organization.display
+    usdm_class: StudyRole
+    usdm_attribute: label
+
+  - item: Contained PractitionerRole practitioner display — primary-investigator (assigned person name)
+    usdm_path: |
+      study.versions.roles[code.code = "C19924"].{id: assignedPersons[0].text}
+    fhir_resource: PractitionerRole
+    fhir_path: practitioner.display
+    usdm_class: AssignedPerson
+    usdm_attribute: text
+
+  # ---------------------------------------------------------------------------
+  # EXT0004 — Collaborator
+  # ---------------------------------------------------------------------------
+
+  - item: Associated party name — collaborator (assigned person)
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: assignedPersons[0].text}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.name
+    fhir_index: associatedParty
+    usdm_class: AssignedPerson
+    usdm_attribute: text
+
+  - item: Associated party role code — collaborator
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: "collaborator"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.code
+    fhir_index: associatedParty
+    usdm_class: Code
+    usdm_attribute: code
+
+  - item: Associated party role display — collaborator
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: code.decode}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.display
+    fhir_index: associatedParty
+    usdm_class: Code
+    usdm_attribute: decode
+
+  - item: Associated party role system — collaborator
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: "http://terminology.hl7.org/CodeSystem/research-study-party-role"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.role.coding.system
+    fhir_index: associatedParty
+
+  - item: Associated party reference — collaborator (points to contained PractitionerRole)
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: "#" & id}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.party.reference
+    fhir_index: associatedParty
+    usdm_class: StudyRole
+    usdm_attribute: id
+
+  - item: Associated party reference type — collaborator
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: "PractitionerRole"}
+    fhir_resource: ResearchStudy
+    fhir_path: associatedParty.party.type
+    fhir_index: associatedParty
+
+  - item: Contained PractitionerRole id — collaborator
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: id}
+    fhir_resource: PractitionerRole
+    fhir_path: id
+    usdm_class: StudyRole
+    usdm_attribute: id
+
+  - item: Contained PractitionerRole code text — collaborator (job title)
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: assignedPersons[0].jobTitle}
+    fhir_resource: PractitionerRole
+    fhir_path: code.text
+    fhir_index: code
+    usdm_class: AssignedPerson
+    usdm_attribute: jobTitle
+
+  - item: Contained PractitionerRole organization display — collaborator (role label)
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: label}
+    fhir_resource: PractitionerRole
+    fhir_path: organization.display
+    usdm_class: StudyRole
+    usdm_attribute: label
+
+  - item: Contained PractitionerRole practitioner display — collaborator (assigned person name)
+    usdm_path: |
+      study.versions.roles[code.code = "EXT0004"].{id: assignedPersons[0].text}
     fhir_resource: PractitionerRole
     fhir_path: practitioner.display
     usdm_class: AssignedPerson
