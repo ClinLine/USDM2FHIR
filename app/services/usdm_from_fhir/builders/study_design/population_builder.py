@@ -28,7 +28,7 @@ in app/config/mappings/ for these):
     ComparisonGroupBuilder as arms; telling cohort entries apart from arm
     entries needs the StudyDesignType — Observational designs use cohorts,
     Interventional designs use arms — which is out of scope here)
-  - criterionIds (needs an EligibilityCriteriaBuilder, not yet implemented)
+  - criterionIds (populated in FhirToUsdmService._assemble_study_design after EligibilityCriteriaBuilder runs)
 """
 
 from __future__ import annotations

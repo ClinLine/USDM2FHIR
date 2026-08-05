@@ -214,6 +214,16 @@ class FhirToUsdmService:
             if val is not None:
                 study_design[key] = val
 
+        # Populate criterionIds in population from eligibilityCriteria ids
+        # (EligibilityCriteriaBuilder runs at priority 70, after PopulationBuilder at 45,
+        # but both are fully resolved before assembly — so we wire them here.)
+        population = study_design.get("population")
+        eligibility_criteria: list[dict] = study_design.get("eligibilityCriteria") or []
+        if population is not None and isinstance(population, dict):
+            population["criterionIds"] = [
+                c["id"] for c in eligibility_criteria if isinstance(c, dict) and c.get("id")
+            ]
+
         # --- Build extensionAttributes from contraIndications -----------------
         # Mirrors StudyDesignsSectionBuilder::buildAttributesFrom() (readi_core).
         # Each contra-indication becomes one ExtensionAttribute wrapping a
