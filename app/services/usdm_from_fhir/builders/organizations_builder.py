@@ -109,9 +109,13 @@ def _make_org(org_id: str, label: str, name: str, code: str, decode: str) -> dic
 
 def _make_ct_gov_org(org_id: str) -> dict:
     org = _make_org(
-        org_id, label="ClinicalTrials.gov", name="ClinicalTrials.gov",
+        org_id, label="ClinicalTrials.gov", name="CLINICALTRIALS.GOV",
         code="C93453", decode="Clinical Study Registry",
     )
-    # Override the legalAddress text for CT.gov (non-blank sentinel)
-    org["legalAddress"]["text"] = "   "
+    # Known physical address for ClinicalTrials.gov (NLM/NIH) —
+    # mirrors AddressUsdmModel in StudyInterventionsSectionBuilder.php
+    org["legalAddress"]["text"] = "8600 Rockville Pike, Bethesda, MD 20894"
+    org["legalAddress"]["city"] = "Rockville Pike"
+    org["legalAddress"]["state"] = "Bethesda"
+    org["legalAddress"]["postalCode"] = "20894"
     return org

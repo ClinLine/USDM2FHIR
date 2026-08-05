@@ -15,9 +15,13 @@ EvidenceVariable entries carrying that classifier marker are treated as study
 interventions — the biomedical-concept/endpoint EvidenceVariable resources (see
 14_evidence_variable.yaml) have no such classifier and are left untouched.
 
-USDM StudyIntervention fields that FHIR does not carry (role,
-minimumResponseDuration, codes, administrations) are intentionally left empty —
-no source data exists for them on the FHIR side.
+USDM StudyIntervention fields that FHIR does not carry (minimumResponseDuration,
+codes, administrations) are intentionally left empty — no source data exists for
+them on the FHIR side.
+
+role is derived from the intervention label: if it contains "placebo"
+(case-insensitive) the role is C753/Placebo, otherwise C41161/Experimental
+Intervention — mirrors StudyInterventionsSectionBuilder.php.
 """
 
 from __future__ import annotations
@@ -29,7 +33,8 @@ from app.services.usdm_from_fhir.context import UsdmBuildContext
 from app.services.usdm_from_fhir.codes import (
     INTERVENTION_TYPE,
     INTERVENTION_TYPE_CLASSIFIER_PREFIX,
-    ORG_TYPE_UNKNOWN,
+    INTERVENTION_ROLE_PLACEBO,
+    INTERVENTION_ROLE_EXPERIMENTAL,
 )
 
 
@@ -75,8 +80,11 @@ class StudyInterventionsBuilder(AbstractSectionBuilder):
             type_code = context.lookup_code(INTERVENTION_TYPE, intervention_type)
             if type_code is not None:
                 intervention["type"] = type_code
-            # role is required by USDM schema (object); no FHIR source → default Unknown
-            intervention["role"] = context.make_code(ORG_TYPE_UNKNOWN["code"], ORG_TYPE_UNKNOWN["decode"])
+            # role: "placebo" in title → Placebo (C753); otherwise → Experimental Intervention (C41161)
+            # Mirrors StudyInterventionsSectionBuilder.php role logic.
+            label: str = entry.get("title") or ""
+            role_entry = INTERVENTION_ROLE_PLACEBO if "placebo" in label.lower() else INTERVENTION_ROLE_EXPERIMENTAL
+            intervention["role"] = context.make_code(role_entry["code"], role_entry["decode"])
             intervention["codes"] = []
             intervention["administrations"] = []
             intervention["notes"] = []

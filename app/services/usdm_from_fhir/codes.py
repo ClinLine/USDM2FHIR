@@ -264,6 +264,11 @@ ASSOCIATED_PARTY_ROLE: dict[str, dict] = {
 # Mirrors readi_core's Organization::getType() fallback.
 ORG_TYPE_UNKNOWN: dict = {"code": "C17998", "decode": "Unknown"}
 
+# StudyIntervention.role codes — mirrors StudyInterventionsSectionBuilder.php
+# title contains "placebo" → Placebo; otherwise → Experimental Intervention
+INTERVENTION_ROLE_PLACEBO: dict = {"code": "C753", "decode": "Placebo"}
+INTERVENTION_ROLE_EXPERIMENTAL: dict = {"code": "C41161", "decode": "Experimental Intervention"}
+
 # ResearchStudy.classifier[].coding[].code (FEvIR CodeSystem 419455)  →
 # StudyDesignPopulation.plannedSex Code.
 # Confirmed against Input/pilot_FHIR.json + app/config/mappings/04_classifier.yaml.
