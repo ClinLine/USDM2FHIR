@@ -635,7 +635,7 @@
                 "label": "Part I",
                 "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_52",
+                  "id": "Code_56",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -644,7 +644,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_53",
+                  "id": "Code_57",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -662,7 +662,7 @@
                 "label": "Part II",
                 "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_54",
+                  "id": "Code_58",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -671,7 +671,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_55",
+                  "id": "Code_59",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -689,7 +689,7 @@
                 "label": "Part III",
                 "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_56",
+                  "id": "Code_60",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -698,7 +698,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_57",
+                  "id": "Code_61",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -780,7 +780,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_58",
+                  "id": "Code_62",
                   "code": "C202487",
                   "decode": "Screening Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -799,7 +799,7 @@
                 "label": "Treatment",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_59",
+                  "id": "Code_63",
                   "code": "C101526",
                   "decode": "Treatment Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -1122,6 +1122,84 @@
           }
         ],
         "eligibilityCriterionItems": [],
+        "studyInterventions": [
+          {
+            "id": "StudyIntervention_0",
+            "extensionAttributes": [],
+            "name": "STUDYINTERVENTION_0",
+            "label": "Englumafusp alfa",
+            "description": "Englumafusp alfa will be administered by intravenous (IV) infusion three-weekly (Q3W) in combination with a fixed dose of obinutuzumab (Part I) and in combination with a fixed dose of glofitamab (Part II and Part III).",
+            "type": {
+              "id": "Code_52",
+              "code": "C1909",
+              "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "codes": [],
+            "administrations": [],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_1",
+            "extensionAttributes": [],
+            "name": "STUDYINTERVENTION_1",
+            "label": "Obinutuzumab",
+            "description": "A fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa, then in combination with obinutuzumab Q3W (Part I).\n\nA fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa or between Day -3 and -7 (Part II and Part III).",
+            "type": {
+              "id": "Code_53",
+              "code": "C1909",
+              "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "codes": [],
+            "administrations": [],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_2",
+            "extensionAttributes": [],
+            "name": "STUDYINTERVENTION_2",
+            "label": "Glofitamab",
+            "description": "A fixed dose of glofitamab will be administered Q3W in combination with englumafusp alfa in Part II and Part III",
+            "type": {
+              "id": "Code_54",
+              "code": "C1909",
+              "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "codes": [],
+            "administrations": [],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          },
+          {
+            "id": "StudyIntervention_3",
+            "extensionAttributes": [],
+            "name": "STUDYINTERVENTION_3",
+            "label": "Tocilizumab",
+            "description": "Participants will receive IV tocilizumab as needed to treat cytokine release syndrome (CRS).",
+            "type": {
+              "id": "Code_55",
+              "code": "C1909",
+              "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "codes": [],
+            "administrations": [],
+            "notes": [],
+            "instanceType": "StudyIntervention"
+          }
+        ],
         "documentVersionIds": [],
         "amendments": [],
         "businessTherapeuticAreas": [],

@@ -283,6 +283,32 @@ CLASSIFIER_HEALTHY_VOLUNTEERS: dict[str, bool] = {
     "does-not-include-healthy-volunteers": False,
 }
 
+# contained EvidenceVariable.classifier[].text prefix "Intervention Type: <DECODE>"
+# marking a study-intervention EvidenceVariable export (see
+# app/config/mappings/18_study_intervention_evidence_variable.yaml and readi_core
+# ResearchContainedBuilder::buildInterventionEvidenceVariables()). Used by
+# StudyInterventionsBuilder to tell these apart from the biomedical-concept/
+# endpoint EvidenceVariable resources (14_evidence_variable.yaml), which carry
+# no such classifier.
+INTERVENTION_TYPE_CLASSIFIER_PREFIX = "Intervention Type: "
+
+# <DECODE> suffix above (readi_core InterventionMappedTypes constant, e.g. "DRUG")
+# → StudyIntervention.type Code. Mirrors readi_core
+# InterventionMappedTypes::getInterventionTypeMapping() exactly; OTHER is
+# intentionally omitted there too (commented out — no confirmed CDISC code).
+INTERVENTION_TYPE: dict[str, dict] = {
+    "DRUG":                {"code": "C1909",  "decode": "Pharmacologic Substance"},
+    "DEVICE":              {"code": "C16830", "decode": "Medical Device"},
+    "PROCEDURE":           {"code": "C98769", "decode": "Physical Medical Procedure"},
+    "RADIATION":           {"code": "C15313", "decode": "Radiation Therapy"},
+    "BEHAVIORAL":          {"code": "C15184", "decode": "Behavioral Intervention"},
+    "GENETIC":             {"code": "C15238", "decode": "Gene Therapy"},
+    "DIETARY_SUPPLEMENT":  {"code": "C1505",  "decode": "Dietary Supplement"},
+    "COMBINATION_PRODUCT": {"code": "C54696", "decode": "Combination Product"},
+    "DIAGNOSTIC_TEST":     {"code": "C18020", "decode": "Diagnostic Test"},
+    "BIOLOGICAL":          {"code": "C307",   "decode": "Biological Agent"},
+}
+
 # Free-text unit word from ResearchStudy.classifier[].text (e.g. "Minimum Age:
 # 18 Years") → StudyDesignPopulation.plannedAge.{min,max}Value.unit Code.
 # Mirrors readi_core StandardCriteriaType::getDateUnitMapping(). Keyed by the

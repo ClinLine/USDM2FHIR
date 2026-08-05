@@ -3,7 +3,7 @@
   "id": "123",
   "meta": {
     "versionId": "1",
-    "lastUpdated": "2026-08-04T00:00:00Z",
+    "lastUpdated": "2026-08-05T00:00:00Z",
     "profile": [
       "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
     ]
@@ -518,7 +518,7 @@
       "id": "eligibility-criteria",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -655,7 +655,7 @@
       "id": "ExtensionClass_ExpRespNode_1",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -799,7 +799,7 @@
       "id": "ExtensionClass_ExpResp_1",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -856,7 +856,7 @@
       "id": "ExtensionClass_ExpResp_5",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -914,7 +914,7 @@
       "id": "MS001",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -930,7 +930,7 @@
       "id": "MS002",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -946,7 +946,7 @@
       "id": "MS003",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -962,7 +962,7 @@
       "id": "MS004",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -978,7 +978,7 @@
       "id": "MS005",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -994,7 +994,7 @@
       "id": "MS006",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -1010,7 +1010,7 @@
       "id": "BiomedicalConcept_01",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-04T00:00:00Z",
+        "lastUpdated": "2026-08-05T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -1022,6 +1022,66 @@
       },
       "name": "WBCBLD_01",
       "title": "White blood cell (WBC)"
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "StudyIntervention_1",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "name": [
+        {
+          "text": "Lirilumab"
+        }
+      ],
+      "status": "active",
+      "title": "Lirilumab"
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "StudyIntervention_2",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "name": [
+        {
+          "text": "Ipilimumab"
+        }
+      ],
+      "status": "active",
+      "title": "Ipilimumab"
     }
   ]
 }
