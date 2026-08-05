@@ -166,13 +166,16 @@ class PopulationBuilder(AbstractSectionBuilder):
         if min_value is None and max_value is None:
             return None
 
-        return {
+        range_obj: dict = {
             "id": context.next_id("Range"),
             "extensionAttributes": [],
+            "isApproximate": False,
             "minValue": min_value,
-            "maxValue": max_value,
             "instanceType": "Range",
         }
+        if max_value is not None:
+            range_obj["maxValue"] = max_value
+        return range_obj
 
     @staticmethod
     def _make_age_quantity(context: UsdmBuildContext, raw_value: str, raw_unit: str) -> dict:

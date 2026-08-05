@@ -37,6 +37,7 @@ from app.services.usdm_from_fhir.builders.study_design.study_cells_builder impor
 from app.services.usdm_from_fhir.builders.study_design.indications_builder import IndicationsBuilder
 from app.services.usdm_from_fhir.builders.study_design.contra_indications_builder import ContraIndicationsBuilder
 from app.services.usdm_from_fhir.builders.study_design.eligibility_criteria_builder import EligibilityCriteriaBuilder
+from app.services.usdm_from_fhir.builders.study_design.schedule_timelines_builder import ScheduleTimelinesBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -87,6 +88,7 @@ class FhirToUsdmService:
         EpochsBuilder(),          # priority 61
         ElementsBuilder(),        # priority 62
         StudyCellsBuilder(),      # priority 63
+        ScheduleTimelinesBuilder(), # priority 64
         IndicationsBuilder(),     # priority 34
         ContraIndicationsBuilder(), # priority 35
         EligibilityCriteriaBuilder(),  # priority 70
@@ -151,6 +153,7 @@ class FhirToUsdmService:
                 "name": "CDISC/FHIR - STUDY",
                 "description": None,
                 "label": None,
+                "documentedBy": [],
                 "versions": [version],
                 "instanceType": "Study",
             },
@@ -206,7 +209,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements", "indications", "eligibilityCriteria"):   # extend as more builders are added
+        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements", "scheduleTimelines", "indications", "eligibilityCriteria"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val
@@ -227,6 +230,16 @@ class FhirToUsdmService:
         # Set by StudyDesignTypeBuilder alongside studyType (side-channel key,
         # same pattern as OrganizationsBuilder's 'version._orgsByName').
         study_design["instanceType"] = sd_bag.get("_instanceType") or "StudyDesign"
+
+        # Default empty/blank fields required by the USDM schema (DDF00082)
+        for _arr_field in (
+            "therapeuticAreas", "encounters", "activities", "estimands",
+            "studyInterventionIds", "biospecimenRetentions", "documentVersionIds",
+            "analysisPopulations", "notes",
+        ):
+            study_design.setdefault(_arr_field, [])
+        study_design.setdefault("rationale", "")
+
         return study_design
 
     # -------------------------------------------------------------------------

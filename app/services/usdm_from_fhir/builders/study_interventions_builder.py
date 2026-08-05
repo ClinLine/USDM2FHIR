@@ -29,6 +29,7 @@ from app.services.usdm_from_fhir.context import UsdmBuildContext
 from app.services.usdm_from_fhir.codes import (
     INTERVENTION_TYPE,
     INTERVENTION_TYPE_CLASSIFIER_PREFIX,
+    ORG_TYPE_UNKNOWN,
 )
 
 
@@ -74,6 +75,8 @@ class StudyInterventionsBuilder(AbstractSectionBuilder):
             type_code = context.lookup_code(INTERVENTION_TYPE, intervention_type)
             if type_code is not None:
                 intervention["type"] = type_code
+            # role is required by USDM schema (object); no FHIR source → default Unknown
+            intervention["role"] = context.make_code(ORG_TYPE_UNKNOWN["code"], ORG_TYPE_UNKNOWN["decode"])
             intervention["codes"] = []
             intervention["administrations"] = []
             intervention["notes"] = []

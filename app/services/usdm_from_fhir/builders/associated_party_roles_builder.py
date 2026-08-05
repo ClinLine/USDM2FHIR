@@ -262,8 +262,7 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
             "instanceType": "AssignedPerson",
         }
 
-        if job_title is not None:
-            entry["jobTitle"] = job_title
+        entry["jobTitle"] = job_title if job_title is not None else ""
 
         return entry
 

@@ -84,6 +84,7 @@ class ObjectivesBuilder(AbstractSectionBuilder):
                 objective["level"] = level
             objective["text"] = fhir_obj.get("name") or ""
             objective["endpoints"] = endpoints
+            objective["notes"] = []
             objective["instanceType"] = "Objective"
 
             result.append(objective)
@@ -110,6 +111,8 @@ class ObjectivesBuilder(AbstractSectionBuilder):
                 "id": ep_id,
                 "name": ep_id.upper(),
                 "text": display,
+                "purpose": "",
+                "notes": [],
             }
             if level is not None:
                 endpoint["level"] = level

@@ -78,8 +78,10 @@ class OrganizationsBuilder(AbstractSectionBuilder):
 
 def _make_org(org_id: str, label: str, name: str, code: str, decode: str) -> dict:
     type_id = f"{org_id}_Type"
+    address_id = f"{org_id}_Address"
     return {
         "id": org_id,
+        "extensionAttributes": [],
         "name": name,
         "label": label,
         "type": {
@@ -89,29 +91,27 @@ def _make_org(org_id: str, label: str, name: str, code: str, decode: str) -> dic
             **CDISC_CODE_SYSTEM,
             "instanceType": "Code",
         },
-        "instanceType": "Organization",
-    }
-
-
-def _make_ct_gov_org(org_id: str) -> dict:
-    address_id = f"{org_id}_Address"
-    org = _make_org(
-        org_id, label="ClinicalTrials.gov", name="ClinicalTrials.gov",
-        code="C93453", decode="Clinical Study Registry",
-    )
-    org.update({
         "legalAddress": {
             "id": address_id,
-            "text": "   ",
+            "text": "",
             "lines": [],
             "city": "",
             "state": "",
             "postalCode": "",
             "instanceType": "Address",
         },
-        "extensionAttributes": [],
         "identifier": "Unknown",
         "identifierScheme": "Unknown",
         "managedSites": [],
-    })
+        "instanceType": "Organization",
+    }
+
+
+def _make_ct_gov_org(org_id: str) -> dict:
+    org = _make_org(
+        org_id, label="ClinicalTrials.gov", name="ClinicalTrials.gov",
+        code="C93453", decode="Clinical Study Registry",
+    )
+    # Override the legalAddress text for CT.gov (non-blank sentinel)
+    org["legalAddress"]["text"] = "   "
     return org
