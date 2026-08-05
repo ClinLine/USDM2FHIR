@@ -38,6 +38,28 @@ mappings:
     usdm_class: StudyDesign
     usdm_attribute: model
 
+  - item: Study Design observational model (from observational model)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        $Recode := function($c) {
+          $c = "C15208" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "COHORT", "display": "Cohort"} :
+          $c = "C15197" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_CONTROL", "display": "Case-Control"} :
+          $c = "C15362" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_ONLY", "display": "Case-Only"} :
+          $c = "C127779" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_CROSSOVER", "display": "Case-Crossover"} :
+          $c = "C127780" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "ECOLOGIC_OR_COMMUNITY", "display": "Ecologic or Community"} :
+          $c = "C15407" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "FAMILY_BASED", "display": "Family-Based"} :
+          $c = "EXT0011" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "OTHER", "display": "Other"} :
+          null
+        };
+        $ctgov := $Recode(model.code);
+        $ctgov ? {id & "_observational_model": {"coding": [$ctgov]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: model
+
   - item: Study Design allocation (randomized characteristic)
     usdm_path: |
       study.versions.studyDesigns.(

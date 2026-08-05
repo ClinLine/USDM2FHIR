@@ -105,6 +105,26 @@ STUDY_DESIGN_MODEL: dict[str, dict] = {
 # self::UNKNOWN case (used for CTIS data with no determinable intervention model).
 STUDY_DESIGN_MODEL_UNKNOWN: dict = {"code": "C17998", "decode": "Unknown"}
 
+# ResearchStudy.studyDesign[].coding[].code (ClinicalTrials.gov ObservationalModel
+# enum, system "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel")
+# → StudyDesign.model Code (observational model).
+# Mirrors readi_core StudyDesignMappedTypes::getObservationalModelMapping() (CDISC
+# side) joined with the raw ct.gov enum emitted by ResearchStudyDesignBuilder.php /
+# FhirConstants::OBSERVATIONAL_MODEL_DISPLAY_MAP (ct.gov side); see also
+# app/config/mappings/15_study_design.yaml ("Study Design observational model" row)
+# for the forward direction. DEFINED_POPULATION and NATURAL_HISTORY are
+# intentionally absent — readi_core has no CDISC code for them yet, so the
+# forward direction never emits a coding for those two values either.
+STUDY_DESIGN_OBSERVATIONAL_MODEL: dict[str, dict] = {
+    "COHORT":                {"code": "C15208",  "decode": "Cohort Study"},
+    "CASE_CONTROL":          {"code": "C15197",  "decode": "Case-Control Study"},
+    "CASE_ONLY":             {"code": "C15362",  "decode": "Case Study"},
+    "CASE_CROSSOVER":        {"code": "C127779", "decode": "Observational Case-Crossover Study"},
+    "ECOLOGIC_OR_COMMUNITY": {"code": "C127780", "decode": "Ecologic or Community Based Study"},
+    "FAMILY_BASED":          {"code": "C15407",  "decode": "Family Study"},
+    "OTHER":                 {"code": "EXT0011", "decode": "Other Observational model"},
+}
+
 # ResearchStudy.purposeType[].coding.code  →  StudyDesign.intentTypes Code.
 # FHIR-side codes come from app/config/mappings/06_purpose_type.yaml ("purpose
 # Intent" row). The intentTypes/subTypes split mirrors readi_core

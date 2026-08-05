@@ -1,17 +1,24 @@
 """
-ModelBuilder — ResearchStudy.studyDesign[] (SEVCO coding) → USDM
-StudyDesign.model (intervention model / cohort design).
+ModelBuilder — ResearchStudy.studyDesign[] (SEVCO or ct.gov ObservationalModel
+coding) → USDM StudyDesign.model (intervention model / cohort design, or
+observational model).
 
 Priority 43 — runs after CharacteristicsBuilder (42), same source array as
 StudyDesignTypeBuilder/CharacteristicsBuilder.
 
-FHIR encodes the USDM model.code as a SEVCO-coded CodeableConcept inside the
-studyDesign[] array (see app/config/mappings/15_study_design.yaml, "Study
-Design cohort design" row, for the forward direction — USDM model.code ->
-SEVCO code). We scan studyDesign[] for the first entry carrying a known
-cohort-design SEVCO code (SEVCO:01011/01012/01016) and map it back to the
-CDISC Code. When none is found, falls back to C17998 "Unknown" (mirrors
-readi_core's self::UNKNOWN case) instead of omitting the field.
+FHIR encodes the USDM model.code two different ways depending on study type
+(see app/config/mappings/15_study_design.yaml for the forward direction):
+  - Interventional: a SEVCO-coded CodeableConcept ("Study Design cohort
+    design" row) — USDM model.code -> SEVCO code.
+  - Observational: a CodeableConcept coded against the ClinicalTrials.gov
+    ObservationalModel enum ("Study Design observational model" row) — USDM
+    model.code -> raw ct.gov enum value (e.g. "CASE_ONLY").
+
+We scan studyDesign[] first for a known cohort-design SEVCO code
+(SEVCO:01011/01012/01016), then for a known ct.gov ObservationalModel code,
+and map whichever is found back to the CDISC Code. When neither is found,
+falls back to C17998 "Unknown" (mirrors readi_core's self::UNKNOWN case)
+instead of omitting the field.
 """
 
 from __future__ import annotations
@@ -20,7 +27,11 @@ from typing import TypedDict
 
 from app.services.usdm_from_fhir.base_builder import AbstractSectionBuilder
 from app.services.usdm_from_fhir.context import UsdmBuildContext
-from app.services.usdm_from_fhir.codes import STUDY_DESIGN_MODEL, STUDY_DESIGN_MODEL_UNKNOWN
+from app.services.usdm_from_fhir.codes import (
+    STUDY_DESIGN_MODEL,
+    STUDY_DESIGN_MODEL_UNKNOWN,
+    STUDY_DESIGN_OBSERVATIONAL_MODEL,
+)
 
 
 class _Coding(TypedDict, total=False):
@@ -42,20 +53,24 @@ class ModelBuilder(AbstractSectionBuilder):
     def build(self, context: UsdmBuildContext) -> dict:
         entries: list[_CodeableConcept] = context.fhir.get("studyDesign") or []
 
-        code = self._find_model_code(entries)
-        if code is None:
-            return context.make_code(STUDY_DESIGN_MODEL_UNKNOWN["code"], STUDY_DESIGN_MODEL_UNKNOWN["decode"])
+        code = self._find_code(entries, STUDY_DESIGN_MODEL)
+        if code is not None:
+            return context.lookup_code(STUDY_DESIGN_MODEL, code)
 
-        return context.lookup_code(STUDY_DESIGN_MODEL, code)
+        observational_code = self._find_code(entries, STUDY_DESIGN_OBSERVATIONAL_MODEL)
+        if observational_code is not None:
+            return context.lookup_code(STUDY_DESIGN_OBSERVATIONAL_MODEL, observational_code)
+
+        return context.make_code(STUDY_DESIGN_MODEL_UNKNOWN["code"], STUDY_DESIGN_MODEL_UNKNOWN["decode"])
 
     # -------------------------------------------------------------------------
 
     @staticmethod
-    def _find_model_code(entries: list[_CodeableConcept]) -> str | None:
+    def _find_code(entries: list[_CodeableConcept], table: dict[str, dict]) -> str | None:
         for entry in entries:
             coding = entry.get("coding") or []
             for coding_item in coding:
                 code = coding_item.get("code") if isinstance(coding_item, dict) else None
-                if code in STUDY_DESIGN_MODEL:
+                if code in table:
                     return code
         return None
