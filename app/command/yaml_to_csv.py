@@ -29,7 +29,7 @@ HEADER = [
 ]
 
 
-@click.command("yaml-to-csv")
+@click.command("yaml_to_csv")
 @click.option(
     "--mappings-dir",
     default="app/config/mappings",

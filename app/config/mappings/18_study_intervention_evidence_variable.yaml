@@ -1,0 +1,67 @@
+description: "Study intervention mappings — EvidenceVariable resource (one per StudyIntervention, contained in ResearchStudy)"
+
+mappings:
+  - item: Intervention evidence variable id
+    usdm_path: |
+      study.versions.studyInterventions.{id: id}
+    fhir_resource: EvidenceVariable
+    fhir_path: id
+    usdm_class: StudyIntervention
+    usdm_attribute: id
+
+  - item: Intervention evidence variable meta profile
+    usdm_path: |
+      study.versions.studyInterventions.{id: "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"}
+    fhir_resource: EvidenceVariable
+    fhir_path: meta.profile
+    fhir_index: profile
+
+  - item: Intervention evidence variable name
+    usdm_path: |
+      study.versions.studyInterventions.{id: {"text": label}}
+    fhir_resource: EvidenceVariable
+    fhir_path: name
+    fhir_index: name
+    usdm_class: StudyIntervention
+    usdm_attribute: label
+
+  - item: Intervention evidence variable title
+    usdm_path: |
+      study.versions.studyInterventions.{id: label}
+    fhir_resource: EvidenceVariable
+    fhir_path: title
+    usdm_class: StudyIntervention
+    usdm_attribute: label
+
+  - item: Intervention evidence variable status
+    usdm_path: |
+      study.versions.studyInterventions.{id: "active"}
+    fhir_resource: EvidenceVariable
+    fhir_path: status
+
+  - item: Intervention evidence variable handling (boolean variable)
+    usdm_path: |
+      study.versions.studyInterventions.{id: {"coding": {
+          "code": "STATO:0000724",
+          "system": "https://fevir.net/sevco",
+          "display": "boolean variable"
+        }}}
+    fhir_resource: EvidenceVariable
+    fhir_path: handling
+
+  - item: Intervention evidence variable classifier (intervention type)
+    usdm_path: |
+      study.versions.studyInterventions.{id: {"text": "Intervention Type: " & type.decode}}
+    fhir_resource: EvidenceVariable
+    fhir_path: classifier
+    fhir_index: classifier
+    usdm_class: StudyIntervention
+    usdm_attribute: type
+
+  - item: Intervention evidence variable description
+    usdm_path: |
+      study.versions.studyInterventions.{id: description}
+    fhir_resource: EvidenceVariable
+    fhir_path: description
+    usdm_class: StudyIntervention
+    usdm_attribute: description

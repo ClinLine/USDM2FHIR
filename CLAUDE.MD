@@ -79,7 +79,7 @@ All commands run with the Python from the virtualenv (`venv/bin/python`).
 make setup
 
 # ✏️  WORKFLOW: edit a YAML file in app/config/mappings/, then:
-make yaml-to-csv          # regenerates Map/USDM2FHIR.csv from all YAML files
+make yaml_to_csv          # regenerates Map/USDM2FHIR.csv from all YAML files
 
 # Run the transformation CLI example
 make execute_example
@@ -127,21 +127,21 @@ are written naturally — no `""` escaping needed.
 ### After editing any YAML file, regenerate the CSV:
 
 ```bash
-make yaml-to-csv
+make yaml_to_csv
 # or directly:
 venv/bin/python -m app.command.yaml_to_csv
 ```
 
 Optional flags:
 ```bash
-make yaml-to-csv MAPPINGS_DIR=app/config/mappings OUTPUT=Map/USDM2FHIR.csv
+make yaml_to_csv MAPPINGS_DIR=app/config/mappings OUTPUT=Map/USDM2FHIR.csv
 ```
 
 ### Adding a new mapping group
 
 1. Create `app/config/mappings/NN_my_group.yaml` (choose the next number)
 2. Fill in the `mappings:` list following the format above
-3. Run `make yaml-to-csv`
+3. Run `make yaml_to_csv`
 4. Run `make execute_example` to verify
 
 ---

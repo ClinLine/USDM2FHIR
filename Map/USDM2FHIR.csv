@@ -504,3 +504,15 @@ Contained PractitionerRole id — collaborator,"study.versions.roles[code.code =
 Contained PractitionerRole code text — collaborator (job title),"study.versions.roles[code.code = ""EXT0004""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
 Contained PractitionerRole organization display — collaborator (role label),"study.versions.roles[code.code = ""EXT0004""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
 Contained PractitionerRole practitioner display — collaborator (assigned person name),"study.versions.roles[code.code = ""EXT0004""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
+Intervention evidence variable id,study.versions.studyInterventions.{id: id},EvidenceVariable,id,,StudyIntervention,id
+Intervention evidence variable meta profile,"study.versions.studyInterventions.{id: ""http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition""}",EvidenceVariable,meta.profile,profile,,
+Intervention evidence variable name,"study.versions.studyInterventions.{id: {""text"": label}}",EvidenceVariable,name,name,StudyIntervention,label
+Intervention evidence variable title,study.versions.studyInterventions.{id: label},EvidenceVariable,title,,StudyIntervention,label
+Intervention evidence variable status,"study.versions.studyInterventions.{id: ""active""}",EvidenceVariable,status,,,
+Intervention evidence variable handling (boolean variable),"study.versions.studyInterventions.{id: {""coding"": {
+    ""code"": ""STATO:0000724"",
+    ""system"": ""https://fevir.net/sevco"",
+    ""display"": ""boolean variable""
+  }}}",EvidenceVariable,handling,,,
+Intervention evidence variable classifier (intervention type),"study.versions.studyInterventions.{id: {""text"": ""Intervention Type: "" & type.decode}}",EvidenceVariable,classifier,classifier,StudyIntervention,type
+Intervention evidence variable description,study.versions.studyInterventions.{id: description},EvidenceVariable,description,,StudyIntervention,description
