@@ -855,6 +855,7 @@
               }
             ],
             "indications": [],
+            "eligibilityCriteria": [],
             "instanceType": "InterventionalStudyDesign"
           }
         ],
@@ -1120,6 +1121,7 @@
             "instanceType": "StudyRole"
           }
         ],
+        "eligibilityCriterionItems": [],
         "documentVersionIds": [],
         "amendments": [],
         "businessTherapeuticAreas": [],

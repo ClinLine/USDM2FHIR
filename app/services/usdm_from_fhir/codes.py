@@ -28,6 +28,10 @@ FHIR_SYSTEM_TO_USDM_CODE_SYSTEM: dict[str, str] = {
 # LOINC code that marks a "Condition" characteristic inside an eligibility Group.
 ELIGIBILITY_CONDITION_LOINC_CODE = "75323-6"
 
+# Eligibility criterion category codes (CDISC)
+ELIGIBILITY_CATEGORY_INCLUSION = {"code": "C25532", "decode": "Inclusion Criteria"}
+ELIGIBILITY_CATEGORY_EXCLUSION = {"code": "C25370", "decode": "Exclusion Criteria"}
+
 # ---------------------------------------------------------------------------
 # Individual lookup tables
 # ---------------------------------------------------------------------------

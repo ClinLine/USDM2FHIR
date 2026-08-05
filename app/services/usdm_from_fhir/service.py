@@ -35,6 +35,7 @@ from app.services.usdm_from_fhir.builders.study_design.elements_builder import E
 from app.services.usdm_from_fhir.builders.study_design.study_cells_builder import StudyCellsBuilder
 from app.services.usdm_from_fhir.builders.study_design.indications_builder import IndicationsBuilder
 from app.services.usdm_from_fhir.builders.study_design.contra_indications_builder import ContraIndicationsBuilder
+from app.services.usdm_from_fhir.builders.study_design.eligibility_criteria_builder import EligibilityCriteriaBuilder
 
 # ---------------------------------------------------------------------------
 # Default empty fields appended to every StudyVersion (instanceType last).
@@ -86,6 +87,7 @@ class FhirToUsdmService:
         StudyCellsBuilder(),      # priority 63
         IndicationsBuilder(),     # priority 34
         ContraIndicationsBuilder(), # priority 35
+        EligibilityCriteriaBuilder(),  # priority 70
     ]
 
     # -------------------------------------------------------------------------
@@ -168,7 +170,7 @@ class FhirToUsdmService:
             version["studyDesigns"] = [study_design]
 
         # --- top-level version fields ----------------------------------------
-        for field in ("studyIdentifiers", "titles", "organizations", "dateValues", "roles"):
+        for field in ("studyIdentifiers", "titles", "organizations", "dateValues", "roles", "eligibilityCriterionItems"):
             val = ctx.get(f"version.{field}")
             if val is not None:
                 version[field] = val
@@ -202,7 +204,7 @@ class FhirToUsdmService:
             study_design["studyType"] = study_type
 
         # Insert sub-sections in a stable order
-        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements", "indications"):   # extend as more builders are added
+        for key in ("model", "intentTypes", "subTypes", "studyPhase", "characteristics", "blindingSchema", "objectives", "population", "arms", "studyCells", "epochs", "elements", "indications", "eligibilityCriteria"):   # extend as more builders are added
             val = sd_bag.get(key)
             if val is not None:
                 study_design[key] = val
