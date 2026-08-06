@@ -166,16 +166,24 @@ class PopulationBuilder(AbstractSectionBuilder):
         if min_value is None and max_value is None:
             return None
 
-        range_obj: dict = {
+        # Apply defaults when only one bound is present in the FHIR data:
+        #   minValue missing → 0 Years   (no lower bound stated)
+        #   maxValue missing → 120 Years (open-ended upper bound)
+        # These mirror the sentinel values used by readi_core's
+        # PopulationSectionBuilder for "no minimum / no maximum" age.
+        if min_value is None:
+            min_value = cls._make_age_quantity(context, "0", "Years")
+        if max_value is None:
+            max_value = cls._make_age_quantity(context, "120", "Years")
+
+        return {
             "id": context.next_id("Range"),
             "extensionAttributes": [],
             "isApproximate": False,
             "minValue": min_value,
+            "maxValue": max_value,
             "instanceType": "Range",
         }
-        if max_value is not None:
-            range_obj["maxValue"] = max_value
-        return range_obj
 
     @staticmethod
     def _make_age_quantity(context: UsdmBuildContext, raw_value: str, raw_unit: str) -> dict:

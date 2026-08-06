@@ -114,7 +114,15 @@ class OrganizationsBuilder(AbstractSectionBuilder):
             display: str | None = (identifier.get("assigner") or {}).get("display")
             system: str | None = identifier.get("system")
 
-            if display and display not in by_name:
+            # ClinicalTrials.gov must use _make_ct_gov_org (carries the NLM address)
+            # regardless of whether assigner.display is also set.
+            if system == CT_GOV_SYSTEM and "ClinicalTrials.gov" not in by_name:
+                org_id = f"Organization_{len(organizations)}"
+                org = _make_ct_gov_org(org_id=org_id)
+                organizations.append(org)
+                by_name["ClinicalTrials.gov"] = org_id
+
+            elif display and display not in by_name:
                 org_id = f"Organization_{len(organizations)}"
                 org = _make_org(
                     org_id=org_id,
@@ -125,11 +133,6 @@ class OrganizationsBuilder(AbstractSectionBuilder):
                 organizations.append(org)
                 by_name[display] = org_id
 
-            elif system == CT_GOV_SYSTEM and "ClinicalTrials.gov" not in by_name:
-                org_id = f"Organization_{len(organizations)}"
-                org = _make_ct_gov_org(org_id=org_id)
-                organizations.append(org)
-                by_name["ClinicalTrials.gov"] = org_id
 
         # Store name → org_id index for IdentifiersBuilder (and future builders)
         context.set("version._orgsByName", by_name)
@@ -162,9 +165,10 @@ def _make_org(
     type_id = f"{org_id}_Type"
     address_id = f"{org_id}_Address"
 
-    # Build the legalAddress text from available address fragments
+    # Build the legalAddress text from available address fragments;
+    # fall back to the org label so the address is never fully blank.
     parts = [p for p in [city, state, postal_code, country] if p]
-    address_text = ", ".join(parts)
+    address_text = ", ".join(parts) if parts else label
 
     return {
         "id": org_id,

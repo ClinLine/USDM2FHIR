@@ -61,16 +61,25 @@ class MaskingRolesBuilder(AbstractSectionBuilder):
             if isinstance(text, str) and MASKING_NONE_TEXT_MARKER in text.lower():
                 open_label = True
 
+        # Collect all non-registry org IDs already built by OrganizationsBuilder (priority 10).
+        # Skip Clinical Study Registries (type code C93453, e.g. ClinicalTrials.gov).
+        org_ids: list[str] = [
+            o["id"]
+            for o in (context.get("version.organizations") or [])
+            if isinstance(o, dict) and o.get("id")
+            and (o.get("type") or {}).get("code") != "C93453"
+        ]
+
         if matched_codes:
-            return [self._build_role(context, code, is_masked=True) for code in matched_codes]
+            return [self._build_role(context, code, is_masked=True, org_ids=org_ids) for code in matched_codes]
         if open_label:
-            return [self._build_role(context, code, is_masked=False) for code in MASKING_ALL_ORDER]
+            return [self._build_role(context, code, is_masked=False, org_ids=org_ids) for code in MASKING_ALL_ORDER]
         return []
 
     # -------------------------------------------------------------------------
 
     @staticmethod
-    def _build_role(context: UsdmBuildContext, sevco_code: str, *, is_masked: bool) -> dict:
+    def _build_role(context: UsdmBuildContext, sevco_code: str, *, is_masked: bool, org_ids: list[str]) -> dict:
         entry = MASKING_WHO[sevco_code]
         role_id = context.next_id("StudyRole")
         return {
@@ -82,7 +91,7 @@ class MaskingRolesBuilder(AbstractSectionBuilder):
             "code": context.make_code(entry["code"], entry["decode"]),
             "appliesToIds": ["StudyVersion_0"],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": list(org_ids),
             "masking": {
                 "id": context.next_id("Masking"),
                 "extensionAttributes": [],

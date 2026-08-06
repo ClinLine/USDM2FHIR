@@ -52,6 +52,14 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
         # Start from whatever MaskingRolesBuilder already put in the bag.
         existing: list = list(context.get("version.roles") or [])
 
+        # Sync the "Organization" counter so that ctx.next_id("Organization")
+        # never collides with IDs already emitted by OrganizationsBuilder.
+        top_orgs: list = list(context.get("version.organizations") or [])
+        context._entity_counters["Organization"] = max(
+            context._entity_counters.get("Organization", 0),
+            len(top_orgs),
+        )
+
         # Build a quick lookup: contained resource id → resource dict
         contained_by_id: dict[str, dict] = {
             c["id"]: c
@@ -103,7 +111,40 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
         # PractitionerRole-backed parties), so a direct lookup is sufficient.
         orgs_by_name: dict = ctx.get("version._orgsByName") or {}
         org_id_ref = orgs_by_name.get(label)
-        organization_ids = [org_id_ref] if org_id_ref else []
+
+        # If no match by role label, try the inline org label from each assigned person.
+        if org_id_ref is None:
+            for ap in assigned_persons:
+                inline_org: dict = ap.get("organization") or {}
+                candidate = inline_org.get("label") or inline_org.get("name") or ""
+                if candidate and candidate in orgs_by_name:
+                    org_id_ref = orgs_by_name[candidate]
+                    break
+
+        # Still no match — fall back to the first non-registry top-level organization
+        # (skip registries like ClinicalTrials.gov whose type code is C93453).
+        if org_id_ref is None:
+            top_orgs: list = ctx.get("version.organizations") or []
+            for candidate_org in top_orgs:
+                if not isinstance(candidate_org, dict):
+                    continue
+                type_code = (candidate_org.get("type") or {}).get("code", "")
+                if type_code == "C93453":   # Clinical Study Registry — skip
+                    continue
+                org_id_ref = candidate_org.get("id")
+                break
+            # Ultimate fallback: take the very first org if all are registries
+            if org_id_ref is None and top_orgs and isinstance(top_orgs[0], dict):
+                org_id_ref = top_orgs[0].get("id")
+
+        # USDM rule CORE-000997: a StudyRole must NOT reference both assignedPersons
+        # and organizationIds at the same time (XOR constraint).
+        # → If there are assigned persons (personal role), drop the org reference.
+        # → If there are no assigned persons (org-only role), keep the org reference.
+        if assigned_persons:
+            organization_ids = []
+        else:
+            organization_ids = [org_id_ref] if org_id_ref else []
 
         # --- assemble StudyRole ----------------------------------------------
         role_id = ctx.next_id("StudyRole")
