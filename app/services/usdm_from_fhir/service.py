@@ -241,6 +241,62 @@ class FhirToUsdmService:
         # same pattern as OrganizationsBuilder's 'version._orgsByName').
         study_design["instanceType"] = sd_bag.get("_instanceType") or "StudyDesign"
 
+        # Populate studyInterventionIds from the version-level studyInterventions
+        # (fixes CORE-001077: parallel/crossover/factorial designs require ≥ 2 referenced interventions).
+        # Also generate one synthetic Activity+Procedure referencing the first intervention
+        # (fixes CORE-001065). Mirrors ClinicalTrialUSDMArrayTransformerTrait from readi_core.
+        version_interventions: list[dict] = ctx.get("version.studyInterventions") or []
+        if version_interventions:
+            study_design["studyInterventionIds"] = [
+                si["id"] for si in version_interventions if isinstance(si, dict) and si.get("id")
+            ]
+            first_intervention_id: str | None = (
+                version_interventions[0].get("id")
+                if isinstance(version_interventions[0], dict)
+                else None
+            )
+            if first_intervention_id:
+                study_design["activities"] = [
+                    {
+                        "id": "Activity_1_test",
+                        "extensionAttributes": [],
+                        "name": "ACT_Row1",
+                        "label": "Inclusion and exclusion criteria",
+                        "description": "",
+                        "previousId": None,
+                        "nextId": None,
+                        "childIds": [],
+                        "definedProcedures": [
+                            {
+                                "id": "Procedure_1_test",
+                                "extensionAttributes": [],
+                                "name": "PR1",
+                                "label": "Eligibility Check",
+                                "description": "",
+                                "procedureType": "Eligibility",
+                                "code": {
+                                    "id": "CodeX_1",
+                                    "extensionAttributes": [],
+                                    "code": "61871000000107",
+                                    "codeSystem": "SNOMED",
+                                    "codeSystemVersion": "2025-02-01",
+                                    "decode": "Eligibility for treatment",
+                                    "instanceType": "Code",
+                                },
+                                "studyInterventionId": first_intervention_id,
+                                "notes": [],
+                                "instanceType": "Procedure",
+                            }
+                        ],
+                        "biomedicalConceptIds": [],
+                        "bcCategoryIds": [],
+                        "bcSurrogateIds": [],
+                        "timelineId": None,
+                        "notes": [],
+                        "instanceType": "Activity",
+                    }
+                ]
+
         # Default empty/blank fields required by the USDM schema (DDF00082)
         for _arr_field in (
             "therapeuticAreas", "encounters", "activities", "estimands",
