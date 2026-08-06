@@ -62,6 +62,14 @@ age category 65 and older (Only based on population and year unit),"study.versio
         ""system"": ""https://fevir.net/resources/CodeSystem/419455""
       }}}",ResearchStudy,classifier,classifier,StudyDesignPopulation,plannedAge
 Objective text,study.versions.studyDesigns.objectives.{id: text},ResearchStudy,objective.name,objective,Objective,text
+Translated objective name,"study.versions.studyDesigns.objectives@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
+{$tt.id: {
+    ""url"": ""http://hl7.org/fhir/StructureDefinition/translation"",
+    ""extension"": [
+        {""url"": ""lang"", ""valueCode"": $tr.extensionAttributes[url=""language""].valueCode.code},
+        {""url"": ""content"", ""valueString"": $tr.extensionAttributes[url=""text""].valueString}
+    ]
+}}",ResearchStudy,objective._name.extension,objective;extension,Objective,extension
 Objective primary level (code),"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""primary""}",ResearchStudy,objective.type.coding.code,objective,Objective,type
 Objective primary level (display),"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""Primary""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
 Objective codeSystem FHIR,"study.versions.studyDesigns.objectives.{id: ""http://terminology.hl7.org/CodeSystem/research-study-objective-type""}",ResearchStudy,objective.type.coding.system,objective,,

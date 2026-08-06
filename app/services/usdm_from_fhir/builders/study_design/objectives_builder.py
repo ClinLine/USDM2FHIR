@@ -8,6 +8,10 @@ Each FHIR outcomeMeasure maps to one USDM Endpoint nested inside its Objective.
 
 An Objective without a type.coding.code still gets built (level is omitted).
 An Endpoint without a type.coding.code still gets built (level is omitted).
+
+An objective's `_name` primitive extension (FHIR "translation" extension, one
+entry per locale with sub-extensions "lang"/"content") is reconstructed into
+the USDM "languages" translation extension (mirrors ObjectivesSectionBuilder.php).
 """
 
 from __future__ import annotations
@@ -17,6 +21,7 @@ from typing import TypedDict
 from app.services.usdm_from_fhir.base_builder import AbstractSectionBuilder
 from app.services.usdm_from_fhir.context import UsdmBuildContext
 from app.services.usdm_from_fhir.codes import OBJECTIVE_LEVEL, ENDPOINT_LEVEL
+from app.services.usdm_from_fhir.builders.translation_extension import build_translation_extension
 
 
 class _Coding(TypedDict, total=False):
@@ -42,6 +47,7 @@ class _Objective(TypedDict, total=False):
     name: str | None
     type: _CodeableConcept | None
     outcomeMeasure: list[_OutcomeMeasure] | None
+    _name: dict | None
 
 
 def _first_coding_code(codeable_concept: dict | None) -> str | None:
@@ -51,6 +57,18 @@ def _first_coding_code(codeable_concept: dict | None) -> str | None:
     coding = codeable_concept.get("coding") or []
     first = coding[0] if isinstance(coding, list) and coding else (coding if isinstance(coding, dict) else {})
     return first.get("code") if isinstance(first, dict) else None
+
+
+def _name_translation_values(name_ext: dict | None) -> list[tuple[str, str]]:
+    """Parse a FHIR `_name` primitive extension into (locale, text) pairs."""
+    values: list[tuple[str, str]] = []
+    for entry in (name_ext or {}).get("extension") or []:
+        children = entry.get("extension") or []
+        lang = next((c.get("valueCode") for c in children if c.get("url") == "lang"), None)
+        content = next((c.get("valueString") for c in children if c.get("url") == "content"), None)
+        if lang and content:
+            values.append((lang, content))
+    return values
 
 
 class ObjectivesBuilder(AbstractSectionBuilder):
@@ -75,6 +93,9 @@ class ObjectivesBuilder(AbstractSectionBuilder):
             # --- endpoints ---------------------------------------------------
             endpoints = self._build_endpoints(context, i, fhir_obj.get("outcomeMeasure") or [])
 
+            # --- name translations (optional) --------------------------------
+            values = _name_translation_values(fhir_obj.get("_name"))
+
             # --- assemble ----------------------------------------------------
             objective: dict = {
                 "id": obj_id,
@@ -84,6 +105,7 @@ class ObjectivesBuilder(AbstractSectionBuilder):
                 objective["level"] = level
             objective["text"] = fhir_obj.get("name") or ""
             objective["endpoints"] = endpoints
+            objective["extensionAttributes"] = [build_translation_extension(context, values)] if values else []
             objective["notes"] = []
             objective["instanceType"] = "Objective"
 

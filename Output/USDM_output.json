@@ -4,6 +4,7 @@
     "name": "CDISC/FHIR - STUDY",
     "description": null,
     "label": null,
+    "documentedBy": [],
     "versions": [
       {
         "id": "StudyVersion_0",
@@ -34,7 +35,7 @@
             },
             "intentTypes": [
               {
-                "id": "Code_42",
+                "id": "Code_43",
                 "code": "C49656",
                 "decode": "Treatment Study",
                 "codeSystem": "http://www.cdisc.org",
@@ -44,10 +45,10 @@
             ],
             "subTypes": [],
             "studyPhase": {
-              "id": "AliasCode_1",
+              "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_43",
+                "id": "Code_44",
                 "code": "C15693",
                 "decode": "Phase I/II Trial",
                 "codeSystem": "http://www.cdisc.org",
@@ -68,10 +69,10 @@
               }
             ],
             "blindingSchema": {
-              "id": "AliasCode_2",
+              "id": "AliasCode_3",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_50",
+                "id": "Code_51",
                 "code": "C49659",
                 "decode": "OPEN LABEL",
                 "codeSystem": "http://www.cdisc.org",
@@ -99,6 +100,8 @@
                     "id": "Endpoint_0_0",
                     "name": "ENDPOINT_0_0",
                     "text": "Nature and frequency of dose-limiting toxicities (DLTs)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_3",
                       "code": "C94496",
@@ -113,6 +116,8 @@
                     "id": "Endpoint_0_1",
                     "name": "ENDPOINT_0_1",
                     "text": "Proportion of Participants with Adverse Event (AE)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_4",
                       "code": "C94496",
@@ -127,6 +132,8 @@
                     "id": "Endpoint_0_2",
                     "name": "ENDPOINT_0_2",
                     "text": "Overall Response Rate (ORR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_5",
                       "code": "C94496",
@@ -141,6 +148,8 @@
                     "id": "Endpoint_0_3",
                     "name": "ENDPOINT_0_3",
                     "text": "Disease Control Rate (DCR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_6",
                       "code": "C94496",
@@ -155,6 +164,8 @@
                     "id": "Endpoint_0_4",
                     "name": "ENDPOINT_0_4",
                     "text": "Duration of Response (DOR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_7",
                       "code": "C94496",
@@ -169,6 +180,8 @@
                     "id": "Endpoint_0_5",
                     "name": "ENDPOINT_0_5",
                     "text": "Progression-free Survival (PFS)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_8",
                       "code": "C94496",
@@ -183,6 +196,8 @@
                     "id": "Endpoint_0_6",
                     "name": "ENDPOINT_0_6",
                     "text": "Overall Survival (OS)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_9",
                       "code": "C94496",
@@ -197,6 +212,8 @@
                     "id": "Endpoint_0_7",
                     "name": "ENDPOINT_0_7",
                     "text": "Complete Response (CR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_10",
                       "code": "C94496",
@@ -208,6 +225,8 @@
                     "instanceType": "Endpoint"
                   }
                 ],
+                "extensionAttributes": [],
+                "notes": [],
                 "instanceType": "Objective"
               },
               {
@@ -227,6 +246,8 @@
                     "id": "Endpoint_1_0",
                     "name": "ENDPOINT_1_0",
                     "text": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_12",
                       "code": "C139173",
@@ -241,6 +262,8 @@
                     "id": "Endpoint_1_1",
                     "name": "ENDPOINT_1_1",
                     "text": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_13",
                       "code": "C139173",
@@ -255,6 +278,8 @@
                     "id": "Endpoint_1_2",
                     "name": "ENDPOINT_1_2",
                     "text": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_14",
                       "code": "C139173",
@@ -269,6 +294,8 @@
                     "id": "Endpoint_1_3",
                     "name": "ENDPOINT_1_3",
                     "text": "Clearance (CL) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_15",
                       "code": "C139173",
@@ -283,6 +310,8 @@
                     "id": "Endpoint_1_4",
                     "name": "ENDPOINT_1_4",
                     "text": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_16",
                       "code": "C139173",
@@ -297,6 +326,8 @@
                     "id": "Endpoint_1_5",
                     "name": "ENDPOINT_1_5",
                     "text": "ORR",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_17",
                       "code": "C139173",
@@ -311,6 +342,8 @@
                     "id": "Endpoint_1_6",
                     "name": "ENDPOINT_1_6",
                     "text": "DCR",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_18",
                       "code": "C139173",
@@ -325,6 +358,8 @@
                     "id": "Endpoint_1_7",
                     "name": "ENDPOINT_1_7",
                     "text": "DOR",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_19",
                       "code": "C139173",
@@ -339,6 +374,8 @@
                     "id": "Endpoint_1_8",
                     "name": "ENDPOINT_1_8",
                     "text": "PFS",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_20",
                       "code": "C139173",
@@ -353,6 +390,8 @@
                     "id": "Endpoint_1_9",
                     "name": "ENDPOINT_1_9",
                     "text": "OS",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_21",
                       "code": "C139173",
@@ -367,6 +406,8 @@
                     "id": "Endpoint_1_10",
                     "name": "ENDPOINT_1_10",
                     "text": "Proportion of Participants with Adverse Event (AE)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_22",
                       "code": "C139173",
@@ -381,6 +422,8 @@
                     "id": "Endpoint_1_11",
                     "name": "ENDPOINT_1_11",
                     "text": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_23",
                       "code": "C139173",
@@ -395,6 +438,8 @@
                     "id": "Endpoint_1_12",
                     "name": "ENDPOINT_1_12",
                     "text": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_24",
                       "code": "C139173",
@@ -409,6 +454,8 @@
                     "id": "Endpoint_1_13",
                     "name": "ENDPOINT_1_13",
                     "text": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_25",
                       "code": "C139173",
@@ -423,6 +470,8 @@
                     "id": "Endpoint_1_14",
                     "name": "ENDPOINT_1_14",
                     "text": "Clearance (CL) of englumafusp alfa in combination with glofitamab",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_26",
                       "code": "C139173",
@@ -437,6 +486,8 @@
                     "id": "Endpoint_1_15",
                     "name": "ENDPOINT_1_15",
                     "text": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with glofitamab Part I/II/III",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_27",
                       "code": "C139173",
@@ -451,6 +502,8 @@
                     "id": "Endpoint_1_16",
                     "name": "ENDPOINT_1_16",
                     "text": "T-cell and Natural killer (NK)-cell status in blood, using markers of T and NK-cell lineage, function and activation including, but not limited to, CD3, CD8, 41BB, and Ki67 expression",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_28",
                       "code": "C139173",
@@ -465,6 +518,8 @@
                     "id": "Endpoint_1_17",
                     "name": "ENDPOINT_1_17",
                     "text": "B-cell reduction in blood and tumor tissue",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_29",
                       "code": "C139173",
@@ -479,6 +534,8 @@
                     "id": "Endpoint_1_18",
                     "name": "ENDPOINT_1_18",
                     "text": "Change from Baseline in englumafusp alfa Anti-Drug Antibody (ADA) Titer",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_30",
                       "code": "C139173",
@@ -493,6 +550,8 @@
                     "id": "Endpoint_1_19",
                     "name": "ENDPOINT_1_19",
                     "text": "Time to First Complete Response (TFCR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_31",
                       "code": "C139173",
@@ -507,6 +566,8 @@
                     "id": "Endpoint_1_20",
                     "name": "ENDPOINT_1_20",
                     "text": "Time to First Overall Response (TFOR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_32",
                       "code": "C139173",
@@ -521,6 +582,8 @@
                     "id": "Endpoint_1_21",
                     "name": "ENDPOINT_1_21",
                     "text": "Duration of Complete Response (DOCR)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_33",
                       "code": "C139173",
@@ -535,6 +598,8 @@
                     "id": "Endpoint_1_22",
                     "name": "ENDPOINT_1_22",
                     "text": "Change from Baseline in Physical Function, Role Function, and Health-Related Quality of Life (HRQoL) Based on the European Organization for Research and Treatment of Cancer Quality of Life Questionnaire Core 30 (EORTC QLQ-C30)",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_34",
                       "code": "C139173",
@@ -549,6 +614,8 @@
                     "id": "Endpoint_1_23",
                     "name": "ENDPOINT_1_23",
                     "text": "Change from Baseline in Physical Function, Role Function, and HRQoL According to the Functional Assessment of Cancer Therapy-Lymphoma (FACT-Lym) Lymphoma Scale",
+                    "purpose": "",
+                    "notes": [],
                     "level": {
                       "id": "Code_35",
                       "code": "C139173",
@@ -560,6 +627,8 @@
                     "instanceType": "Endpoint"
                   }
                 ],
+                "extensionAttributes": [],
+                "notes": [],
                 "instanceType": "Objective"
               }
             ],
@@ -571,7 +640,7 @@
               "description": null,
               "includesHealthySubjects": false,
               "plannedEnrollmentNumber": {
-                "id": "Quantity_1",
+                "id": "Quantity_2",
                 "extensionAttributes": [],
                 "value": 498,
                 "unit": null,
@@ -600,6 +669,7 @@
               "plannedAge": {
                 "id": "Range_0",
                 "extensionAttributes": [],
+                "isApproximate": false,
                 "minValue": {
                   "id": "Quantity_0",
                   "extensionAttributes": [],
@@ -620,7 +690,26 @@
                   },
                   "instanceType": "Quantity"
                 },
-                "maxValue": null,
+                "maxValue": {
+                  "id": "Quantity_1",
+                  "extensionAttributes": [],
+                  "value": 120,
+                  "unit": {
+                    "id": "AliasCode_1",
+                    "extensionAttributes": [],
+                    "standardCode": {
+                      "id": "Code_42",
+                      "code": "C29848",
+                      "decode": "Year",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "standardCodeAliases": [],
+                    "instanceType": "AliasCode"
+                  },
+                  "instanceType": "Quantity"
+                },
                 "instanceType": "Range"
               },
               "notes": [],
@@ -635,7 +724,7 @@
                 "label": "Part I",
                 "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_56",
+                  "id": "Code_61",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -644,7 +733,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_57",
+                  "id": "Code_62",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -662,7 +751,7 @@
                 "label": "Part II",
                 "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_58",
+                  "id": "Code_63",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -671,7 +760,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_59",
+                  "id": "Code_64",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -689,7 +778,7 @@
                 "label": "Part III",
                 "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_60",
+                  "id": "Code_65",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -698,7 +787,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_61",
+                  "id": "Code_66",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -780,7 +869,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_62",
+                  "id": "Code_67",
                   "code": "C202487",
                   "decode": "Screening Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -799,7 +888,7 @@
                 "label": "Treatment",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_63",
+                  "id": "Code_68",
                   "code": "C101526",
                   "decode": "Treatment Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -854,9 +943,256 @@
                 "instanceType": "StudyElement"
               }
             ],
+            "scheduleTimelines": [
+              {
+                "id": "ScheduleTimeline_Main",
+                "extensionAttributes": [],
+                "name": "Main Timeline",
+                "label": "Main Timeline",
+                "description": "",
+                "mainTimeline": true,
+                "entryCondition": "",
+                "entryId": "ScheduledActivityInstance_1",
+                "exits": [
+                  {
+                    "id": "ScheduleTimelineExit_Main",
+                    "extensionAttributes": [],
+                    "instanceType": "ScheduleTimelineExit"
+                  }
+                ],
+                "timings": [
+                  {
+                    "id": "Timing_FU_DUR",
+                    "extensionAttributes": [],
+                    "name": "FU_DUR",
+                    "label": "",
+                    "description": "",
+                    "type": {
+                      "id": "Code_69",
+                      "code": "C201358",
+                      "decode": "Fixed Reference",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "value": "P0D",
+                    "valueLabel": "Screening index",
+                    "relativeToFrom": {
+                      "id": "Code_70",
+                      "code": "C201355",
+                      "decode": "Start to Start",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "relativeToScheduledInstanceId": "ScheduledActivityInstance_2",
+                    "windowLower": "",
+                    "windowUpper": "",
+                    "windowLabel": "",
+                    "instanceType": "Timing"
+                  }
+                ],
+                "instances": [
+                  {
+                    "id": "ScheduledActivityInstance_1",
+                    "extensionAttributes": [],
+                    "name": "Screening1",
+                    "label": "Screening",
+                    "epochId": "StudyEpoch_1",
+                    "defaultConditionId": "ScheduledActivityInstance_2",
+                    "timelineExitId": "",
+                    "activityIds": [],
+                    "instanceType": "ScheduledActivityInstance"
+                  },
+                  {
+                    "id": "ScheduledActivityInstance_2",
+                    "extensionAttributes": [],
+                    "name": "Treatment1",
+                    "label": "Treatment",
+                    "epochId": "StudyEpoch_2",
+                    "defaultConditionId": "",
+                    "timelineExitId": "ScheduleTimelineExit_Main",
+                    "activityIds": [],
+                    "instanceType": "ScheduledActivityInstance"
+                  }
+                ],
+                "plannedDuration": {
+                  "id": "PlannedDuration_1",
+                  "extensionAttributes": [],
+                  "text": "Planned duration is not specified",
+                  "quantity": null,
+                  "durationWillVary": true,
+                  "reasonDurationWillVary": "Duration is missing",
+                  "instanceType": "Duration"
+                },
+                "instanceType": "ScheduleTimeline"
+              },
+              {
+                "id": "ScheduleTimeline_History",
+                "extensionAttributes": [],
+                "name": "HISTORY",
+                "label": "History Timeline",
+                "description": "Timing of periods of the patients history relative to screening enabling EHR record matching.",
+                "mainTimeline": false,
+                "entryCondition": "Patient birth or entering the registration",
+                "entryId": "HistoryInstance_1",
+                "exits": [
+                  {
+                    "id": "ScheduleTimelineExit_History",
+                    "extensionAttributes": [],
+                    "instanceType": "ScheduleTimelineExit"
+                  }
+                ],
+                "timings": [
+                  {
+                    "id": "Timing_MIN120Y",
+                    "extensionAttributes": [],
+                    "name": "TMIN120Y",
+                    "label": "",
+                    "description": "",
+                    "type": {
+                      "id": "Code_71",
+                      "code": "C201357",
+                      "decode": "Before",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "value": "P120Y",
+                    "valueLabel": "Screening index",
+                    "relativeToFrom": {
+                      "id": "Code_72",
+                      "code": "C201355",
+                      "decode": "Start to Start",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "HistoryInstance_1",
+                    "relativeToScheduledInstanceId": "HistoryInstance_SCR",
+                    "windowLower": "P0D",
+                    "windowUpper": "P120Y",
+                    "windowLabel": "within last 120 years",
+                    "instanceType": "Timing"
+                  },
+                  {
+                    "id": "Timing_SCR",
+                    "extensionAttributes": [],
+                    "name": "SCR",
+                    "label": "",
+                    "description": "",
+                    "type": {
+                      "id": "Code_73",
+                      "code": "C201358",
+                      "decode": "Fixed Reference",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "value": "P0D",
+                    "valueLabel": "Screening index",
+                    "relativeToFrom": {
+                      "id": "Code_74",
+                      "code": "C201355",
+                      "decode": "Start to Start",
+                      "codeSystem": "http://www.cdisc.org",
+                      "codeSystemVersion": "2025-09-26",
+                      "instanceType": "Code"
+                    },
+                    "relativeFromScheduledInstanceId": "HistoryInstance_SCR",
+                    "relativeToScheduledInstanceId": "HistoryInstance_SCR",
+                    "windowLower": "",
+                    "windowUpper": "",
+                    "windowLabel": "",
+                    "instanceType": "Timing"
+                  }
+                ],
+                "instances": [
+                  {
+                    "id": "HistoryInstance_1",
+                    "extensionAttributes": [],
+                    "name": "MIN120Y",
+                    "label": "MIN120Y",
+                    "epochId": "",
+                    "defaultConditionId": "HistoryInstance_SCR",
+                    "timelineExitId": "",
+                    "activityIds": [],
+                    "instanceType": "ScheduledActivityInstance"
+                  },
+                  {
+                    "id": "HistoryInstance_SCR",
+                    "extensionAttributes": [],
+                    "name": "SCR",
+                    "label": "SCR",
+                    "epochId": "",
+                    "defaultConditionId": "",
+                    "timelineExitId": "ScheduleTimelineExit_History",
+                    "activityIds": [],
+                    "instanceType": "ScheduledActivityInstance"
+                  }
+                ],
+                "plannedDuration": null,
+                "instanceType": "ScheduleTimeline"
+              }
+            ],
             "indications": [],
             "eligibilityCriteria": [],
-            "instanceType": "InterventionalStudyDesign"
+            "instanceType": "InterventionalStudyDesign",
+            "studyInterventionIds": [
+              "StudyIntervention_0",
+              "StudyIntervention_1",
+              "StudyIntervention_2",
+              "StudyIntervention_3"
+            ],
+            "activities": [
+              {
+                "id": "Activity_1_test",
+                "extensionAttributes": [],
+                "name": "ACT_Row1",
+                "label": "Inclusion and exclusion criteria",
+                "description": "",
+                "previousId": null,
+                "nextId": null,
+                "childIds": [],
+                "definedProcedures": [
+                  {
+                    "id": "Procedure_1_test",
+                    "extensionAttributes": [],
+                    "name": "PR1",
+                    "label": "Eligibility Check",
+                    "description": "",
+                    "procedureType": "Eligibility",
+                    "code": {
+                      "id": "CodeX_1",
+                      "extensionAttributes": [],
+                      "code": "61871000000107",
+                      "codeSystem": "SNOMED",
+                      "codeSystemVersion": "2025-02-01",
+                      "decode": "Eligibility for treatment",
+                      "instanceType": "Code"
+                    },
+                    "studyInterventionId": "StudyIntervention_0",
+                    "notes": [],
+                    "instanceType": "Procedure"
+                  }
+                ],
+                "biomedicalConceptIds": [],
+                "bcCategoryIds": [],
+                "bcSurrogateIds": [],
+                "timelineId": null,
+                "notes": [],
+                "instanceType": "Activity"
+              }
+            ],
+            "therapeuticAreas": [],
+            "encounters": [],
+            "estimands": [],
+            "biospecimenRetentions": [],
+            "documentVersionIds": [],
+            "analysisPopulations": [],
+            "notes": [],
+            "rationale": ""
           }
         ],
         "studyIdentifiers": [
@@ -898,12 +1234,14 @@
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
-            "instanceType": "StudyTitle"
+            "instanceType": "StudyTitle",
+            "extensionAttributes": []
           }
         ],
         "organizations": [
           {
             "id": "Organization_0",
+            "extensionAttributes": [],
             "name": "COMPUTABLE PUBLISHING LLC",
             "label": "Computable Publishing LLC",
             "type": {
@@ -914,10 +1252,23 @@
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
+            "legalAddress": {
+              "id": "Organization_0_Address",
+              "text": "Computable Publishing LLC",
+              "lines": [],
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [],
             "instanceType": "Organization"
           },
           {
             "id": "Organization_1",
+            "extensionAttributes": [],
             "name": "HOFFMANN-LA ROCHE",
             "label": "Hoffmann-La Roche",
             "type": {
@@ -928,10 +1279,23 @@
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
+            "legalAddress": {
+              "id": "Organization_1_Address",
+              "text": "Hoffmann-La Roche",
+              "lines": [],
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [],
             "instanceType": "Organization"
           },
           {
             "id": "Organization_2",
+            "extensionAttributes": [],
             "name": "EU CT NUMBER",
             "label": "EU CT Number",
             "type": {
@@ -942,6 +1306,18 @@
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
+            "legalAddress": {
+              "id": "Organization_2_Address",
+              "text": "EU CT Number",
+              "lines": [],
+              "city": "",
+              "state": "",
+              "postalCode": "",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [],
             "instanceType": "Organization"
           }
         ],
@@ -953,7 +1329,7 @@
             "label": "Last update posted (Clinical gov provider)",
             "description": "Design approval date",
             "type": {
-              "id": "Code_44",
+              "id": "Code_45",
               "code": "C215664",
               "decode": "Issued Date",
               "codeSystem": "http://www.cdisc.org",
@@ -966,7 +1342,7 @@
                 "id": "GeographicScope_0",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_45",
+                  "id": "Code_46",
                   "code": "C68846",
                   "decode": "Global",
                   "codeSystem": "http://www.cdisc.org",
@@ -988,7 +1364,7 @@
             "label": "Study Subject",
             "description": "",
             "code": {
-              "id": "Code_46",
+              "id": "Code_47",
               "code": "C41189",
               "decode": "Study Subject",
               "codeSystem": "http://www.cdisc.org",
@@ -999,7 +1375,11 @@
               "StudyVersion_0"
             ],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": [
+              "Organization_0",
+              "Organization_1",
+              "Organization_2"
+            ],
             "masking": {
               "id": "Masking_0",
               "extensionAttributes": [],
@@ -1017,7 +1397,7 @@
             "label": "Care Provider",
             "description": "",
             "code": {
-              "id": "Code_47",
+              "id": "Code_48",
               "code": "C17445",
               "decode": "Care Provider",
               "codeSystem": "http://www.cdisc.org",
@@ -1028,7 +1408,11 @@
               "StudyVersion_0"
             ],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": [
+              "Organization_0",
+              "Organization_1",
+              "Organization_2"
+            ],
             "masking": {
               "id": "Masking_1",
               "extensionAttributes": [],
@@ -1046,7 +1430,7 @@
             "label": "Investigator",
             "description": "",
             "code": {
-              "id": "Code_48",
+              "id": "Code_49",
               "code": "C25936",
               "decode": "Investigator",
               "codeSystem": "http://www.cdisc.org",
@@ -1057,7 +1441,11 @@
               "StudyVersion_0"
             ],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": [
+              "Organization_0",
+              "Organization_1",
+              "Organization_2"
+            ],
             "masking": {
               "id": "Masking_2",
               "extensionAttributes": [],
@@ -1075,7 +1463,7 @@
             "label": "Outcomes Assessor",
             "description": "",
             "code": {
-              "id": "Code_49",
+              "id": "Code_50",
               "code": "C207599",
               "decode": "Outcomes Assessor",
               "codeSystem": "http://www.cdisc.org",
@@ -1086,7 +1474,11 @@
               "StudyVersion_0"
             ],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": [
+              "Organization_0",
+              "Organization_1",
+              "Organization_2"
+            ],
             "masking": {
               "id": "Masking_3",
               "extensionAttributes": [],
@@ -1104,7 +1496,7 @@
             "label": "Hoffmann-La Roche",
             "description": "",
             "code": {
-              "id": "Code_51",
+              "id": "Code_52",
               "code": "C70793",
               "decode": "Sponsor",
               "codeSystem": "http://www.cdisc.org",
@@ -1115,7 +1507,9 @@
               "StudyVersion_0"
             ],
             "assignedPersons": [],
-            "organizationIds": [],
+            "organizationIds": [
+              "Organization_1"
+            ],
             "masking": null,
             "notes": [],
             "instanceType": "StudyRole"
@@ -1130,9 +1524,17 @@
             "label": "Englumafusp alfa",
             "description": "Englumafusp alfa will be administered by intravenous (IV) infusion three-weekly (Q3W) in combination with a fixed dose of obinutuzumab (Part I) and in combination with a fixed dose of glofitamab (Part II and Part III).",
             "type": {
-              "id": "Code_52",
+              "id": "Code_53",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "role": {
+              "id": "Code_54",
+              "code": "C41161",
+              "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
@@ -1149,9 +1551,17 @@
             "label": "Obinutuzumab",
             "description": "A fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa, then in combination with obinutuzumab Q3W (Part I).\n\nA fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa or between Day -3 and -7 (Part II and Part III).",
             "type": {
-              "id": "Code_53",
+              "id": "Code_55",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "role": {
+              "id": "Code_56",
+              "code": "C41161",
+              "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
@@ -1168,9 +1578,17 @@
             "label": "Glofitamab",
             "description": "A fixed dose of glofitamab will be administered Q3W in combination with englumafusp alfa in Part II and Part III",
             "type": {
-              "id": "Code_54",
+              "id": "Code_57",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "role": {
+              "id": "Code_58",
+              "code": "C41161",
+              "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
@@ -1187,9 +1605,17 @@
             "label": "Tocilizumab",
             "description": "Participants will receive IV tocilizumab as needed to treat cytokine release syndrome (CRS).",
             "type": {
-              "id": "Code_55",
+              "id": "Code_59",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "role": {
+              "id": "Code_60",
+              "code": "C41161",
+              "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"

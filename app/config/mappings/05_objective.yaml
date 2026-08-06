@@ -10,6 +10,22 @@ mappings:
     usdm_class: Objective
     usdm_attribute: text
 
+  - item: Translated objective name
+    usdm_path: |
+      study.versions.studyDesigns.objectives@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url="http://cdisc.org/usdm/extensions/extensionR-1/class-1"])@$tr.
+      {$tt.id: {
+          "url": "http://hl7.org/fhir/StructureDefinition/translation",
+          "extension": [
+              {"url": "lang", "valueCode": $tr.extensionAttributes[url="language"].valueCode.code},
+              {"url": "content", "valueString": $tr.extensionAttributes[url="text"].valueString}
+          ]
+      }}
+    fhir_resource: ResearchStudy
+    fhir_path: objective._name.extension
+    fhir_index: "objective;extension"
+    usdm_class: Objective
+    usdm_attribute: extension
+
   - item: Objective primary level (code)
     usdm_path: |
       study.versions.studyDesigns.objectives[level.code="C85826"].{id: "primary"}

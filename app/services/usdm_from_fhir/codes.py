@@ -11,6 +11,17 @@ CDISC_CODE_SYSTEM = {
     "codeSystemVersion": "2025-09-26",
 }
 
+# ISO 639-1 language names for the locales readi_core supports (see LocaleType::ISO_639_1
+# / LocaleType::ALL_TYPES in readi_core). Used as the `decode` of a translation's
+# valueCode when reconstructing the USDM "languages" extension from FHIR.
+ISO_639_1: dict[str, str] = {
+    "bg": "Bulgarian", "hr": "Croatian", "cs": "Czech", "da": "Danish", "nl": "Dutch",
+    "en": "English", "et": "Estonian", "fi": "Finnish", "fr": "French", "de": "German",
+    "el": "Greek", "hu": "Hungarian", "ga": "Irish", "it": "Italian", "lv": "Latvian",
+    "lt": "Lithuanian", "mt": "Maltese", "pl": "Polish", "pt": "Portuguese", "ro": "Romanian",
+    "sk": "Slovak", "sl": "Slovenian", "es": "Spanish", "sv": "Swedish",
+}
+
 # Default SNOMED CT version used when building condition/indication codes
 # (the FHIR payload does not carry a version, so we fall back to this constant).
 SNOMED_CODE_SYSTEM = "Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)"
@@ -58,6 +69,7 @@ ELIGIBILITY_CATEGORY_EXCLUSION = {"code": "C25370", "decode": "Exclusion Criteri
 # Confirmed against Input/NCT01750580_limited_tagged_resp.json
 TITLE_TYPE: dict[str, dict] = {
     "short-title": {"code": "C207615", "decode": "Brief Study Title"},
+#     "primary":    {"code": "C207616", "decode": "Official Study Title"},
     "official":    {"code": "C207616", "decode": "Official Study Title"},
     "scientific":  {"code": "C207618", "decode": "Scientific Study Title"},
     # "acronym" intentionally omitted — C207617 vs C94108 unresolved, see plan
