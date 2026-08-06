@@ -96,6 +96,15 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
             ctx, party, contained
         )
 
+        # --- resolve organizationId from OrganizationsBuilder index ----------
+        # OrganizationsBuilder (priority 10) stores a name → org_id mapping at
+        # 'version._orgsByName'.  The label produced above is the canonical org
+        # name (location.title for Location-backed sponsors, org display for
+        # PractitionerRole-backed parties), so a direct lookup is sufficient.
+        orgs_by_name: dict = ctx.get("version._orgsByName") or {}
+        org_id_ref = orgs_by_name.get(label)
+        organization_ids = [org_id_ref] if org_id_ref else []
+
         # --- assemble StudyRole ----------------------------------------------
         role_id = ctx.next_id("StudyRole")
         return {
@@ -107,7 +116,7 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
             "code": code_obj,
             "appliesToIds": ["StudyVersion_0"],
             "assignedPersons": assigned_persons,
-            "organizationIds": [],
+            "organizationIds": organization_ids,
             "masking": None,
             "notes": [],
             "instanceType": "StudyRole",
@@ -167,6 +176,14 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
             return party_name, []
 
         resource_type = contained.get("resourceType")
+
+        if resource_type == "Location":
+            # Sponsor backed by a contained Location (lead-sponsor / collaborator).
+            # The Location.title is the canonical org name — same value that
+            # OrganizationsBuilder stores in version._orgsByName, so the
+            # organizationIds lookup in _build_role() will find a match.
+            org_label = contained.get("title") or party_name
+            return org_label, []
 
         if resource_type == "PractitionerRole":
             # Best-quality path: PractitionerRole has org + practitioner + jobTitle

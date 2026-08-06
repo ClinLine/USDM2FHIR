@@ -20,9 +20,27 @@ SNOMED_CODE_SYSTEM_VERSION = "2025-02-01"
 # Used by builders that construct Code objects from non-CDISC FHIR codings
 # (e.g. SNOMED CT condition codes on eligibility criteria).
 FHIR_SYSTEM_TO_USDM_CODE_SYSTEM: dict[str, str] = {
-    "http://snomed.info/sct": "Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)",
-    "http://loinc.org": "Logical Observation Identifiers Names and Codes (LOINC)",
-    "http://www.nlm.nih.gov/research/umls/rxnorm": "RxNorm",
+    # --- Terminology systems ---
+    "http://snomed.info/sct":                                                         "Systematic Nomenclature of Medicine - Clinical Terms (IHTSDO)",
+    "http://loinc.org":                                                               "Logical Observation Identifiers Names and Codes (LOINC)",
+    "http://www.nlm.nih.gov/research/umls/rxnorm":                                   "RxNorm",
+    # --- ICD families ---
+    "http://hl7.org/fhir/sid/icd-10-cm":                                             "International Classification of Diseases, 10th Revision, Clinical Modification (ICD-10-CM)",
+    "http://hl7.org/fhir/sid/icd-10-pcs":                                            "International Classification of Diseases, 10th Revision, Procedure Coding System (ICD-10-PCS)",
+    "http://hl7.org/fhir/sid/icd-9-cm":                                              "International Classification of Diseases, 9th Revision, Clinical Modification (ICD-9-CM)",
+    "urn:oid:2.16.840.1.113883.6.43.1":                                              "International Classification of Diseases for Oncology, Third Edition (ICD-O-3)",
+    # --- CMS / payer code sets ---
+    "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets":                      "Healthcare Common Procedure Coding System (HCPCS)",
+    "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalOutpatientPPS": "Ambulatory Payment Classification (APC)",
+    "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/AcuteInpatientPPS":     "Diagnosis-Related Group (DRG)",
+    # --- Research / registry / national code sets ---
+    "https://www.naaccr.org":                "North American Association of Central Cancer Registries (NAACCR)",
+    "https://ohdsi.org":                     "Observational Medical Outcomes Partnership Extension (OMOP)",
+    "https://allofus.nih.gov":               "All of Us Research Program Participant-Provided Information (PPI)",
+    "https://biobank.ctsu.ox.ac.uk":         "UK Biobank",
+    "https://classbrowser.nhs.uk":           "OPCS Classification of Interventions and Procedures Version 4 (OPCS-4)",
+    "http://read.info/readv2":               "Read Codes Version 2 (CTV2)",
+    "https://www.unmc.edu/nebraska-lexicon": "Nebraska Lexicon",
 }
 
 # LOINC code that marks a "Condition" characteristic inside an eligibility Group.
@@ -283,6 +301,20 @@ ASSOCIATED_PARTY_ROLE: dict[str, dict] = {
 # Fixed Organization.type code used when the affiliation type is unknown.
 # Mirrors readi_core's Organization::getType() fallback.
 ORG_TYPE_UNKNOWN: dict = {"code": "C17998", "decode": "Unknown"}
+
+# ResearchStudy.associatedParty[].classifier[].text (sponsor subtype, upper-cased)
+# → Organization.type Code.
+# Mirrors readi_core SponsorsMappedTypes::getStudyTypeMapping():
+#   OTHER          → C17998  Unknown
+#   FED / NIH      → C199144 Government Institute
+#   INDUSTRY       → EXT0015 Industry
+# Any other / absent classifier → falls back to ORG_TYPE_UNKNOWN above.
+ORG_TYPE_BY_SPONSOR_SUBTYPE: dict[str, dict] = {
+    "OTHER":    {"code": "C17998",  "decode": "Unknown"},
+    "FED":      {"code": "C199144", "decode": "Government Institute"},
+    "NIH":      {"code": "C199144", "decode": "Government Institute"},
+    "INDUSTRY": {"code": "EXT0015", "decode": "Industry"},
+}
 
 # StudyIntervention.role codes — mirrors StudyInterventionsSectionBuilder.php
 # title contains "placebo" → Placebo; otherwise → Experimental Intervention
