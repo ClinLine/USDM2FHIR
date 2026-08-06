@@ -72,7 +72,7 @@ TITLE_TYPE: dict[str, dict] = {
 #     "primary":    {"code": "C207616", "decode": "Official Study Title"},
     "official":    {"code": "C207616", "decode": "Official Study Title"},
     "scientific":  {"code": "C207618", "decode": "Scientific Study Title"},
-    # "acronym" intentionally omitted — C207617 vs C94108 unresolved, see plan
+    "acronym":  {"code": "C207646", "decode": "Study Acronym"},
 }
 
 # ResearchStudy.objective.type.coding.code  →  Objective.level Code
