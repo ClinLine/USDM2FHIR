@@ -10,6 +10,9 @@
   },
   "classifier": [
     {
+      "text": "Study Population Source: Subjects With Selected Advanced Tumor"
+    },
+    {
       "coding": [
         {
           "code": "includes-ages-18-64",
@@ -58,12 +61,44 @@
       "text": "Minimum Age: 18 Years"
     },
     {
-      "text": "Maximum Age: 74 Years"
+      "text": "Maximum Age: 120 Years"
     }
   ],
   "comparisonGroup": [
     {
-      "name": "Paclitaxel polymer micelle immunocombination"
+      "name": "Lirilumab + Ipilimumab"
+    }
+  ],
+  "condition": [
+    {
+      "coding": [
+        {
+          "code": "254637007",
+          "display": "Non-small cell lung cancer",
+          "system": "http://snomed.info/sct"
+        }
+      ],
+      "text": "Non-Small Cell Lung Cancer (NSCLC)"
+    },
+    {
+      "coding": [
+        {
+          "code": " 427492003",
+          "display": "Hormone refractory prostate cancer",
+          "system": "http://snomed.info/sct"
+        }
+      ],
+      "text": "Castrate Resistant Prostate Cancer (CRPC)"
+    },
+    {
+      "coding": [
+        {
+          "code": " 372244006",
+          "display": "Malignant melanoma",
+          "system": "http://snomed.info/sct"
+        }
+      ],
+      "text": "Melanoma (MEL)"
     }
   ],
   "extension": [
@@ -77,11 +112,11 @@
         },
         "valueRange": {
           "low": {
-            "value": 18,
+            "value": 18.0,
             "unit": "Year"
           },
           "high": {
-            "value": 74,
+            "value": 120.0,
             "unit": "Year"
           }
         }
@@ -91,13 +126,13 @@
   "identifier": [
     {
       "assigner": {
-        "display": "Peking Union Medical College Hospital"
+        "display": "Bristol-Myers Squibb"
       },
       "type": {
         "text": "study identifier"
       },
       "use": "official",
-      "value": "K6146"
+      "value": "CA223-002"
     },
     {
       "system": "http://terminology.hl7.org/NamingSystem/ClinicalTrials-Gov",
@@ -105,10 +140,36 @@
         "text": "study identifier"
       },
       "use": "official",
-      "value": "NCT07159204"
+      "value": "NCT01750580"
     }
   ],
   "label": [
+    {
+      "language": "nl",
+      "type": {
+        "coding": [
+          {
+            "code": "short-title",
+            "display": "Short title",
+            "system": "http://hl7.org/fhir/title-type"
+          }
+        ]
+      },
+      "value": "Safety studie met BMS-986015 (Anti-KIR) in combinatie met Ipilimumab in patienten met een gespecificeerde gevorderde tumor"
+    },
+    {
+      "language": "fr",
+      "type": {
+        "coding": [
+          {
+            "code": "short-title",
+            "display": "Short title",
+            "system": "http://hl7.org/fhir/title-type"
+          }
+        ]
+      },
+      "value": "\u00c9tude de tol\u00e9rance du BMS-986015 (anti-KIR) en combinaison avec l'ipilimumab chez des sujets atteints de tumeurs avanc\u00e9es s\u00e9lectionn\u00e9es."
+    },
     {
       "type": {
         "coding": [
@@ -119,31 +180,7 @@
           }
         ]
       },
-      "value": "Polymeric Micellar Paclitaxel-Based Combination Therapy for Advanced Biliary Tract Cancer"
-    },
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "plain-language",
-            "display": "Plain language title",
-            "system": "http://hl7.org/fhir/title-type"
-          }
-        ]
-      },
-      "value": "Polymeric Micellar Paclitaxel-Based Combination Therapy for Advanced Biliary Tract Cancer"
-    },
-    {
-      "type": {
-        "coding": [
-          {
-            "code": "acronym",
-            "display": "Acronym",
-            "system": "http://hl7.org/fhir/title-type"
-          }
-        ]
-      },
-      "value": "PILOT-BTC"
+      "value": "Safety Study of BMS-986015 (Anti-KIR) in Combination With Ipilimumab in Subjects With Selected Advanced Tumor"
     },
     {
       "type": {
@@ -155,16 +192,16 @@
           }
         ]
       },
-      "value": "Polymeric Micellar Paclitaxel-Based Chemoimmunotherapy Plus Lenvatinib After First-Line Chemoimmunotherapy in Advanced Biliary Tract Cancer"
+      "value": "A Phase 1 Study of BMS-986015, an Anti-KIR Monoclonal Antibody, Administered With Ipilimumab, an Anti-CTLA4 Monoclonal Antibody, in Subjects With Select Advanced Solid Tumors"
     }
   ],
   "objective": [
     {
-      "name": "Primary Objective",
+      "name": "Primary objective texts not available from ClinicalTrials.gov.",
       "outcomeMeasure": [
         {
           "endpoint": {
-            "display": "Objective response rate (ORR) [Time Frame: From baseline until the earliest of documented disease progression, initiation of new anticancer therapy, or the primary outcome data cutoff, assessed up to 24 months.]"
+            "display": "Safety as measured by the rate of adverse events, and serious adverse events [Time Frame: Approximately 510 days]"
           },
           "type": {
             "coding": [
@@ -188,11 +225,13 @@
       }
     },
     {
-      "name": "Secondary Objective",
+      "name": "Secondary objective texts not available from ClinicalTrials.gov.",
       "outcomeMeasure": [
         {
           "endpoint": {
-            "display": "Disease control rate [Time Frame: From baseline until the earliest of documented disease progression, initiation of new anticancer therapy, or the tumor response data cutoff, assessed up to 24 months.]"
+            "reference": "#BiomedicalConcept_01",
+            "type": "EvidenceVariable",
+            "display": "Efficacy as measured by tumor assessment [Time Frame: Assessed from the start of treatment (ay 1) to the end of treatment (week 60) and for 90 days in follow-up]"
           },
           "type": {
             "coding": [
@@ -206,7 +245,7 @@
         },
         {
           "endpoint": {
-            "display": "Progression-Free Survival (PFS) [Time Frame: From the first dose of study treatment to the first documented disease progression according to RECIST v1.1 or death from any cause, whichever occurred first, assessed up to 36 months.]"
+            "display": "The maximum observed serum concentration (Cmax) of BMS-986015 and Ipilimumab"
           },
           "type": {
             "coding": [
@@ -220,7 +259,7 @@
         },
         {
           "endpoint": {
-            "display": "Overall Survival (OS) [Time Frame: From the first dose of study treatment to death from any cause, assessed up to 36 months.]"
+            "display": "The time of maximum observed serum concentration (Tmax) of BMS-986015 and Ipilimumab"
           },
           "type": {
             "coding": [
@@ -234,7 +273,105 @@
         },
         {
           "endpoint": {
-            "display": "Safety and Tolerability [Time Frame: From signing informed consent through 28 days after the last dose of study treatment.]"
+            "display": "Area under the serum concentration-time curve in one dosing interval [AUC(TAU)] of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Area under the serum concentration-time curve from time zero extrapolated to infinite time [AUC(INF)] of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Apparent total body clearance (CL) of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Apparent total body clearance (CL) of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Apparent volume of distribution at steady state (Vss) of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Serum half-life (T-HALF) of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Trough observed serum concentration (Cmin) of BMS-986015 and Ipilimumab"
+          },
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "display": "Secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type"
+              }
+            ]
+          }
+        },
+        {
+          "endpoint": {
+            "display": "Immunogenicity as measured by the incidence of Ipilimumab and anti-Killer cell immunoglobulin-like receptor (KIR) (BMS-986015) anti-drug antibodies (ADA)"
           },
           "type": {
             "coding": [
@@ -261,13 +398,46 @@
   "phase": {
     "coding": [
       {
-        "code": "phase-2",
-        "display": "Phase 2",
+        "code": "phase-1",
+        "display": "Phase 1",
         "system": "http://terminology.hl7.org/CodeSystem/research-study-phase"
       }
     ],
-    "text": "Phase II Trial"
+    "text": "Phase 1"
   },
+  "progressStatus": [
+    {
+      "actual": true,
+      "period": {
+        "start": "2012-12",
+        "end": "2015-04"
+      },
+      "state": {
+        "coding": [
+          {
+            "code": "overall-study",
+            "display": "Overall Study",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-status"
+          }
+        ]
+      }
+    },
+    {
+      "actual": true,
+      "period": {
+        "start": "2015-04"
+      },
+      "state": {
+        "coding": [
+          {
+            "code": "completed",
+            "display": "Completed",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-status"
+          }
+        ]
+      }
+    }
+  ],
   "purposeType": [
     {
       "coding": [
@@ -283,13 +453,33 @@
     "eligibility": {
       "reference": "#eligibility-criteria",
       "type": "Group",
-      "display": "USDM Eligibility Criteria for Polymeric Micellar Paclitaxel-Based Chemoimmunotherapy Plus Lenvatinib After First-Line Chemoimmunotherapy in Advanced Biliary Tract Cancer"
+      "display": "USDM Eligibility Criteria for A Phase 1 Study of BMS-986015, an Anti-KIR Monoclonal Antibody, Administered With Ipilimumab, an Anti-CTLA4 Monoclonal Antibody, in Subjects With Select Advanced Solid Tumors"
     },
-    "targetNumber": 61
+    "targetNumber": 150
   },
   "site": [
     {
-      "reference": "#MANAGESITE_405",
+      "reference": "#MS001",
+      "type": "Location"
+    },
+    {
+      "reference": "#MS002",
+      "type": "Location"
+    },
+    {
+      "reference": "#MS003",
+      "type": "Location"
+    },
+    {
+      "reference": "#MS004",
+      "type": "Location"
+    },
+    {
+      "reference": "#MS005",
+      "type": "Location"
+    },
+    {
+      "reference": "#MS006",
       "type": "Location"
     }
   ],
@@ -321,7 +511,7 @@
       "text": "Design Masking: None (Open Label)"
     }
   ],
-  "title": "Polymeric Micellar Paclitaxel-Based Chemoimmunotherapy Plus Lenvatinib After First-Line Chemoimmunotherapy in Advanced Biliary Tract Cancer",
+  "title": "A Phase 1 Study of BMS-986015, an Anti-KIR Monoclonal Antibody, Administered With Ipilimumab, an Anti-CTLA4 Monoclonal Antibody, in Subjects With Select Advanced Solid Tumors",
   "contained": [
     {
       "resourceType": "Group",
@@ -336,20 +526,392 @@
       "characteristic": [
         {
           "code": {
+            "text": "Defined by Reference"
+          },
+          "description": "Histologic confirmation of one of the following solid tumors that is advanced (unresectable or metastatic) for dose escalation or cohort expansion:Non-Small Cell Lung Cancer (NSCLC), Castrate Resistant Prostate Cancer (CRPC), Melanoma (MEL)",
+          "exclude": false,
+          "valueReference": {
+            "reference": "#ExtensionClass_ExpRespNode_1",
+            "type": "Group"
+          }
+        },
+        {
+          "code": {
             "text": "Defined by CodeableConcept"
           },
-          "description": "Investigator has obtained informed consent signed by the patient (and/or legal representative) and by the caregiver.",
+          "description": "Subjects with active autoimmune disease, uncontrolled or significant cardiovascular disease",
+          "exclude": true,
+          "valueCodeableConcept": {
+            "text": "Subjects with active autoimmune disease, uncontrolled or significant cardiovascular disease"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Prior therapy with anti- Cytotoxic T-Lymphocyte Antigen 4 (CTLA4) antibody or anti- Killer cell immunoglobulin-like receptor (KIR) antibody",
+          "exclude": true,
+          "valueCodeableConcept": {
+            "text": "Prior therapy with anti- Cytotoxic T-Lymphocyte Antigen 4 (CTLA4) antibody or anti- Killer cell immunoglobulin-like receptor (KIR) antibody"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Grade 2 neuropathy",
+          "exclude": true,
+          "valueCodeableConcept": {
+            "text": "Grade 2 neuropathy"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria",
           "exclude": false,
           "valueCodeableConcept": {
-            "text": "Investigator has obtained informed consent signed by the patient (and/or legal representative) and by the caregiver."
+            "text": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk",
+          "exclude": false,
+          "valueCodeableConcept": {
+            "text": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by Reference"
+          },
+          "description": "Eastern Cooperative Oncology Group (ECOG) status of 0 or 1",
+          "exclude": false,
+          "valueReference": {
+            "reference": "#ExtensionClass_ExpResp_1",
+            "type": "Group"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Estimated life expectancy of >= 12 weeks",
+          "exclude": false,
+          "valueCodeableConcept": {
+            "text": "Estimated life expectancy of >= 12 weeks"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "White blood cell (WBC) >=2000/microL, Neutrophils >=1500/microL, Platelets >= 100x1000/microL, Hemoglobin >= 8.5 g/dL, Creatinine Clearance <= 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) <= 3x ULN",
+          "exclude": false,
+          "valueCodeableConcept": {
+            "text": "White blood cell (WBC) >=2000/microL, Neutrophils >=1500/microL, Platelets >= 100x1000/microL, Hemoglobin >= 8.5 g/dL, Creatinine Clearance <= 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) <= 3x ULN"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Normal Thyroid function or be on stable hormone supplementation",
+          "exclude": false,
+          "valueCodeableConcept": {
+            "text": "Normal Thyroid function or be on stable hormone supplementation"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "description": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint",
+          "exclude": true,
+          "valueCodeableConcept": {
+            "text": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint"
+          }
+        },
+        {
+          "code": {
+            "text": "Defined by Reference"
+          },
+          "description": "Subjects with known or suspected brain metastasis",
+          "exclude": true,
+          "valueReference": {
+            "reference": "#ExtensionClass_ExpResp_5",
+            "type": "Group"
           }
         }
       ],
       "combinationMethod": "all-of"
     },
     {
+      "resourceType": "Group",
+      "id": "ExtensionClass_ExpRespNode_1",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "characteristic": [
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "75323-6",
+                "display": "Condition",
+                "system": "http://loinc.org"
+              }
+            ]
+          },
+          "description": "Solid tumor: Non-small cell lung cancer (NSCLC)) diagnosed during lifetime",
+          "exclude": false,
+          "relativeTime": {
+            "contextCode": {
+              "coding": [
+                {
+                  "code": "709491003",
+                  "display": "Enrollment in clinical trial",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            },
+            "offsetRange": {
+              "high": {
+                "unit": "d",
+                "value": 0
+              },
+              "low": {
+                "unit": "d",
+                "value": -43800
+              }
+            }
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "254637007",
+                "display": "Non-small cell lung cancer",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "75323-6",
+                "display": "Condition",
+                "system": "http://loinc.org"
+              }
+            ]
+          },
+          "description": "Solid tumor: Castrate Resistant Prostate Cancer (CRPC) diagnosed during lifetime",
+          "exclude": false,
+          "relativeTime": {
+            "contextCode": {
+              "coding": [
+                {
+                  "code": "709491003",
+                  "display": "Enrollment in clinical trial",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            },
+            "offsetRange": {
+              "high": {
+                "unit": "d",
+                "value": 0
+              },
+              "low": {
+                "unit": "d",
+                "value": -43800
+              }
+            }
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": " 427492003",
+                "display": "Hormone refractory prostate cancer",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "75323-6",
+                "display": "Condition",
+                "system": "http://loinc.org"
+              }
+            ]
+          },
+          "description": "Solid tumor: Melanoma (MEL) diagnosed during lifetime",
+          "exclude": false,
+          "relativeTime": {
+            "contextCode": {
+              "coding": [
+                {
+                  "code": "709491003",
+                  "display": "Enrollment in clinical trial",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            },
+            "offsetRange": {
+              "high": {
+                "unit": "d",
+                "value": 0
+              },
+              "low": {
+                "unit": "d",
+                "value": -43800
+              }
+            }
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": " 372244006",
+                "display": "Malignant melanoma",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        }
+      ],
+      "combinationMethod": "any-of",
+      "description": "Node"
+    },
+    {
+      "resourceType": "Group",
+      "id": "ExtensionClass_ExpResp_1",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "characteristic": [
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "89247-1",
+                "display": "ECOG Performance Status Score",
+                "system": "http://loinc.org"
+              }
+            ]
+          },
+          "description": "ECOG of 0 or 1",
+          "exclude": false,
+          "relativeTime": {
+            "contextCode": {
+              "coding": [
+                {
+                  "code": "709491003",
+                  "display": "Enrollment in clinical trial",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            },
+            "offsetRange": {
+              "high": {
+                "unit": "d",
+                "value": 0
+              },
+              "low": {
+                "unit": "d",
+                "value": -28
+              }
+            }
+          },
+          "valueRange": {
+            "high": {
+              "value": 1
+            },
+            "low": {
+              "value": 0
+            }
+          }
+        }
+      ],
+      "combinationMethod": "all-of",
+      "description": "ECOG 0-1"
+    },
+    {
+      "resourceType": "Group",
+      "id": "ExtensionClass_ExpResp_5",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "characteristic": [
+        {
+          "code": {
+            "coding": [
+              {
+                "code": "75323-6",
+                "display": "Condition",
+                "system": "http://loinc.org"
+              }
+            ]
+          },
+          "description": "Brain metastasis",
+          "exclude": true,
+          "relativeTime": {
+            "contextCode": {
+              "coding": [
+                {
+                  "code": "709491003",
+                  "display": "Enrollment in clinical trial",
+                  "system": "http://snomed.info/sct"
+                }
+              ]
+            },
+            "offsetRange": {
+              "high": {
+                "unit": "d",
+                "value": 0
+              },
+              "low": {
+                "unit": "d",
+                "value": -43800
+              }
+            }
+          },
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "94225005",
+                "display": "Metastatic malignant neoplasm to brain",
+                "system": "http://snomed.info/sct"
+              }
+            ]
+          }
+        }
+      ],
+      "combinationMethod": "all-of",
+      "description": "Brain Metastasis"
+    },
+    {
       "resourceType": "Location",
-      "id": "MANAGESITE_405",
+      "id": "MS001",
       "meta": {
         "versionId": "1",
         "lastUpdated": "2026-08-07T00:00:00Z",
@@ -358,14 +920,112 @@
         ]
       },
       "address": {
-        "country": "CHN"
+        "country": "USA"
       },
-      "name": "Site One",
+      "name": "H. Lee Moffitt Cancer Center and Research Institute",
+      "type": "location"
+    },
+    {
+      "resourceType": "Location",
+      "id": "MS002",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "address": {
+        "country": "USA"
+      },
+      "name": "Dana Farber Cancer Institute",
+      "type": "location"
+    },
+    {
+      "resourceType": "Location",
+      "id": "MS003",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "address": {
+        "country": "USA"
+      },
+      "name": "University of Minnesota",
+      "type": "location"
+    },
+    {
+      "resourceType": "Location",
+      "id": "MS004",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "address": {
+        "country": "USA"
+      },
+      "name": "Memorial Sloan Kettering Cancer Ctr",
+      "type": "location"
+    },
+    {
+      "resourceType": "Location",
+      "id": "MS005",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "address": {
+        "country": "USA"
+      },
+      "name": "THe Ohio State University",
+      "type": "location"
+    },
+    {
+      "resourceType": "Location",
+      "id": "MS006",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "address": {
+        "country": "USA"
+      },
+      "name": "Sarah Cannon Research Institute",
       "type": "location"
     },
     {
       "resourceType": "EvidenceVariable",
-      "id": "a1ec3030-921d-11f1-bb38-8abdedc76cb3",
+      "id": "BiomedicalConcept_01",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2026-08-07T00:00:00Z",
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+        ]
+      },
+      "classifier": {
+        "code": "measurement",
+        "display": "Measurement",
+        "system": "http://hl7.org/fhir/evidence-variable-classifier-example"
+      },
+      "name": "WBCBLD_01",
+      "title": "White blood cell (WBC)"
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "StudyIntervention_1",
       "meta": {
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
@@ -373,10 +1033,9 @@
       },
       "classifier": [
         {
-          "text": "Intervention Type: Pharmacologic Substance"
+          "text": "Intervention Type: DRUG"
         }
       ],
-      "description": "Paclitaxel polymer micelle immunocombination",
       "handling": {
         "coding": [
           {
@@ -388,11 +1047,41 @@
       },
       "name": [
         {
-          "text": "Paclitaxel polymer micelle immunocombination"
+          "text": "Lirilumab"
         }
       ],
       "status": "active",
-      "title": "Paclitaxel polymer micelle immunocombination"
+      "title": "Lirilumab"
+    },
+    {
+      "resourceType": "EvidenceVariable",
+      "id": "StudyIntervention_2",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "name": [
+        {
+          "text": "Ipilimumab"
+        }
+      ],
+      "status": "active",
+      "title": "Ipilimumab"
     }
   ]
 }
