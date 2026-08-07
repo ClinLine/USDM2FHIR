@@ -68,11 +68,12 @@ ELIGIBILITY_CATEGORY_EXCLUSION = {"code": "C25370", "decode": "Exclusion Criteri
 # ResearchStudy.label.type.coding.code  →  StudyTitle.type Code
 # Confirmed against Input/NCT01750580_limited_tagged_resp.json
 TITLE_TYPE: dict[str, dict] = {
-    "short-title": {"code": "C207615", "decode": "Brief Study Title"},
-#     "primary":    {"code": "C207616", "decode": "Official Study Title"},
-    "official":    {"code": "C207616", "decode": "Official Study Title"},
-    "scientific":  {"code": "C207618", "decode": "Scientific Study Title"},
-    "acronym":  {"code": "C207646", "decode": "Study Acronym"},
+    "short-title":    {"code": "C207615", "decode": "Brief Study Title"},
+#     "primary":       {"code": "C207616", "decode": "Official Study Title"},
+    "official":       {"code": "C207616", "decode": "Official Study Title"},
+    "plain-language": {"code": "C207617", "decode": "Public Study Title"},
+    "scientific":     {"code": "C207618", "decode": "Scientific Study Title"},
+    "acronym":        {"code": "C207646", "decode": "Study Acronym"},
 }
 
 # ResearchStudy.objective.type.coding.code  →  Objective.level Code

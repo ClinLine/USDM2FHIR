@@ -9,15 +9,17 @@ Identifier use,"study.versions.studyIdentifiers.{id: ""official""}",ResearchStud
 Study titles,study.versions.titles.{id: text},ResearchStudy,label.value,label,StudyTitle,text
 Official title,"study.versions.titles[type.code=""C207616""].{id: text}",ResearchStudy,title,,StudyTitle,text
 Title type,"study.versions.titles.(
-    $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
-    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
-    {id: {""code"": $titleCode(type.code), ""display"": $titleDisplay(type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
+    $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" : $c=""C94108"" ? ""acronym"" : $c=""C207646"" ? ""acronym"" : $c=""C207617"" ? ""plain-language"" : $c=""C207618"" ? ""scientific"" : undefined};
+    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" : $c=""C94108"" ? ""Acronym"" : $c=""C207646"" ? ""Acronym"" : $c=""C207617"" ? ""Plain language title"" : $c=""C207618"" ? ""Scientific title"" : undefined};
+    $code := $titleCode(type.code);
+    $code ? {id: {""code"": $code, ""display"": $titleDisplay(type.code), ""system"":""http://hl7.org/fhir/title-type""}} : undefined)",ResearchStudy,label.type.coding,label,StudyTitle,type
 Translated titles,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
 {$tr.id: $tr.extensionAttributes[url=""text""].valueString}",ResearchStudy,label.value,label,StudyTitle,extension
 Translated title type,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
-(   $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
-    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
-    {$tr.id: {""code"": $titleCode($tt.type.code), ""display"": $titleDisplay($tt.type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
+(   $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" : $c=""C94108"" ? ""acronym"" : $c=""C207646"" ? ""acronym"" : $c=""C207617"" ? ""plain-language"" : $c=""C207618"" ? ""scientific"" : undefined};
+    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" : $c=""C94108"" ? ""Acronym"" : $c=""C207646"" ? ""Acronym"" : $c=""C207617"" ? ""Plain language title"" : $c=""C207618"" ? ""Scientific title"" : undefined};
+    $code := $titleCode($tt.type.code);
+    $code ? {$tr.id: {""code"": $code, ""display"": $titleDisplay($tt.type.code), ""system"":""http://hl7.org/fhir/title-type""}} : undefined)",ResearchStudy,label.type.coding,label,StudyTitle,type
 Translated title language,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
 {$tr.id: $tr.extensionAttributes[url=""language""].valueCode.code}",ResearchStudy,label.language,label,StudyTitle,extension
 Minimum Age text,"{""id01"": ""Minimum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.minValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.minValue.value]) &
