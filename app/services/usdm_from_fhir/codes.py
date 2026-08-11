@@ -220,6 +220,7 @@ STUDY_PHASE: dict[str, dict] = {
 # simply means "no characteristics", not "unknown allocation".
 STUDY_DESIGN_CHARACTERISTIC: dict[str, dict] = {
     "SEVCO:01003": {"code": "C46079", "decode": "Randomized"},
+    "SEVCO:01005": {"code": "C93043", "decode": "Non-Randomized"},
 }
 
 # ResearchStudy.studyDesign[].coding[].code (SEVCO)  →  StudyRole (masking) Code.

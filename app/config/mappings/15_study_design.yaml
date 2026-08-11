@@ -60,11 +60,17 @@ mappings:
     usdm_class: StudyDesign
     usdm_attribute: model
 
-  - item: Study Design allocation (randomized characteristic)
+  - item: Study Design allocation (randomized/non-randomized characteristic)
     usdm_path: |
       study.versions.studyDesigns.(
-        $randomized := characteristics[code = "C46079"];
-        $randomized ? {id & "_allocation": {"coding": [{"system": "https://fevir.net/sevco", "code": "SEVCO:01003", "display": "randomized assignment"}]}} : null
+        $Recode := function($c) {
+          $c = "C46079" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01003", "display": "randomized assignment"} :
+          $c = "C93043" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01005", "display": "non-randomized assignment"} :
+          null
+        };
+        $alloc := characteristics[code = "C46079" or code = "C93043"];
+        $sevco := $Recode($alloc.code);
+        $sevco ? {id & "_allocation": {"coding": [$sevco]}} : null
       )
     fhir_resource: ResearchStudy
     fhir_path: studyDesign
