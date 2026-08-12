@@ -38,3 +38,33 @@ mappings:
     usdm_class: StudySite
     usdm_attribute: country
 
+  - item: site city
+    usdm_path: |
+      study.versions.organizations@$org.(
+        $org.managedSites.{id: $org.legalAddress.city}
+      )
+    fhir_resource: Location
+    fhir_path: address.city
+    usdm_class: Address
+    usdm_attribute: city
+
+  - item: site state
+    usdm_path: |
+      study.versions.organizations@$org.(
+        $org.managedSites.{id: $org.legalAddress.state}
+      )
+    fhir_resource: Location
+    fhir_path: address.state
+    usdm_class: Address
+    usdm_attribute: state
+
+  - item: site postal code
+    usdm_path: |
+      study.versions.organizations@$org.(
+        $org.managedSites.{id: $org.legalAddress.postalCode}
+      )
+    fhir_resource: Location
+    fhir_path: address.postalCode
+    usdm_class: Address
+    usdm_attribute: postalCode
+

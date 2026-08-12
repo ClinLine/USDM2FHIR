@@ -161,6 +161,15 @@ location id,study.versions.organizations.managedSites.{id: id},Location,id,,,
 site name,study.versions.organizations.managedSites.{id: label},Location,name,,StudySite,label
 site type,"study.versions.organizations.managedSites.{id: ""location""}",Location,type,,,
 site country,study.versions.organizations.managedSites.{id: country.code},Location,address.country,,StudySite,country
+site city,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.city}
+)",Location,address.city,,Address,city
+site state,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.state}
+)",Location,address.state,,Address,state
+site postal code,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.postalCode}
+)",Location,address.postalCode,,Address,postalCode
 Reference to group of criteria,"{""eligibility-criteria"": {""reference"": ""#eligibility-criteria"", ""type"":""Group""}}",ResearchStudy,recruitment.eligibility,,,
 Eligibility display (official or short title),"(
   $officialTitle := study.versions.titles[type.code=""C207616""].text;

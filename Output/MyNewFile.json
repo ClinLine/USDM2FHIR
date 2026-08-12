@@ -3,7 +3,7 @@
   "id": "123",
   "meta": {
     "versionId": "1",
-    "lastUpdated": "2026-08-07T00:00:00Z",
+    "lastUpdated": "2026-08-12T00:00:00Z",
     "profile": [
       "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
     ]
@@ -518,7 +518,7 @@
       "id": "eligibility-criteria",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -655,7 +655,7 @@
       "id": "ExtensionClass_ExpRespNode_1",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -799,7 +799,7 @@
       "id": "ExtensionClass_ExpResp_1",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -856,7 +856,7 @@
       "id": "ExtensionClass_ExpResp_5",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
@@ -914,13 +914,15 @@
       "id": "MS001",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "33612",
+        "state": "FL"
       },
       "name": "H. Lee Moffitt Cancer Center and Research Institute",
       "type": "location"
@@ -930,13 +932,15 @@
       "id": "MS002",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "02215",
+        "state": "MS"
       },
       "name": "Dana Farber Cancer Institute",
       "type": "location"
@@ -946,13 +950,15 @@
       "id": "MS003",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "55455",
+        "state": "MN"
       },
       "name": "University of Minnesota",
       "type": "location"
@@ -962,13 +968,15 @@
       "id": "MS004",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "10065",
+        "state": "FL"
       },
       "name": "Memorial Sloan Kettering Cancer Ctr",
       "type": "location"
@@ -978,13 +986,15 @@
       "id": "MS005",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "43210",
+        "state": "FL"
       },
       "name": "THe Ohio State University",
       "type": "location"
@@ -994,13 +1004,15 @@
       "id": "MS006",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]
       },
       "address": {
-        "country": "USA"
+        "country": "USA",
+        "postalCode": "37203",
+        "state": "FL"
       },
       "name": "Sarah Cannon Research Institute",
       "type": "location"
@@ -1010,7 +1022,7 @@
       "id": "BiomedicalConcept_01",
       "meta": {
         "versionId": "1",
-        "lastUpdated": "2026-08-07T00:00:00Z",
+        "lastUpdated": "2026-08-12T00:00:00Z",
         "profile": [
           "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
         ]

@@ -1,5 +1,5 @@
 """
-OrganizationsBuilder — ResearchStudy.identifier + associatedParty → USDM organizations array.
+OrganizationsBuilder — ResearchStudy.identifier + associatedParty + site[] → USDM organizations array.
 
 Priority 10 (runs first) so IdentifiersBuilder (priority 20) can look up
 organizations by name from the context bag.
@@ -7,7 +7,7 @@ organizations by name from the context bag.
 Creates all organizations and stores a name → org_id index at
 'version._orgsByName' for other builders to consume.
 
-Sources (both are merged, deduplication by org name):
+Sources (all merged, deduplication by org name):
   1. identifier[].assigner / system   — as before (fallback when no associatedParty)
   2. associatedParty[party.type=Location] + contained[Location]
        — mirrors the INVERSE of readi_core's ResearchAssociatedPartyBuilder
@@ -16,6 +16,18 @@ Sources (both are merged, deduplication by org name):
        — classifier[0].text carries the sponsor subtype (OTHER/INDUSTRY/FED/NIH)
          which maps to an Organization.type Code via codes.ORG_TYPE_BY_SPONSOR_SUBTYPE,
          matching SponsorsMappedTypes::getStudyTypeMapping() in readi_core.
+  3. site[] + contained[Location]      — study-site organizations, one per entry
+       — mirrors the INVERSE of readi_core's
+         OrganizationsSectionBuilder::buildLocationOrganizations() (Symfony side)
+         + ResearchContainedBuilder::addLocationFromOrganizationSite() (FHIR side).
+         Unlike source 2, these Locations carry no associatedParty back-reference
+         (confirmed on Input/pilot_FHIR.json: 35 site[] entries, 0 of type Location
+         in associatedParty) — each is its own independent organization, named
+         "ORG_<n>", typed Academic Institution (name contains "research hospital"
+         / "research institute") or Unknown otherwise, and given a single synthetic
+         managedSites entry mirroring UsdmBuildContext::buildManagedSites() (label
+         "Site One", country resolved name → alpha-3 via codes.resolve_country_alpha3,
+         itself ported from CountryType::COUNTRY_ALPHA3_MAP).
 """
 
 from __future__ import annotations
@@ -32,6 +44,17 @@ CT_GOV_SYSTEM = "http://terminology.hl7.org/NamingSystem/ClinicalTrials-Gov"
 # FHIR party types that carry a contained Location reference.
 # Only these two are built by readi_core's ResearchAssociatedPartyBuilder.
 _LOCATION_PARTY_TYPE = "Location"
+
+# Substrings (case-insensitive) that mark a study-site organization as an
+# Academic Institution. Mirrors readi_core's inline heuristic in
+# OrganizationsSectionBuilder::buildLocationOrganizations() /
+# buildOwnerOrganization() / UsdmBuildContext::createOrganizationObjectFromSponsor().
+_ACADEMIC_INSTITUTION_MARKERS = ("research hospital", "research institute")
+
+# Fixed managedSites label — UsdmBuildContext::buildManagedSites() is always
+# called with its default label ('Site One') throughout readi_core, never a
+# custom one, so there is nothing in FHIR to reconstruct it from.
+_MANAGED_SITE_LABEL = "Site One"
 
 
 class _Assigner(TypedDict, total=False):
@@ -133,6 +156,48 @@ class OrganizationsBuilder(AbstractSectionBuilder):
                 organizations.append(org)
                 by_name[display] = org_id
 
+        # ── 3. site[] + contained[Location]  (study-site organizations) ────────
+        # Mirrors the INVERSE of readi_core OrganizationsSectionBuilder::
+        # buildLocationOrganizations(). Independent of source 2 above — these
+        # Locations aren't referenced from associatedParty.
+        for site_entry in context.fhir.get("site") or []:
+            if site_entry.get("type") != _LOCATION_PARTY_TYPE:
+                continue
+
+            ref_str: str = site_entry.get("reference") or ""
+            loc_id = ref_str.lstrip("#")
+            location: dict = contained_locations.get(loc_id) or {}
+
+            site_name: str | None = location.get("name")
+            if not site_name or site_name in by_name:
+                continue
+
+            raw_address: dict | list = location.get("address") or {}
+            if isinstance(raw_address, list):
+                raw_address = {}
+            city        = raw_address.get("city") or ""
+            state       = raw_address.get("state") or ""
+            country     = raw_address.get("country") or ""
+            postal_code = raw_address.get("postalCode") or ""
+
+            site_name_lower = site_name.lower()
+            is_academic_institution = any(marker in site_name_lower for marker in _ACADEMIC_INSTITUTION_MARKERS)
+            type_code = codes.ORG_TYPE_ACADEMIC_INSTITUTION if is_academic_institution else codes.ORG_TYPE_BY_SPONSOR_SUBTYPE["OTHER"]
+
+            org_id = f"Organization_{len(organizations)}"
+            org = _make_org(
+                org_id=org_id,
+                label=site_name,
+                name=f"ORG_{len(organizations)}",
+                type_code=type_code,
+                city=city,
+                state=state,
+                country=country,
+                postal_code=postal_code,
+            )
+            org["managedSites"] = _build_managed_sites(context, country)
+            organizations.append(org)
+            by_name[site_name] = org_id
 
         # Store name → org_id index for IdentifiersBuilder (and future builders)
         context.set("version._orgsByName", by_name)
@@ -150,6 +215,27 @@ def _build_location_index(contained: list) -> dict[str, dict]:
         for item in contained
         if isinstance(item, dict) and item.get("resourceType") == "Location" and item.get("id")
     }
+
+
+def _build_managed_sites(context: UsdmBuildContext, country_name: str) -> list[dict]:
+    """
+    Single synthetic managedSites entry mirroring UsdmBuildContext::buildManagedSites().
+    Skips (returns []) when the country is absent or doesn't resolve to an
+    alpha-3 code — matches buildManagedSites()'s own early-return behaviour
+    rather than emitting a managedSite with a guessed/blank country.
+    """
+    alpha3 = codes.resolve_country_alpha3(country_name)
+    if alpha3 is None:
+        return []
+
+    counter = context.next_attr_counter()
+    return [{
+        "id": f"ManagedSite_{counter}",
+        "name": f"MS{counter}",
+        "label": _MANAGED_SITE_LABEL,
+        "country": context.make_code(alpha3, country_name),
+        "instanceType": "StudySite",
+    }]
 
 
 def _make_org(

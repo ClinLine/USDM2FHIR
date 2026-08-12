@@ -18,7 +18,7 @@
             "name": "STUDYDESIGN_1",
             "label": "",
             "studyType": {
-              "id": "Code_36",
+              "id": "Code_71",
               "code": "C98388",
               "decode": "Interventional Study",
               "codeSystem": "http://www.cdisc.org",
@@ -26,7 +26,7 @@
               "instanceType": "Code"
             },
             "model": {
-              "id": "Code_38",
+              "id": "Code_73",
               "code": "C17998",
               "decode": "Unknown",
               "codeSystem": "http://www.cdisc.org",
@@ -35,7 +35,7 @@
             },
             "intentTypes": [
               {
-                "id": "Code_43",
+                "id": "Code_78",
                 "code": "C49656",
                 "decode": "Treatment Study",
                 "codeSystem": "http://www.cdisc.org",
@@ -48,7 +48,7 @@
               "id": "AliasCode_2",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_44",
+                "id": "Code_79",
                 "code": "C15693",
                 "decode": "Phase I/II Trial",
                 "codeSystem": "http://www.cdisc.org",
@@ -60,7 +60,7 @@
             },
             "characteristics": [
               {
-                "id": "Code_37",
+                "id": "Code_72",
                 "code": "C46079",
                 "decode": "Randomized",
                 "codeSystem": "http://www.cdisc.org",
@@ -72,7 +72,7 @@
               "id": "AliasCode_3",
               "extensionAttributes": [],
               "standardCode": {
-                "id": "Code_51",
+                "id": "Code_86",
                 "code": "C49659",
                 "decode": "OPEN LABEL",
                 "codeSystem": "http://www.cdisc.org",
@@ -87,7 +87,7 @@
                 "id": "Objective_0",
                 "name": "OBJECTIVE_0",
                 "level": {
-                  "id": "Code_2",
+                  "id": "Code_37",
                   "code": "C85826",
                   "decode": "Study Primary Objective",
                   "codeSystem": "http://www.cdisc.org",
@@ -103,7 +103,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_3",
+                      "id": "Code_38",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -119,7 +119,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_4",
+                      "id": "Code_39",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -135,7 +135,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_5",
+                      "id": "Code_40",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -151,7 +151,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_6",
+                      "id": "Code_41",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -167,7 +167,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_7",
+                      "id": "Code_42",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -183,7 +183,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_8",
+                      "id": "Code_43",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -199,7 +199,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_9",
+                      "id": "Code_44",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -215,7 +215,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_10",
+                      "id": "Code_45",
                       "code": "C94496",
                       "decode": "Primary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -233,7 +233,7 @@
                 "id": "Objective_1",
                 "name": "OBJECTIVE_1",
                 "level": {
-                  "id": "Code_11",
+                  "id": "Code_46",
                   "code": "C85827",
                   "decode": "Study Secondary Objective",
                   "codeSystem": "http://www.cdisc.org",
@@ -249,7 +249,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_12",
+                      "id": "Code_47",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -265,7 +265,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_13",
+                      "id": "Code_48",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -281,7 +281,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_14",
+                      "id": "Code_49",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -297,7 +297,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_15",
+                      "id": "Code_50",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -313,7 +313,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_16",
+                      "id": "Code_51",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -329,7 +329,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_17",
+                      "id": "Code_52",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -345,7 +345,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_18",
+                      "id": "Code_53",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -361,7 +361,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_19",
+                      "id": "Code_54",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -377,7 +377,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_20",
+                      "id": "Code_55",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -393,7 +393,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_21",
+                      "id": "Code_56",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -409,7 +409,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_22",
+                      "id": "Code_57",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -425,7 +425,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_23",
+                      "id": "Code_58",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -441,7 +441,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_24",
+                      "id": "Code_59",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -457,7 +457,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_25",
+                      "id": "Code_60",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -473,7 +473,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_26",
+                      "id": "Code_61",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -489,7 +489,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_27",
+                      "id": "Code_62",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -505,7 +505,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_28",
+                      "id": "Code_63",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -521,7 +521,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_29",
+                      "id": "Code_64",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -537,7 +537,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_30",
+                      "id": "Code_65",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -553,7 +553,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_31",
+                      "id": "Code_66",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -569,7 +569,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_32",
+                      "id": "Code_67",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -585,7 +585,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_33",
+                      "id": "Code_68",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -601,7 +601,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_34",
+                      "id": "Code_69",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -617,7 +617,7 @@
                     "purpose": "",
                     "notes": [],
                     "level": {
-                      "id": "Code_35",
+                      "id": "Code_70",
                       "code": "C139173",
                       "decode": "Secondary Endpoint",
                       "codeSystem": "http://www.cdisc.org",
@@ -649,7 +649,7 @@
               "plannedCompletionNumber": null,
               "plannedSex": [
                 {
-                  "id": "Code_39",
+                  "id": "Code_74",
                   "code": "C16576",
                   "decode": "Female",
                   "codeSystem": "http://www.cdisc.org",
@@ -657,7 +657,7 @@
                   "instanceType": "Code"
                 },
                 {
-                  "id": "Code_40",
+                  "id": "Code_75",
                   "code": "C20197",
                   "decode": "Male",
                   "codeSystem": "http://www.cdisc.org",
@@ -678,7 +678,7 @@
                     "id": "AliasCode_0",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_41",
+                      "id": "Code_76",
                       "code": "C29848",
                       "decode": "Year",
                       "codeSystem": "http://www.cdisc.org",
@@ -698,7 +698,7 @@
                     "id": "AliasCode_1",
                     "extensionAttributes": [],
                     "standardCode": {
-                      "id": "Code_42",
+                      "id": "Code_77",
                       "code": "C29848",
                       "decode": "Year",
                       "codeSystem": "http://www.cdisc.org",
@@ -724,7 +724,7 @@
                 "label": "Part I",
                 "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_61",
+                  "id": "Code_96",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -733,7 +733,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_62",
+                  "id": "Code_97",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -751,7 +751,7 @@
                 "label": "Part II",
                 "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_63",
+                  "id": "Code_98",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -760,7 +760,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_64",
+                  "id": "Code_99",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -778,7 +778,7 @@
                 "label": "Part III",
                 "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_65",
+                  "id": "Code_100",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -787,7 +787,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_66",
+                  "id": "Code_101",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -869,7 +869,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_67",
+                  "id": "Code_102",
                   "code": "C202487",
                   "decode": "Screening Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -888,7 +888,7 @@
                 "label": "Treatment",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_68",
+                  "id": "Code_103",
                   "code": "C101526",
                   "decode": "Treatment Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -968,7 +968,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_69",
+                      "id": "Code_104",
                       "code": "C201358",
                       "decode": "Fixed Reference",
                       "codeSystem": "http://www.cdisc.org",
@@ -978,7 +978,7 @@
                     "value": "P0D",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_70",
+                      "id": "Code_105",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1052,7 +1052,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_71",
+                      "id": "Code_106",
                       "code": "C201357",
                       "decode": "Before",
                       "codeSystem": "http://www.cdisc.org",
@@ -1062,7 +1062,7 @@
                     "value": "P120Y",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_72",
+                      "id": "Code_107",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1083,7 +1083,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_73",
+                      "id": "Code_108",
                       "code": "C201358",
                       "decode": "Fixed Reference",
                       "codeSystem": "http://www.cdisc.org",
@@ -1093,7 +1093,7 @@
                     "value": "P0D",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_74",
+                      "id": "Code_109",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1227,7 +1227,7 @@
             "name": "STUDYTITLE_0",
             "text": "An Open-Label, Phase I/II Study to Evaluate the Safety, Pharmacokinetics and Preliminary Anti-Tumor Activity of Englumafusp Alfa (RO7227166, A CD19 Targeted 4-1BB Ligand) in Combination With Obinutuzumab and in Combination With Glofitamab Following a Pre-treatment Dose of Obinutuzumab Administered in Participants With Relapsed/Refractory B-Cell Non-Hodgkin's Lymphoma",
             "type": {
-              "id": "Code_1",
+              "id": "Code_36",
               "code": "C207616",
               "decode": "Official Study Title",
               "codeSystem": "http://www.cdisc.org",
@@ -1319,6 +1319,1476 @@
             "identifierScheme": "Unknown",
             "managedSites": [],
             "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_3",
+            "extensionAttributes": [],
+            "name": "ORG_3",
+            "label": "City of Hope Medical Center",
+            "type": {
+              "id": "Organization_3_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_3_Address",
+              "text": "Pasadena, California, 91105, United States",
+              "lines": [],
+              "city": "Pasadena",
+              "state": "California",
+              "postalCode": "91105",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_1",
+                "name": "MS1",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_1",
+                  "code": "USA",
+                  "decode": "United States",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_4",
+            "extensionAttributes": [],
+            "name": "ORG_4",
+            "label": "University of California San Francisco",
+            "type": {
+              "id": "Organization_4_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_4_Address",
+              "text": "San Francisco, California, 94158, United States",
+              "lines": [],
+              "city": "San Francisco",
+              "state": "California",
+              "postalCode": "94158",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_2",
+                "name": "MS2",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_2",
+                  "code": "USA",
+                  "decode": "United States",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_5",
+            "extensionAttributes": [],
+            "name": "ORG_5",
+            "label": "Washington University School of Medicine",
+            "type": {
+              "id": "Organization_5_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_5_Address",
+              "text": "St Louis, Missouri, 63110, United States",
+              "lines": [],
+              "city": "St Louis",
+              "state": "Missouri",
+              "postalCode": "63110",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_3",
+                "name": "MS3",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_3",
+                  "code": "USA",
+                  "decode": "United States",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_6",
+            "extensionAttributes": [],
+            "name": "ORG_6",
+            "label": "The University of Texas MD Anderson Cancer Center",
+            "type": {
+              "id": "Organization_6_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_6_Address",
+              "text": "Houston, Texas, 77030-4009, United States",
+              "lines": [],
+              "city": "Houston",
+              "state": "Texas",
+              "postalCode": "77030-4009",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_4",
+                "name": "MS4",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_4",
+                  "code": "USA",
+                  "decode": "United States",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_7",
+            "extensionAttributes": [],
+            "name": "ORG_7",
+            "label": "Peter Maccallum Cancer Centre",
+            "type": {
+              "id": "Organization_7_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_7_Address",
+              "text": "Melbourne, Victoria, 3000, Australia",
+              "lines": [],
+              "city": "Melbourne",
+              "state": "Victoria",
+              "postalCode": "3000",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_5",
+                "name": "MS5",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_5",
+                  "code": "AUS",
+                  "decode": "Australia",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_8",
+            "extensionAttributes": [],
+            "name": "ORG_8",
+            "label": "The Alfred Hospital",
+            "type": {
+              "id": "Organization_8_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_8_Address",
+              "text": "Melbourne, Victoria, 3004, Australia",
+              "lines": [],
+              "city": "Melbourne",
+              "state": "Victoria",
+              "postalCode": "3004",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_6",
+                "name": "MS6",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_6",
+                  "code": "AUS",
+                  "decode": "Australia",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_9",
+            "extensionAttributes": [],
+            "name": "ORG_9",
+            "label": "UZ Gent",
+            "type": {
+              "id": "Organization_9_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_9_Address",
+              "text": "Ghent, 9000, Belgium",
+              "lines": [],
+              "city": "Ghent",
+              "state": "",
+              "postalCode": "9000",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_7",
+                "name": "MS7",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_7",
+                  "code": "BEL",
+                  "decode": "Belgium",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_10",
+            "extensionAttributes": [],
+            "name": "ORG_10",
+            "label": "Queen Elizabeth II Health Sciences Centre",
+            "type": {
+              "id": "Organization_10_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_10_Address",
+              "text": "Halifax, Nova Scotia, B3H 2Y9, Canada",
+              "lines": [],
+              "city": "Halifax",
+              "state": "Nova Scotia",
+              "postalCode": "B3H 2Y9",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_8",
+                "name": "MS8",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_8",
+                  "code": "CAN",
+                  "decode": "Canada",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_11",
+            "extensionAttributes": [],
+            "name": "ORG_11",
+            "label": "Jewish General Hospital",
+            "type": {
+              "id": "Organization_11_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_11_Address",
+              "text": "Montreal, Quebec, H3T 1E2, Canada",
+              "lines": [],
+              "city": "Montreal",
+              "state": "Quebec",
+              "postalCode": "H3T 1E2",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_9",
+                "name": "MS9",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_9",
+                  "code": "CAN",
+                  "decode": "Canada",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_12",
+            "extensionAttributes": [],
+            "name": "ORG_12",
+            "label": "Beijing Cancer Hospital",
+            "type": {
+              "id": "Organization_12_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_12_Address",
+              "text": "Beijing, 100142, China",
+              "lines": [],
+              "city": "Beijing",
+              "state": "",
+              "postalCode": "100142",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_10",
+                "name": "MS10",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_10",
+                  "code": "CHN",
+                  "decode": "China",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_13",
+            "extensionAttributes": [],
+            "name": "ORG_13",
+            "label": "Shandong Cancer Hospital",
+            "type": {
+              "id": "Organization_13_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_13_Address",
+              "text": "Jinan, 250117, China",
+              "lines": [],
+              "city": "Jinan",
+              "state": "",
+              "postalCode": "250117",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_11",
+                "name": "MS11",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_11",
+                  "code": "CHN",
+                  "decode": "China",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_14",
+            "extensionAttributes": [],
+            "name": "ORG_14",
+            "label": "Fudan University Shanghai Cancer Center",
+            "type": {
+              "id": "Organization_14_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_14_Address",
+              "text": "Shanghai, 201315, China",
+              "lines": [],
+              "city": "Shanghai",
+              "state": "",
+              "postalCode": "201315",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_12",
+                "name": "MS12",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_12",
+                  "code": "CHN",
+                  "decode": "China",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_15",
+            "extensionAttributes": [],
+            "name": "ORG_15",
+            "label": "The First Affiliated Hospital of Xiamen University",
+            "type": {
+              "id": "Organization_15_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_15_Address",
+              "text": "Xiamen, 361003, China",
+              "lines": [],
+              "city": "Xiamen",
+              "state": "",
+              "postalCode": "361003",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_13",
+                "name": "MS13",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_13",
+                  "code": "CHN",
+                  "decode": "China",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_16",
+            "extensionAttributes": [],
+            "name": "ORG_16",
+            "label": "Aarhus Universitetshospital Skejby",
+            "type": {
+              "id": "Organization_16_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_16_Address",
+              "text": "Aarhus N, 8200, Denmark",
+              "lines": [],
+              "city": "Aarhus N",
+              "state": "",
+              "postalCode": "8200",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_14",
+                "name": "MS14",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_14",
+                  "code": "DNK",
+                  "decode": "Denmark",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_17",
+            "extensionAttributes": [],
+            "name": "ORG_17",
+            "label": "Rigshospitalet",
+            "type": {
+              "id": "Organization_17_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_17_Address",
+              "text": "K\u00f8benhavn \u00d8, 2100, Denmark",
+              "lines": [],
+              "city": "K\u00f8benhavn \u00d8",
+              "state": "",
+              "postalCode": "2100",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_15",
+                "name": "MS15",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_15",
+                  "code": "DNK",
+                  "decode": "Denmark",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_18",
+            "extensionAttributes": [],
+            "name": "ORG_18",
+            "label": "Odense Universitetshospital",
+            "type": {
+              "id": "Organization_18_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_18_Address",
+              "text": "Odense C, 5000, Denmark",
+              "lines": [],
+              "city": "Odense C",
+              "state": "",
+              "postalCode": "5000",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_16",
+                "name": "MS16",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_16",
+                  "code": "DNK",
+                  "decode": "Denmark",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_19",
+            "extensionAttributes": [],
+            "name": "ORG_19",
+            "label": "CHRU de Lille",
+            "type": {
+              "id": "Organization_19_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_19_Address",
+              "text": "Lille, 59037, France",
+              "lines": [],
+              "city": "Lille",
+              "state": "",
+              "postalCode": "59037",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_17",
+                "name": "MS17",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_17",
+                  "code": "FRA",
+                  "decode": "France",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_20",
+            "extensionAttributes": [],
+            "name": "ORG_20",
+            "label": "CHU Montpellier - Saint ELOI",
+            "type": {
+              "id": "Organization_20_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_20_Address",
+              "text": "Montpellier, 34295, France",
+              "lines": [],
+              "city": "Montpellier",
+              "state": "",
+              "postalCode": "34295",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_18",
+                "name": "MS18",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_18",
+                  "code": "FRA",
+                  "decode": "France",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_21",
+            "extensionAttributes": [],
+            "name": "ORG_21",
+            "label": "Centre Hospitalier Lyon Sud",
+            "type": {
+              "id": "Organization_21_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_21_Address",
+              "text": "Pierre-B\u00e9nite, 69495, France",
+              "lines": [],
+              "city": "Pierre-B\u00e9nite",
+              "state": "",
+              "postalCode": "69495",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_19",
+                "name": "MS19",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_19",
+                  "code": "FRA",
+                  "decode": "France",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_22",
+            "extensionAttributes": [],
+            "name": "ORG_22",
+            "label": "CHU DE RENNES - CHU Pontchaillou",
+            "type": {
+              "id": "Organization_22_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_22_Address",
+              "text": "Rennes, 35033, France",
+              "lines": [],
+              "city": "Rennes",
+              "state": "",
+              "postalCode": "35033",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_20",
+                "name": "MS20",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_20",
+                  "code": "FRA",
+                  "decode": "France",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_23",
+            "extensionAttributes": [],
+            "name": "ORG_23",
+            "label": "Istituto Nazionale Tumori Irccs Fondazione g. Pascale",
+            "type": {
+              "id": "Organization_23_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_23_Address",
+              "text": "Naples, Campania, 80131, Italy",
+              "lines": [],
+              "city": "Naples",
+              "state": "Campania",
+              "postalCode": "80131",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_21",
+                "name": "MS21",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_21",
+                  "code": "ITA",
+                  "decode": "Italy",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_24",
+            "extensionAttributes": [],
+            "name": "ORG_24",
+            "label": "Asst Papa Giovanni Xxiii",
+            "type": {
+              "id": "Organization_24_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_24_Address",
+              "text": "Bergamo, Lombardy, 24127, Italy",
+              "lines": [],
+              "city": "Bergamo",
+              "state": "Lombardy",
+              "postalCode": "24127",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_22",
+                "name": "MS22",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_22",
+                  "code": "ITA",
+                  "decode": "Italy",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_25",
+            "extensionAttributes": [],
+            "name": "ORG_25",
+            "label": "Irccs Istituto Europeo Di Oncologia (IEO)",
+            "type": {
+              "id": "Organization_25_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_25_Address",
+              "text": "Milan, Lombardy, 20141, Italy",
+              "lines": [],
+              "city": "Milan",
+              "state": "Lombardy",
+              "postalCode": "20141",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_23",
+                "name": "MS23",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_23",
+                  "code": "ITA",
+                  "decode": "Italy",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_26",
+            "extensionAttributes": [],
+            "name": "ORG_26",
+            "label": "Istituto Clinico Humanitas",
+            "type": {
+              "id": "Organization_26_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_26_Address",
+              "text": "Rozzano, Lombardy, 20089, Italy",
+              "lines": [],
+              "city": "Rozzano",
+              "state": "Lombardy",
+              "postalCode": "20089",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_24",
+                "name": "MS24",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_24",
+                  "code": "ITA",
+                  "decode": "Italy",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_27",
+            "extensionAttributes": [],
+            "name": "ORG_27",
+            "label": "Auckland City Hospital, Cancer and Blood Research",
+            "type": {
+              "id": "Organization_27_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_27_Address",
+              "text": "Auckland, 1023, New Zealand",
+              "lines": [],
+              "city": "Auckland",
+              "state": "",
+              "postalCode": "1023",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_25",
+                "name": "MS25",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_25",
+                  "code": "NZL",
+                  "decode": "New Zealand",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_28",
+            "extensionAttributes": [],
+            "name": "ORG_28",
+            "label": "Waikato Hospital - Cancer and Blood Research Trials Unit",
+            "type": {
+              "id": "Organization_28_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_28_Address",
+              "text": "Hamilton, 3204, New Zealand",
+              "lines": [],
+              "city": "Hamilton",
+              "state": "",
+              "postalCode": "3204",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_26",
+                "name": "MS26",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_26",
+                  "code": "NZL",
+                  "decode": "New Zealand",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_29",
+            "extensionAttributes": [],
+            "name": "ORG_29",
+            "label": "Pusan National University Hospital",
+            "type": {
+              "id": "Organization_29_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_29_Address",
+              "text": "Busan, 49241, South Korea",
+              "lines": [],
+              "city": "Busan",
+              "state": "",
+              "postalCode": "49241",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_27",
+                "name": "MS27",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_27",
+                  "code": "KOR",
+                  "decode": "South Korea",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_30",
+            "extensionAttributes": [],
+            "name": "ORG_30",
+            "label": "Seoul National University Hospital",
+            "type": {
+              "id": "Organization_30_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_30_Address",
+              "text": "Seoul, 03080, South Korea",
+              "lines": [],
+              "city": "Seoul",
+              "state": "",
+              "postalCode": "03080",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_28",
+                "name": "MS28",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_28",
+                  "code": "KOR",
+                  "decode": "South Korea",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_31",
+            "extensionAttributes": [],
+            "name": "ORG_31",
+            "label": "Asan Medical Center",
+            "type": {
+              "id": "Organization_31_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_31_Address",
+              "text": "Seoul, 05505, South Korea",
+              "lines": [],
+              "city": "Seoul",
+              "state": "",
+              "postalCode": "05505",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_29",
+                "name": "MS29",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_29",
+                  "code": "KOR",
+                  "decode": "South Korea",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_32",
+            "extensionAttributes": [],
+            "name": "ORG_32",
+            "label": "Samsung Medical Center",
+            "type": {
+              "id": "Organization_32_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_32_Address",
+              "text": "Seoul, 06351, South Korea",
+              "lines": [],
+              "city": "Seoul",
+              "state": "",
+              "postalCode": "06351",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_30",
+                "name": "MS30",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_30",
+                  "code": "KOR",
+                  "decode": "South Korea",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_33",
+            "extensionAttributes": [],
+            "name": "ORG_33",
+            "label": "Hospital Universitari Vall d'Hebron",
+            "type": {
+              "id": "Organization_33_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_33_Address",
+              "text": "Barcelona, 08035, Spain",
+              "lines": [],
+              "city": "Barcelona",
+              "state": "",
+              "postalCode": "08035",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_31",
+                "name": "MS31",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_31",
+                  "code": "ESP",
+                  "decode": "Spain",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_34",
+            "extensionAttributes": [],
+            "name": "ORG_34",
+            "label": "Hospital Univ. 12 de Octubre",
+            "type": {
+              "id": "Organization_34_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_34_Address",
+              "text": "Madrid, 28041, Spain",
+              "lines": [],
+              "city": "Madrid",
+              "state": "",
+              "postalCode": "28041",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_32",
+                "name": "MS32",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_32",
+                  "code": "ESP",
+                  "decode": "Spain",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_35",
+            "extensionAttributes": [],
+            "name": "ORG_35",
+            "label": "Hospital Clinico Universitario Virgen de la Victoria",
+            "type": {
+              "id": "Organization_35_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_35_Address",
+              "text": "M\u00e1laga, 29010, Spain",
+              "lines": [],
+              "city": "M\u00e1laga",
+              "state": "",
+              "postalCode": "29010",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_33",
+                "name": "MS33",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_33",
+                  "code": "ESP",
+                  "decode": "Spain",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_36",
+            "extensionAttributes": [],
+            "name": "ORG_36",
+            "label": "The HOPE Clinical Trials Unit",
+            "type": {
+              "id": "Organization_36_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_36_Address",
+              "text": "Leicester, LE1 5WW, United Kingdom",
+              "lines": [],
+              "city": "Leicester",
+              "state": "",
+              "postalCode": "LE1 5WW",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_34",
+                "name": "MS34",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_34",
+                  "code": "GBR",
+                  "decode": "United Kingdom",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
+          },
+          {
+            "id": "Organization_37",
+            "extensionAttributes": [],
+            "name": "ORG_37",
+            "label": "University College London Hospitals NHS Foundation Trust",
+            "type": {
+              "id": "Organization_37_Type",
+              "code": "C17998",
+              "decode": "Unknown",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "legalAddress": {
+              "id": "Organization_37_Address",
+              "text": "London, W1T 7HA, United Kingdom",
+              "lines": [],
+              "city": "London",
+              "state": "",
+              "postalCode": "W1T 7HA",
+              "instanceType": "Address"
+            },
+            "identifier": "Unknown",
+            "identifierScheme": "Unknown",
+            "managedSites": [
+              {
+                "id": "ManagedSite_35",
+                "name": "MS35",
+                "label": "Site One",
+                "country": {
+                  "id": "Code_35",
+                  "code": "GBR",
+                  "decode": "United Kingdom",
+                  "codeSystem": "http://www.cdisc.org",
+                  "codeSystemVersion": "2025-09-26",
+                  "instanceType": "Code"
+                },
+                "instanceType": "StudySite"
+              }
+            ],
+            "instanceType": "Organization"
           }
         ],
         "dateValues": [
@@ -1329,7 +2799,7 @@
             "label": "Last update posted (Clinical gov provider)",
             "description": "Design approval date",
             "type": {
-              "id": "Code_45",
+              "id": "Code_80",
               "code": "C215664",
               "decode": "Issued Date",
               "codeSystem": "http://www.cdisc.org",
@@ -1342,7 +2812,7 @@
                 "id": "GeographicScope_0",
                 "extensionAttributes": [],
                 "type": {
-                  "id": "Code_46",
+                  "id": "Code_81",
                   "code": "C68846",
                   "decode": "Global",
                   "codeSystem": "http://www.cdisc.org",
@@ -1364,7 +2834,7 @@
             "label": "Study Subject",
             "description": "",
             "code": {
-              "id": "Code_47",
+              "id": "Code_82",
               "code": "C41189",
               "decode": "Study Subject",
               "codeSystem": "http://www.cdisc.org",
@@ -1378,7 +2848,42 @@
             "organizationIds": [
               "Organization_0",
               "Organization_1",
-              "Organization_2"
+              "Organization_2",
+              "Organization_3",
+              "Organization_4",
+              "Organization_5",
+              "Organization_6",
+              "Organization_7",
+              "Organization_8",
+              "Organization_9",
+              "Organization_10",
+              "Organization_11",
+              "Organization_12",
+              "Organization_13",
+              "Organization_14",
+              "Organization_15",
+              "Organization_16",
+              "Organization_17",
+              "Organization_18",
+              "Organization_19",
+              "Organization_20",
+              "Organization_21",
+              "Organization_22",
+              "Organization_23",
+              "Organization_24",
+              "Organization_25",
+              "Organization_26",
+              "Organization_27",
+              "Organization_28",
+              "Organization_29",
+              "Organization_30",
+              "Organization_31",
+              "Organization_32",
+              "Organization_33",
+              "Organization_34",
+              "Organization_35",
+              "Organization_36",
+              "Organization_37"
             ],
             "masking": {
               "id": "Masking_0",
@@ -1397,7 +2902,7 @@
             "label": "Care Provider",
             "description": "",
             "code": {
-              "id": "Code_48",
+              "id": "Code_83",
               "code": "C17445",
               "decode": "Care Provider",
               "codeSystem": "http://www.cdisc.org",
@@ -1411,7 +2916,42 @@
             "organizationIds": [
               "Organization_0",
               "Organization_1",
-              "Organization_2"
+              "Organization_2",
+              "Organization_3",
+              "Organization_4",
+              "Organization_5",
+              "Organization_6",
+              "Organization_7",
+              "Organization_8",
+              "Organization_9",
+              "Organization_10",
+              "Organization_11",
+              "Organization_12",
+              "Organization_13",
+              "Organization_14",
+              "Organization_15",
+              "Organization_16",
+              "Organization_17",
+              "Organization_18",
+              "Organization_19",
+              "Organization_20",
+              "Organization_21",
+              "Organization_22",
+              "Organization_23",
+              "Organization_24",
+              "Organization_25",
+              "Organization_26",
+              "Organization_27",
+              "Organization_28",
+              "Organization_29",
+              "Organization_30",
+              "Organization_31",
+              "Organization_32",
+              "Organization_33",
+              "Organization_34",
+              "Organization_35",
+              "Organization_36",
+              "Organization_37"
             ],
             "masking": {
               "id": "Masking_1",
@@ -1430,7 +2970,7 @@
             "label": "Investigator",
             "description": "",
             "code": {
-              "id": "Code_49",
+              "id": "Code_84",
               "code": "C25936",
               "decode": "Investigator",
               "codeSystem": "http://www.cdisc.org",
@@ -1444,7 +2984,42 @@
             "organizationIds": [
               "Organization_0",
               "Organization_1",
-              "Organization_2"
+              "Organization_2",
+              "Organization_3",
+              "Organization_4",
+              "Organization_5",
+              "Organization_6",
+              "Organization_7",
+              "Organization_8",
+              "Organization_9",
+              "Organization_10",
+              "Organization_11",
+              "Organization_12",
+              "Organization_13",
+              "Organization_14",
+              "Organization_15",
+              "Organization_16",
+              "Organization_17",
+              "Organization_18",
+              "Organization_19",
+              "Organization_20",
+              "Organization_21",
+              "Organization_22",
+              "Organization_23",
+              "Organization_24",
+              "Organization_25",
+              "Organization_26",
+              "Organization_27",
+              "Organization_28",
+              "Organization_29",
+              "Organization_30",
+              "Organization_31",
+              "Organization_32",
+              "Organization_33",
+              "Organization_34",
+              "Organization_35",
+              "Organization_36",
+              "Organization_37"
             ],
             "masking": {
               "id": "Masking_2",
@@ -1463,7 +3038,7 @@
             "label": "Outcomes Assessor",
             "description": "",
             "code": {
-              "id": "Code_50",
+              "id": "Code_85",
               "code": "C207599",
               "decode": "Outcomes Assessor",
               "codeSystem": "http://www.cdisc.org",
@@ -1477,7 +3052,42 @@
             "organizationIds": [
               "Organization_0",
               "Organization_1",
-              "Organization_2"
+              "Organization_2",
+              "Organization_3",
+              "Organization_4",
+              "Organization_5",
+              "Organization_6",
+              "Organization_7",
+              "Organization_8",
+              "Organization_9",
+              "Organization_10",
+              "Organization_11",
+              "Organization_12",
+              "Organization_13",
+              "Organization_14",
+              "Organization_15",
+              "Organization_16",
+              "Organization_17",
+              "Organization_18",
+              "Organization_19",
+              "Organization_20",
+              "Organization_21",
+              "Organization_22",
+              "Organization_23",
+              "Organization_24",
+              "Organization_25",
+              "Organization_26",
+              "Organization_27",
+              "Organization_28",
+              "Organization_29",
+              "Organization_30",
+              "Organization_31",
+              "Organization_32",
+              "Organization_33",
+              "Organization_34",
+              "Organization_35",
+              "Organization_36",
+              "Organization_37"
             ],
             "masking": {
               "id": "Masking_3",
@@ -1496,7 +3106,7 @@
             "label": "Hoffmann-La Roche",
             "description": "",
             "code": {
-              "id": "Code_52",
+              "id": "Code_87",
               "code": "C70793",
               "decode": "Sponsor",
               "codeSystem": "http://www.cdisc.org",
@@ -1524,7 +3134,7 @@
             "label": "Englumafusp alfa",
             "description": "Englumafusp alfa will be administered by intravenous (IV) infusion three-weekly (Q3W) in combination with a fixed dose of obinutuzumab (Part I) and in combination with a fixed dose of glofitamab (Part II and Part III).",
             "type": {
-              "id": "Code_53",
+              "id": "Code_88",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -1532,7 +3142,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_54",
+              "id": "Code_89",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -1551,7 +3161,7 @@
             "label": "Obinutuzumab",
             "description": "A fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa, then in combination with obinutuzumab Q3W (Part I).\n\nA fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa or between Day -3 and -7 (Part II and Part III).",
             "type": {
-              "id": "Code_55",
+              "id": "Code_90",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -1559,7 +3169,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_56",
+              "id": "Code_91",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -1578,7 +3188,7 @@
             "label": "Glofitamab",
             "description": "A fixed dose of glofitamab will be administered Q3W in combination with englumafusp alfa in Part II and Part III",
             "type": {
-              "id": "Code_57",
+              "id": "Code_92",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -1586,7 +3196,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_58",
+              "id": "Code_93",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -1605,7 +3215,7 @@
             "label": "Tocilizumab",
             "description": "Participants will receive IV tocilizumab as needed to treat cytokine release syndrome (CRS).",
             "type": {
-              "id": "Code_59",
+              "id": "Code_94",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -1613,7 +3223,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_60",
+              "id": "Code_95",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
