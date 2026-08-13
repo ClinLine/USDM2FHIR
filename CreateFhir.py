@@ -70,7 +70,7 @@ def get_USDM_info(MapFile,USDMFile):
                     if cell_id is not None:
                         if cell_id not in RowIds:
                             RowIds.append(cell_id)
-                        if (USDM_Path.find('criterionItem') != -1 or USDM_Path.find('objectives') != -1) and USDM_Path.find('text') != -1:
+                        if (USDM_Path.find('criterionItem') != -1 or USDM_Path.find('objectives') != -1) and USDM_Path.find('text') != -1 and isinstance(cell[cell_id], str):
                             try:
                                 cell[cell_id] = ResolveTags.ResolveTag(cell[cell_id], data)
                             except Exception as e:

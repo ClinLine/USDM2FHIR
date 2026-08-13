@@ -45,6 +45,13 @@ CT_GOV_SYSTEM = "http://terminology.hl7.org/NamingSystem/ClinicalTrials-Gov"
 # Only these two are built by readi_core's ResearchAssociatedPartyBuilder.
 _LOCATION_PARTY_TYPE = "Location"
 
+# Associated-party role codes that represent organizations (no assignedPersons).
+# These parties carry only a `name` field (no party.reference), so they need
+# to be materialized as top-level organizations here so that AssociatedPartyRolesBuilder
+# (priority 57) can resolve their organizationIds via version._orgsByName.
+# "sponsor" = co-sponsor (C215669), added alongside lead-sponsor (C70793).
+_ORG_ROLE_CODES: frozenset[str] = frozenset({"lead-sponsor", "sponsor", "collaborator"})
+
 # Substrings (case-insensitive) that mark a study-site organization as an
 # Academic Institution. Mirrors readi_core's inline heuristic in
 # OrganizationsSectionBuilder::buildLocationOrganizations() /
@@ -129,7 +136,44 @@ class OrganizationsBuilder(AbstractSectionBuilder):
             organizations.append(org)
             by_name[org_name] = org_id
 
-        # ── 2. identifier[].assigner / system  (legacy / fallback) ─────────────
+        # ── 2. associatedParty plain-name org roles (no party reference) ─────────
+        # Handles lead-sponsor, sponsor (co-sponsor), collaborator entries that
+        # carry only a `name` field (no party.reference / party.type).
+        # These are created here so that AssociatedPartyRolesBuilder can resolve
+        # their org IDs from version._orgsByName (MaskingRolesBuilder also uses
+        # the lead-sponsor org ID for masking roles).
+        for party_entry in context.fhir.get("associatedParty") or []:
+            party_ref: dict = party_entry.get("party") or {}
+            # Skip entries with any kind of party reference (handled by source 1 or
+            # by AssociatedPartyRolesBuilder via the contained resource).
+            if party_ref.get("reference") or party_ref.get("type") or party_ref.get("display"):
+                continue
+
+            # Only create organizations for the three org-type roles.
+            fhir_role_code = _extract_party_role_code(party_entry)
+            if fhir_role_code not in _ORG_ROLE_CODES:
+                continue
+
+            org_name: str | None = party_entry.get("name")
+            if not org_name or org_name in by_name:
+                continue
+
+            # Subtype classifier (if present) drives the Organization.type code.
+            classifier_list: list = party_entry.get("classifier") or []
+            subtype: str = ((classifier_list[0] if classifier_list else {}).get("text") or "").upper()
+            type_code: dict = codes.ORG_TYPE_BY_SPONSOR_SUBTYPE.get(subtype, codes.ORG_TYPE_UNKNOWN)
+
+            org_id = f"Organization_{len(organizations)}"
+            org = _make_org(
+                org_id=org_id,
+                label=org_name,
+                name=org_name.upper(),
+                type_code=type_code,
+            )
+            organizations.append(org)
+            by_name[org_name] = org_id
+
+        # ── 3. identifier[].assigner / system  (legacy / fallback) ─────────────
         # Keeps backward compatibility when associatedParty is absent (e.g. the
         # NCT01750580 test file which has no associatedParty array).
         identifiers: list[_Identifier] = context.fhir.get("identifier") or []
@@ -156,7 +200,7 @@ class OrganizationsBuilder(AbstractSectionBuilder):
                 organizations.append(org)
                 by_name[display] = org_id
 
-        # ── 3. site[] + contained[Location]  (study-site organizations) ────────
+        # ── 4. site[] + contained[Location]  (study-site organizations) ────────
         # Mirrors the INVERSE of readi_core OrganizationsSectionBuilder::
         # buildLocationOrganizations(). Independent of source 2 above — these
         # Locations aren't referenced from associatedParty.
@@ -207,6 +251,16 @@ class OrganizationsBuilder(AbstractSectionBuilder):
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+def _extract_party_role_code(party: dict) -> str | None:
+    """Return the first role coding code from an associatedParty entry, or None."""
+    role = party.get("role") or {}
+    for coding in role.get("coding") or []:
+        code = coding.get("code") if isinstance(coding, dict) else None
+        if code:
+            return code
+    return None
+
 
 def _build_location_index(contained: list) -> dict[str, dict]:
     """Return a dict mapping contained Location.id → location resource dict."""

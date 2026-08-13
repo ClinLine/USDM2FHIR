@@ -513,6 +513,14 @@ Extension age range (artifact-useContext from plannedAge),"study.versions.studyD
     }
   }} : null
 )",ResearchStudy,extension,extension,PopulationDefinition,plannedAge
+Associated party name — lead-sponsor (organization label),"study.versions.roles[code.code = ""C70793""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
+Associated party role code — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""lead-sponsor""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""Lead sponsor""}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party name — co-sponsor (organization label),"study.versions.roles[code.code = ""C215669""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
+Associated party role code — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""sponsor""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""Sponsor""}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
 Associated party name (assigned person),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].text}",ResearchStudy,associatedParty.name,associatedParty,AssignedPerson,text
 Associated party role code,"study.versions.roles[code.code = ""EXT0003""].{id: ""sponsor-investigator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
 Associated party role display,"study.versions.roles[code.code = ""EXT0003""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
@@ -533,16 +541,10 @@ Contained PractitionerRole id — primary-investigator,"study.versions.roles[cod
 Contained PractitionerRole code text — primary-investigator (job title),"study.versions.roles[code.code = ""C19924""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
 Contained PractitionerRole organization display — primary-investigator (role label),"study.versions.roles[code.code = ""C19924""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
 Contained PractitionerRole practitioner display — primary-investigator (assigned person name),"study.versions.roles[code.code = ""C19924""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
-Associated party name — collaborator (assigned person),"study.versions.roles[code.code = ""EXT0004""].{id: assignedPersons[0].text}",ResearchStudy,associatedParty.name,associatedParty,AssignedPerson,text
+Associated party name — collaborator (organization label),"study.versions.roles[code.code = ""EXT0004""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
 Associated party role code — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: ""collaborator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
 Associated party role display — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
 Associated party role system — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
-Associated party reference — collaborator (points to contained PractitionerRole),"study.versions.roles[code.code = ""EXT0004""].{id: ""#"" & id}",ResearchStudy,associatedParty.party.reference,associatedParty,StudyRole,id
-Associated party reference type — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: ""PractitionerRole""}",ResearchStudy,associatedParty.party.type,associatedParty,,
-Contained PractitionerRole id — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: id}",PractitionerRole,id,,StudyRole,id
-Contained PractitionerRole code text — collaborator (job title),"study.versions.roles[code.code = ""EXT0004""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
-Contained PractitionerRole organization display — collaborator (role label),"study.versions.roles[code.code = ""EXT0004""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
-Contained PractitionerRole practitioner display — collaborator (assigned person name),"study.versions.roles[code.code = ""EXT0004""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
 Intervention evidence variable id,study.versions.studyInterventions.{id: id},EvidenceVariable,id,,StudyIntervention,id
 Intervention evidence variable meta profile,"study.versions.studyInterventions.{id: ""http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition""}",EvidenceVariable,meta.profile,profile,,
 Intervention evidence variable name,"study.versions.studyInterventions.{id: {""text"": label}}",EvidenceVariable,name,name,StudyIntervention,label

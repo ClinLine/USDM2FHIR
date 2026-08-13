@@ -61,14 +61,34 @@ class MaskingRolesBuilder(AbstractSectionBuilder):
             if isinstance(text, str) and MASKING_NONE_TEXT_MARKER in text.lower():
                 open_label = True
 
-        # Collect all non-registry org IDs already built by OrganizationsBuilder (priority 10).
-        # Skip Clinical Study Registries (type code C93453, e.g. ClinicalTrials.gov).
-        org_ids: list[str] = [
-            o["id"]
-            for o in (context.get("version.organizations") or [])
-            if isinstance(o, dict) and o.get("id")
-            and (o.get("type") or {}).get("code") != "C93453"
-        ]
+        # Collect the organization IDs to attach to every masking role.
+        # Preferred strategy: find the lead-sponsor's org from the name → org_id
+        # index built by OrganizationsBuilder (priority 10).  The lead-sponsor
+        # is the most relevant owner for masking roles (mirrors readi_core
+        # RolesSectionBuilder which attaches the owner's org to all masking roles).
+        orgs_by_name: dict = context.get("version._orgsByName") or {}
+
+        org_ids: list[str] = []
+        for party in context.fhir.get("associatedParty") or []:
+            role = party.get("role") or {}
+            for coding in role.get("coding") or []:
+                if isinstance(coding, dict) and coding.get("code") == "lead-sponsor":
+                    sponsor_name = party.get("name") or ""
+                    sponsor_org_id = orgs_by_name.get(sponsor_name)
+                    if sponsor_org_id:
+                        org_ids = [sponsor_org_id]
+                    break
+            if org_ids:
+                break
+
+        # Fallback: use all non-registry organizations already built.
+        if not org_ids:
+            org_ids = [
+                o["id"]
+                for o in (context.get("version.organizations") or [])
+                if isinstance(o, dict) and o.get("id")
+                and (o.get("type") or {}).get("code") != "C93453"
+            ]
 
         if matched_codes:
             return [self._build_role(context, code, is_masked=True, org_ids=org_ids) for code in matched_codes]

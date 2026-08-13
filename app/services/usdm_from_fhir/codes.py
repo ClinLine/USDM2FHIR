@@ -306,9 +306,10 @@ DATA_ORIGIN_DESCRIPTION_WITHIN_STUDY = "Data collected from subjects"
 # mapped to any USDM StudyRole in readi_core — builders that consume them skip
 # unrecognised codes via lookup_code returning None.
 ASSOCIATED_PARTY_ROLE: dict[str, dict] = {
-    "lead-sponsor":          {"code": "C70793", "decode": "Sponsor"},
+    "lead-sponsor":          {"code": "C70793",  "decode": "Sponsor"},
+    "sponsor":               {"code": "C215669", "decode": "Co-Sponsor"},
     "sponsor-investigator":  {"code": "EXT0003", "decode": "Sponsor-Investigator"},
-    "primary-investigator":  {"code": "C19924", "decode": "Principal investigator"},
+    "primary-investigator":  {"code": "C19924",  "decode": "Principal investigator"},
     "collaborator":          {"code": "EXT0004", "decode": "Collaborator"},
 }
 
