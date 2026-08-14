@@ -1,0 +1,129 @@
+description: "Study design type mappings — ResearchStudy.studyDesign (SEVCO codes from studyType + cohort count)"
+
+mappings:
+  - item: Study Design type (from studyType)
+    usdm_path: |
+      study.versions.studyDesigns.studyType.(
+        $Recode := function($c) {
+          $c = "C98388" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01001", "display": "interventional research"} :
+          $c = "C16084" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01002", "display": "observational research"} :
+          $c = "C98722" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01038", "display": "expanded access study"} :
+          null
+        };
+        $sevco := $Recode(code);
+        $nci := {"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl", "code": code, "display": decode};
+        $sevco ? {id: {"coding": [$sevco, $nci]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: studyType
+
+  - item: Study Design cohort design (from intervention model)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        $Recode := function($c) {
+          $c = "C82640" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01016", "display": "uncontrolled cohort design"} :
+          $c = "C82639" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01011", "display": "parallel cohort design"} :
+          $c = "C82637" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01012", "display": "crossover cohort design"} :
+          null
+        };
+        $sevco := $Recode(model.code);
+        $sevco ? {id & "_cohort_design": {"coding": [$sevco]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: model
+
+  - item: Study Design observational model (from observational model)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        $Recode := function($c) {
+          $c = "C15208" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "COHORT", "display": "Cohort"} :
+          $c = "C15197" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_CONTROL", "display": "Case-Control"} :
+          $c = "C15362" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_ONLY", "display": "Case-Only"} :
+          $c = "C127779" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "CASE_CROSSOVER", "display": "Case-Crossover"} :
+          $c = "C127780" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "ECOLOGIC_OR_COMMUNITY", "display": "Ecologic or Community"} :
+          $c = "C15407" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "FAMILY_BASED", "display": "Family-Based"} :
+          $c = "EXT0011" ? {"system": "https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel", "code": "OTHER", "display": "Other"} :
+          null
+        };
+        $ctgov := $Recode(model.code);
+        $ctgov ? {id & "_observational_model": {"coding": [$ctgov]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: model
+
+  - item: Study Design allocation (randomized/non-randomized characteristic)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        $Recode := function($c) {
+          $c = "C46079" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01003", "display": "randomized assignment"} :
+          $c = "C93043" ? {"system": "https://fevir.net/sevco", "code": "SEVCO:01005", "display": "non-randomized assignment"} :
+          null
+        };
+        $alloc := characteristics[code = "C46079" or code = "C93043"];
+        $sevco := $Recode($alloc.code);
+        $sevco ? {id & "_allocation": {"coding": [$sevco]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyDesign
+    usdm_attribute: characteristics
+
+  - item: Study Design masking (masked roles → SEVCO blinding codes)
+    usdm_path: |
+      study.versions.roles[
+        (code.code = "C41189" or code.code = "C17445" or code.code = "C25936" or code.code = "C207599")
+        and masking.isMasked = true
+      ].(
+        $Recode := function($c) {
+          $c = "C41189" ? {"code": "SEVCO:01060", "display": "Blinding of study participants"} :
+          $c = "C17445" ? {"code": "SEVCO:01061", "display": "Blinding of intervention providers"} :
+          $c = "C25936" ? {"code": "SEVCO:01063", "display": "Blinding of investigators"} :
+          $c = "C207599" ? {"code": "SEVCO:01062", "display": "Blinding of outcome assessors"} :
+          null
+        };
+        $sevco := $Recode(code.code);
+        $sevco ? {id: {"coding": [{"system": "https://fevir.net/sevco", "code": $sevco.code, "display": $sevco.display}]}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyRole
+    usdm_attribute: masking
+
+  - item: Study Design masking (open label — no masked role found)
+    usdm_path: |
+      study.versions.(
+        $maskingRoles := roles[
+          code.code = "C41189" or code.code = "C17445" or code.code = "C25936" or code.code = "C207599"
+        ];
+        $count($maskingRoles) > 0 and $count($maskingRoles[masking.isMasked = true]) = 0 ?
+          {id & "_masking_none": {"text": "Design Masking: None (Open Label)"}} :
+          null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: studyDesign
+    fhir_index: studyDesign
+    usdm_class: StudyVersion
+    usdm_attribute: roles
+
+  - item: Study Population Source (population description free text)
+    usdm_path: |
+      study.versions.studyDesigns.(
+        population.description ? {id & "_population_source": {"text": "Study Population Source: " & population.description}} : null
+      )
+    fhir_resource: ResearchStudy
+    fhir_path: classifier
+    fhir_index: classifier
+    usdm_class: StudyDesignPopulation
+    usdm_attribute: description
+

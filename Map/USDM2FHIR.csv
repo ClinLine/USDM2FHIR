@@ -2,28 +2,30 @@ Item,USDM JSONata path,FHIR resourceType,FHIR path,FHIR Index level,USDM class,U
 Condition label,study.versions.studyDesigns.indications.{id: label},ResearchStudy,condition.text,condition,Indication,label
 Condition code,"study.versions.studyDesigns.indications.{id: {""code"": codes.code, ""display"": codes.decode, ""system"": codes.codeSystem}}",ResearchStudy,condition.coding,condition,Indication,codes
 Study Identifier,study.versions.studyIdentifiers.{id: text},ResearchStudy,identifier.value,identifier,StudyIdentifier,text
-Study Identifier FHIR type,"study.versions.studyIdentifiers.{id: ""study identifier""}",ResearchStudy,identifier.codeableConcept.text,identifier,StudyIdentifier,
+Study Identifier FHIR type,"study.versions.studyIdentifiers.{id: ""study identifier""}",ResearchStudy,identifier.type.text,identifier,StudyIdentifier,
 Study Identifier Organization,(study.versions)@$sv.$sv.studyIdentifiers@$id.$id{id: $sv.organizations[id=$id.scopeId].label},ResearchStudy,identifier.assigner.display,identifier,StudyIdentifier,scope
 NCT identifier system,"study.versions.studyIdentifiers[$substring(text,0,3)=""NCT""].{id: ""http://terminology.hl7.org/NamingSystem/ClinicalTrials-Gov""}",ResearchStudy,identifier.system,identifier,StudyIdentifier,
 Identifier use,"study.versions.studyIdentifiers.{id: ""official""}",ResearchStudy,identifier.use,identifier,,
 Study titles,study.versions.titles.{id: text},ResearchStudy,label.value,label,StudyTitle,text
 Official title,"study.versions.titles[type.code=""C207616""].{id: text}",ResearchStudy,title,,StudyTitle,text
 Title type,"study.versions.titles.(
-    $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
-    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
-    {id: {""code"": $titleCode(type.code), ""display"": $titleDisplay(type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
+    $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" : $c=""C94108"" ? ""acronym"" : $c=""C207646"" ? ""acronym"" : $c=""C207617"" ? ""plain-language"" : $c=""C207618"" ? ""scientific"" : undefined};
+    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" : $c=""C94108"" ? ""Acronym"" : $c=""C207646"" ? ""Acronym"" : $c=""C207617"" ? ""Plain language title"" : $c=""C207618"" ? ""Scientific title"" : undefined};
+    $code := $titleCode(type.code);
+    $code ? {id: {""code"": $code, ""display"": $titleDisplay(type.code), ""system"":""http://hl7.org/fhir/title-type""}} : undefined)",ResearchStudy,label.type.coding,label,StudyTitle,type
 Translated titles,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
 {$tr.id: $tr.extensionAttributes[url=""text""].valueString}",ResearchStudy,label.value,label,StudyTitle,extension
 Translated title type,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
-(   $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
-    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
-    {$tr.id: {""code"": $titleCode($tt.type.code), ""display"": $titleDisplay($tt.type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
+(   $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" : $c=""C94108"" ? ""acronym"" : $c=""C207646"" ? ""acronym"" : $c=""C207617"" ? ""plain-language"" : $c=""C207618"" ? ""scientific"" : undefined};
+    $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" : $c=""C94108"" ? ""Acronym"" : $c=""C207646"" ? ""Acronym"" : $c=""C207617"" ? ""Plain language title"" : $c=""C207618"" ? ""Scientific title"" : undefined};
+    $code := $titleCode($tt.type.code);
+    $code ? {$tr.id: {""code"": $code, ""display"": $titleDisplay($tt.type.code), ""system"":""http://hl7.org/fhir/title-type""}} : undefined)",ResearchStudy,label.type.coding,label,StudyTitle,type
 Translated title language,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
 {$tr.id: $tr.extensionAttributes[url=""language""].valueCode.code}",ResearchStudy,label.language,label,StudyTitle,extension
-Minimum Age text,"{""id01"": ""Minimum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.minValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.minValue.value]) &  
+Minimum Age text,"{""id01"": ""Minimum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.minValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.minValue.value]) &
 "" "" & $distinct(study.versions.studyDesigns.population.plannedAge.minValue.unit.standardCode.decode) &""s""
 &  $substring($distinct(study.versions.studyDesigns.population.cohorts.plannedAge.minValue.unit.standardCode.decode),0,1)}",ResearchStudy,classifier.text,classifier,PopulationDefinition,plannedAge
-Maximum Age text,"{""id02"": ""Maximum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.maxValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.maxValue.value]) &  
+Maximum Age text,"{""id02"": ""Maximum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.maxValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.maxValue.value]) &
 "" "" & $distinct(study.versions.studyDesigns.population.plannedAge.maxValue.unit.standardCode.decode) &""s""
 &  $substring($distinct(study.versions.studyDesigns.population.cohorts.plannedAge.maxValue.unit.standardCode.decode),0,1)}",ResearchStudy,classifier.text,classifier,PopulationDefinition,plannedAge
 Includes females code (cohort definitions not included),"""C16576"" in study.versions.studyDesigns.population.plannedSex.code ? {""f01"": {""coding"": {
@@ -62,13 +64,21 @@ age category 65 and older (Only based on population and year unit),"study.versio
         ""system"": ""https://fevir.net/resources/CodeSystem/419455""
       }}}",ResearchStudy,classifier,classifier,StudyDesignPopulation,plannedAge
 Objective text,study.versions.studyDesigns.objectives.{id: text},ResearchStudy,objective.name,objective,Objective,text
-Objective primary level,"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""primary""}",ResearchStudy,objective.type.coding.code,objective,Objective,type
-Objective primary level,"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""Primary""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
+Translated objective name,"study.versions.studyDesigns.objectives@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
+{$tt.id: {
+    ""url"": ""http://hl7.org/fhir/StructureDefinition/translation"",
+    ""extension"": [
+        {""url"": ""lang"", ""valueCode"": $tr.extensionAttributes[url=""language""].valueCode.code},
+        {""url"": ""content"", ""valueString"": $tr.extensionAttributes[url=""text""].valueString}
+    ]
+}}",ResearchStudy,objective._name.extension,objective;extension,Objective,extension
+Objective primary level (code),"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""primary""}",ResearchStudy,objective.type.coding.code,objective,Objective,type
+Objective primary level (display),"study.versions.studyDesigns.objectives[level.code=""C85826""].{id: ""Primary""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
 Objective codeSystem FHIR,"study.versions.studyDesigns.objectives.{id: ""http://terminology.hl7.org/CodeSystem/research-study-objective-type""}",ResearchStudy,objective.type.coding.system,objective,,
-Objective secondary level,"study.versions.studyDesigns.objectives[level.code=""C85827""].{id: ""secondary""}",ResearchStudy,objective.type.coding.code,objective,Objective,level
-Objective secondary level,"study.versions.studyDesigns.objectives[level.code=""C85827""].{id: ""Secondary""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
-Objective exploratory level,"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""exploratory""}",ResearchStudy,objective.type.coding.code,objective,Objective,level
-Objective exploratory level,"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""Exploratory""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
+Objective secondary level (code),"study.versions.studyDesigns.objectives[level.code=""C85827""].{id: ""secondary""}",ResearchStudy,objective.type.coding.code,objective,Objective,level
+Objective secondary level (display),"study.versions.studyDesigns.objectives[level.code=""C85827""].{id: ""Secondary""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
+Objective exploratory level (code),"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""exploratory""}",ResearchStudy,objective.type.coding.code,objective,Objective,level
+Objective exploratory level (display),"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""Exploratory""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
 Outcome measurement reference or display,"study.versions.studyDesigns.objectives@$ob.$ob.endpoints.(
     $bcId := extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-relatedAssessment""].valueId;
     {$ob.id: $bcId ? {""reference"": ""#"" & extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-relatedAssessment""].valueId, ""type"": ""EvidenceVariable"" }})",ResearchStudy,objective.outcomeMeasure.endpoint,objective;outcomeMeasure,Endpoint,text
@@ -82,20 +92,58 @@ purpose Intent,"study.versions.studyDesigns.intentTypes.(
         $c=""C71486"" ? ""supportive-care"" : $c=""C15245"" ? ""health-services-research"" : $c=""C15714"" ? ""basic-science"" : $c=""C139174"" ? ""device-feasibility""};
     $RecodeDisplay := function($c){$c=""C49656"" ? ""Treatment Study"" : $c=""C49657"" ? ""Prevention Study"" : $c=""C49653"" ? ""Diagnostic Study"" : $c=""C71485"" ? ""Screening Study"" :
         $c=""C71486"" ? ""Supportive Care Study"" : $c=""C15245"" ? ""Health Services Research"" : $c=""C15714"" ? ""Basic Science"" : $c=""C139174"" ? ""Device Feasibility Study""};
-{id: {""code"": $Recode(code), ""display"": $RecodeDisplay(code), ""system"": ""http://terminology.hl7.org/CodeSystem/research-study-purpose-type""}})",ResearchStudy,purposeType.coding,purposeType,InterventionalStudyDesign,intentTypes
+{id: {""code"": $Recode(code), ""display"": $RecodeDisplay(code), ""system"": ""http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type""}})",ResearchStudy,purposeType.coding,purposeType,InterventionalStudyDesign,intentTypes
 purpose SubType,"study.versions.studyDesigns.subTypes.(
-    $Recode := function($c){$c=""C49667"" ? ""safety"" : $c=""C49666"" ? ""efficacy"" : $c=""C49663"" ? ""pharmacokinetic"" : 
-                            $c=""C49662"" ? ""pharmacodynamic"" : $c=""C49665"" ? ""bioequivalence"" : $c=""C127803"" ? ""dose-response"" : 
-                            $c=""C129001"" ? ""pharmacogenetic"" : $c=""C49661"" ? ""pharmacogenomic"" : $c=""C215653"" ? ""incidence"" : 
+    $Recode := function($c){$c=""C49667"" ? ""safety"" : $c=""C49666"" ? ""efficacy"" : $c=""C49663"" ? ""pharmacokinetic"" :
+                            $c=""C49662"" ? ""pharmacodynamic"" : $c=""C49665"" ? ""bioequivalence"" : $c=""C127803"" ? ""dose-response"" :
+                            $c=""C129001"" ? ""pharmacogenetic"" : $c=""C49661"" ? ""pharmacogenomic"" : $c=""C215653"" ? ""incidence"" :
                             $c=""C215675"" ? ""prevalence""};
-    $RecodeDisplay := function($c){$c=""C49667"" ? ""Safety Study"" : $c=""C49666"" ? ""Efficacy Study"" : $c=""C49663"" ? ""Pharmacokinetic Study"" : 
-                            $c=""C49662"" ? ""Pharmacodynamic Study"" : $c=""C49665"" ? ""Bioequivalence Study"" : $c=""C127803"" ? ""Dose-Response Study"" : 
-                            $c=""C129001"" ? ""Pharmacogenetic Study"" : $c=""C49661"" ? ""Pharmacogenomic Study"": $c=""C215653"" ? ""Incidence Study"" : 
+    $RecodeDisplay := function($c){$c=""C49667"" ? ""Safety Study"" : $c=""C49666"" ? ""Efficacy Study"" : $c=""C49663"" ? ""Pharmacokinetic Study"" :
+                            $c=""C49662"" ? ""Pharmacodynamic Study"" : $c=""C49665"" ? ""Bioequivalence Study"" : $c=""C127803"" ? ""Dose-Response Study"" :
+                            $c=""C129001"" ? ""Pharmacogenetic Study"" : $c=""C49661"" ? ""Pharmacogenomic Study"": $c=""C215653"" ? ""Incidence Study"" :
                             $c=""C215675"" ? ""Prevalence Study""}
-{id: $Recode(code) ? {""code"": $Recode(code), ""display"": $RecodeDisplay(code), ""system"": ""http://terminology.hl7.org/CodeSystem/research-study-purpose-type""}
+{id: $Recode(code) ? {""code"": $Recode(code), ""display"": $RecodeDisplay(code), ""system"": ""http://terminology.hl7.org/CodeSystem/research-study-prim-purp-type""}
  : {""text"": decode}})",ResearchStudy,purposeType.coding,purposeType,InterventionalStudyDesign,subTypes
-Study Phase,"study.versions.studyDesigns.studyPhase.standardCodeAliases[codeSystem=""http://terminology.hl7.org/CodeSystem/research-study-phase""].
-{id: {""code"": code, ""display"": decode, ""system"": codeSystem}}",ResearchStudy,phase.coding,,StudyDesign,studyPhase
+Study Phase,"study.versions.studyDesigns.studyPhase.(
+  $cdiscToFhirCode := function($c) {
+    $c = ""C48660"" ? ""n-a"" :
+    $c = ""C54721"" ? ""early-phase-1"" :
+    $c = ""C15600"" ? ""phase-1"" :
+    $c = ""C15693"" ? ""phase-1-phase-2"" :
+    $c = ""C15601"" ? ""phase-2"" :
+    $c = ""C15694"" ? ""phase-2-phase-3"" :
+    $c = ""C15602"" ? ""phase-3"" :
+    $c = ""C15603"" ? ""phase-4"" :
+    null
+  };
+  $cdiscToFhirDisplay := function($c) {
+    $c = ""C48660"" ? ""N/A"" :
+    $c = ""C54721"" ? ""Early Phase 1"" :
+    $c = ""C15600"" ? ""Phase 1"" :
+    $c = ""C15693"" ? ""Phase 1/Phase 2"" :
+    $c = ""C15601"" ? ""Phase 2"" :
+    $c = ""C15694"" ? ""Phase 2/Phase 3"" :
+    $c = ""C15602"" ? ""Phase 3"" :
+    $c = ""C15603"" ? ""Phase 4"" :
+    null
+  };
+  $fhirSystem := ""http://terminology.hl7.org/CodeSystem/research-study-phase"";
+  $alias := standardCodeAliases[codeSystem = $fhirSystem];
+  $alias ?
+    $alias.{id: {""code"": code, ""display"": decode, ""system"": codeSystem}} :
+    $cdiscToFhirCode(standardCode.code) ?
+      {id: {""code"": $cdiscToFhirCode(standardCode.code), ""display"": $cdiscToFhirDisplay(standardCode.code), ""system"": $fhirSystem}} :
+      null
+)",ResearchStudy,phase.coding,,StudyDesign,studyPhase
+Study Phase text,"study.versions.studyDesigns.studyPhase.(
+  $fhirSystem := ""http://terminology.hl7.org/CodeSystem/research-study-phase"";
+  $alias := standardCodeAliases[codeSystem = $fhirSystem];
+  $alias ?
+    {id: $alias.decode} :
+    standardCode.decode ?
+      {id: standardCode.decode} :
+      null
+)",ResearchStudy,phase.text,,StudyDesign,studyPhase
 progress status,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.$rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-state""].
 {$rp.id:{""code"": valueCode.code, ""display"": valueCode.decode, ""system"": valueCode.codeSystem}}",ResearchStudy,progressStatus.state.coding,progressStatus,extension studyProgressStatus,state
 progress status actual,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.$rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-isActive""].
@@ -103,23 +151,54 @@ progress status actual,"(study.versions.extensionAttributes.extensionAttributes.
 progress status period,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.
 {$rp.id: {""start"" : $rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-startDate""].valueString,
             ""end"" : $rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-endDate""].valueString}}",ResearchStudy,progressStatus.period,progressStatus,extension studyProgressStatus,"startDate, endDate"
-Arm name,study.versions.studyDesigns.arms.label,ResearchStudy,comparisonGroup.name,comparisonGroup,StudyArm,label
-Arm description,study.versions.studyDesigns.arms.description,ResearchStudy,comparisonGroup.description,comparisonGroup,StudyArm,description
-Cohort name,study.versions.studyDesigns.population.cohorts.label,ResearchStudy,comparisonGroup.name,comparisonGroup,studyCohort,label
-Cohort description,study.versions.studyDesigns.population.cohorts.description,ResearchStudy,comparisonGroup.description,comparisonGroup,studyCohort,description
-Cohort planned number,study.versions.studyDesigns.population.cohorts.plannedEnrollmentNumber.value,ResearchStudy,comparisonGroup.targetNumber,comparisonGroup,studyCohort,plannedEnrollmentNumber
-location reference,"study.versions.organizations.managedSites.{id: {""reference"": ""#"" & id, ""type"":""Location""}} ",ResearchStudy,site,site,StudySite,id
+Arm name,study.versions.studyDesigns.arms.{id: label},ResearchStudy,comparisonGroup.name,comparisonGroup,StudyArm,label
+Arm description,study.versions.studyDesigns.arms.{id: description},ResearchStudy,comparisonGroup.description,comparisonGroup,StudyArm,description
+Cohort name,study.versions.studyDesigns.population.cohorts.{id: label},ResearchStudy,comparisonGroup.name,comparisonGroup,studyCohort,label
+Cohort description,study.versions.studyDesigns.population.cohorts.{id: description},ResearchStudy,comparisonGroup.description,comparisonGroup,studyCohort,description
+Cohort planned number,study.versions.studyDesigns.population.cohorts.{id: plannedEnrollmentNumber.value},ResearchStudy,comparisonGroup.targetNumber,comparisonGroup,studyCohort,plannedEnrollmentNumber
+location reference,"study.versions.organizations.managedSites.{id: {""reference"": ""#"" & id, ""type"":""Location""}}",ResearchStudy,site,site,StudySite,id
 location id,study.versions.organizations.managedSites.{id: id},Location,id,,,
 site name,study.versions.organizations.managedSites.{id: label},Location,name,,StudySite,label
 site type,"study.versions.organizations.managedSites.{id: ""location""}",Location,type,,,
 site country,study.versions.organizations.managedSites.{id: country.code},Location,address.country,,StudySite,country
-Reference to group of criteria,"{""eligibility-criteria"": {""reference"": ""#eligibility-criteria"", ""type"":""Group""}}",ResearchStudy,recruitment.eligibility,recruitment,,
+site city,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.city}
+)",Location,address.city,,Address,city
+site state,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.state}
+)",Location,address.state,,Address,state
+site postal code,"study.versions.organizations@$org.(
+  $org.managedSites.{id: $org.legalAddress.postalCode}
+)",Location,address.postalCode,,Address,postalCode
+Reference to group of criteria,"{""eligibility-criteria"": {""reference"": ""#eligibility-criteria"", ""type"":""Group""}}",ResearchStudy,recruitment.eligibility,,,
+Eligibility display (official or short title),"(
+  $officialTitle := study.versions.titles[type.code=""C207616""].text;
+  $simpleTitle := study.versions.titles[type.code=""C207615""].text;
+  $title := $officialTitle ? $officialTitle : $simpleTitle;
+  $title ? {""eligibility-criteria"": ""USDM Eligibility Criteria for "" & $title} : null
+)",ResearchStudy,recruitment.eligibility.display,,StudyTitle,text
+Planned enrollment number,"study.versions.studyDesigns.(
+  $v := population.plannedEnrollmentNumber.value;
+  $v != null ? {id: $floor($v)} : null
+)",ResearchStudy,recruitment.targetNumber,,PopulationDefinition,plannedEnrollmentNumber
 Eligibility overall list id,"{""eligibility-criteria"": ""eligibility-criteria""}",Group-all,id,,,
 combination method general,"{""eligibility-criteria"": ""all-of""}",Group-all,combinationMethod,,,
 Eligibility criteria text,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.
   {$ex.id: $sv.eligibilityCriterionItems[id=$ex.criterionItemId].text})",Group-all,characteristic.description,characteristic,EligibilityCriterionItem,
-Eligibility criteria code,study.versions.studyDesigns.eligibilityCriteria.{id: label},Group-all,characteristic.code.text,characteristic,EligibilityCriterionItem,
+Eligibility criteria code,"study.versions@$sv.(
+  $sv.studyDesigns.eligibilityCriteria@$ex.(
+    $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
+    {$ex.id: $respIds ? ""Defined by Reference"" : ""Defined by CodeableConcept""}
+  )
+)",Group-all,characteristic.code.text,characteristic,EligibilityCriterionItem,
+Eligibility criteria valueCodeableConcept text,"study.versions@$sv.(
+  $sv.studyDesigns.eligibilityCriteria@$ex.(
+    $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
+    $text := $sv.eligibilityCriterionItems[id=$ex.criterionItemId].text;
+    $respIds ? {} : {$ex.id: $text}
+  )
+)",Group-all,characteristic.valueCodeableConcept.text,characteristic,EligibilityCriterionItem,text
 Exclusion criterion true/false?,"study.versions.studyDesigns.eligibilityCriteria.{id: category.code=""C25370""}",Group-all,characteristic.exclude,characteristic,EligibilityCriterion,category
 Group references,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
@@ -134,7 +213,7 @@ eligibility criteria subgroup referenced id,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
   {$RefId: $RefId}))",Group,id,,ExpectedResponse,id
 eligibility criteria - response combination method,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
@@ -142,96 +221,96 @@ eligibility criteria - response combination method,"study.versions@$sv.(
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $nodeOperator := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1""].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponseNode-1/attribute-operator""].valueString;
   $GetMethod := function($m){$m=""AND""? ""all-of"" : $m=""OR"" ? ""any-of"" : ""unknown""};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $method := $nodeIds ? $GetMethod($nodeOperator) : ""all-of""; 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $method := $nodeIds ? $GetMethod($nodeOperator) : ""all-of"";
   {$RefId: $method}))",Group,combinationMethod,,,
 "expected response label (set to ""Node"" for combinations)","study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $labelResp := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-label""].valueString;
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $label := $nodeIds ? ""Node"" : $labelResp; 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $label := $nodeIds ? ""Node"" : $labelResp;
   {$RefId: $label}))",Group,description,,ExpectedResponse,label
 expected response min value,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueRange.minValue.value};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueRange.low.value,characteristic,ExpectedResponse,value
 expected response min value unit,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueRange.minValue.unit.standardCode.decode};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueRange.low.unit,characteristic,ExpectedResponse,value
 expected response max value - single response,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueRange.maxValue.value};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueRange.high.value,characteristic,ExpectedResponse,value
 expected response max value unit,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueRange.maxValue.unit.standardCode.decode};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueRange.high.unit,characteristic,ExpectedResponse,value
 expected response description,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-description""].valueString};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.description,characteristic,ExpectedResponse,description
-Expected response value code ,"study.versions@$sv.(
+Expected response value code,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueCode.code};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueCodeableConcept.coding.code,characteristic,ExpectedResponse,codes
-Expected response value decode ,"study.versions@$sv.(
+Expected response value decode,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueCode.decode};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueCodeableConcept.coding.display,characteristic,ExpectedResponse,codes
 Expected response value codeSystem,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueCode.codeSystem};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueCodeableConcept.coding.system,characteristic,ExpectedResponse,codes
 expected response quantity - single response,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueQuantity.value};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueQuantity.value,characteristic,ExpectedResponse,value
 expected response unit,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-value""].valueQuantity.unit.standardCode.decode};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.valueQuantity.unit,characteristic,ExpectedResponse,value
 Group low timing range,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
@@ -242,8 +321,8 @@ Group low timing range,"study.versions@$sv.(
     $contains($d, ""Y"") ? $number($replace($replace($d, ""P"", """"), ""Y"", """")) * 365 :
     $number($replace($replace($d, ""P"", """"), ""D"", """"))  };$GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
   $lowDays := function($t, $v, $l) { $t = ""C201357"" ? -($toDays($v) + $toDays($l)) :    $t = ""C201356"" ? $toDays($v) - $toDays($l) :    0};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $lowerArray := $timeArray@$tId.(
       $tm := $sv.studyDesigns.scheduleTimelines.timings[id = $tId];
       $lowDays($tm.type.code, $tm.value, $tm.windowLower)
@@ -254,8 +333,8 @@ Group low timing unit,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $dArray := $timeArray@$tId.('d');
   {$RefId: [$dArray]}))",Group,characteristic.relativeTime.offsetRange.low.unit,characteristic,ExpectedResponse,atTiming
 Group high timing range,"study.versions@$sv.(
@@ -267,8 +346,8 @@ Group high timing range,"study.versions@$sv.(
     $contains($d, ""Y"") ? $number($replace($replace($d, ""P"", """"), ""Y"", """")) * 365 :
     $number($replace($replace($d, ""P"", """"), ""D"", """"))  };$GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
   $highDays := function($t, $v, $u) { $t = ""C201357"" ? -$toDays($v) + $toDays($u) :    $t = ""C201356"" ? $toDays($v) + $toDays($u) :    0  };
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $upperArray := $timeArray@$tId.(
       $tm := $sv.studyDesigns.scheduleTimelines.timings[id = $tId];
       $highDays($tm.type.code, $tm.value, $tm.windowUpper)
@@ -279,8 +358,8 @@ Group high timing unit,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $dArray := $timeArray@$tId.('d');
   {$RefId: [$dArray]}))",Group,characteristic.relativeTime.offsetRange.high.unit,characteristic,ExpectedResponse,atTiming
 relative time context code,"study.versions@$sv.(
@@ -288,8 +367,8 @@ relative time context code,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $dArray := $timeArray@$tId.(""709491003"");
   {$RefId: [$dArray]}))",Group,characteristic.relativeTime.contextCode.coding.code,characteristic,,
 relative time context display,"study.versions@$sv.(
@@ -297,8 +376,8 @@ relative time context display,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $dArray := $timeArray@$tId.(""Enrollment in clinical trial"");
   {$RefId: [$dArray]}))",Group,characteristic.relativeTime.contextCode.coding.display,characteristic,,
 relative time context system,"study.versions@$sv.(
@@ -306,8 +385,8 @@ relative time context system,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-atTiming""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $timeArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $dArray := $timeArray@$tId.(""http://snomed.info/sct"");
   {$RefId: [$dArray]}))",Group,characteristic.relativeTime.contextCode.coding.system,characteristic,,
 Exclusion criterion true or false?,"study.versions@$sv.(
@@ -315,8 +394,8 @@ Exclusion criterion true or false?,"study.versions@$sv.(
   $respIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].id;
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-subCategory""].valueCode.(code=""C25370"")};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $result := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   {$RefId: [$result]}))",Group,characteristic.exclude,characteristic,EligibilityCriterion,category
 Loinc Code of assessment,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.(
@@ -324,8 +403,8 @@ Loinc Code of assessment,"study.versions@$sv.(
   $nodeIds := $sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponseNode/class1"" and extensionAttributes.extensionAttributes[valueId in $respIds]].id;
   $GetResult := function($id){$sv.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-ExpResponse/class_ExpectedResponse"" and extensionAttributes[valueId=$ex.id]].
 extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-forAssessment""].valueId};
-  $RefId := $nodeIds ? $nodeIds : $respIds; 
-  $bcArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds); 
+  $RefId := $nodeIds ? $nodeIds : $respIds;
+  $bcArray := $nodeIds ? $GetResult($nodeIds) : $GetResult($respIds);
   $cdArray := $bcArray@$tId.($sv.biomedicalConcepts[id = $tId].code.standardCodeAliases[codeSystem=""http://loinc.org""].{""code"": code, ""display"": decode, ""system"": codeSystem});
   {$RefId: [$cdArray]}))",Group,characteristic.code.coding,characteristic,BiomedicalConcept,code
 Evidence variable id,"study.versions.studyDesigns.objectives@$ob.$ob.endpoints.(
@@ -343,3 +422,138 @@ Evidence variable description,"study.versions@$sv.$sv.studyDesigns.objectives@$o
 Evidence classifier (note that questionnaires should get another code / not taken care of yet),"study.versions@$sv.$sv.studyDesigns.objectives@$ob.$ob.endpoints.(
     $bcId := extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-relatedAssessment""].valueId;
     {$bcId: {""code"" : ""measurement"", ""display"": ""Measurement"", ""system"": ""http://hl7.org/fhir/evidence-variable-classifier-example""} })",EvidenceVariable,classifier,,,
+Study Design type (from studyType),"study.versions.studyDesigns.studyType.(
+  $Recode := function($c) {
+    $c = ""C98388"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01001"", ""display"": ""interventional research""} :
+    $c = ""C16084"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01002"", ""display"": ""observational research""} :
+    $c = ""C98722"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01038"", ""display"": ""expanded access study""} :
+    null
+  };
+  $sevco := $Recode(code);
+  $nci := {""system"": ""http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"", ""code"": code, ""display"": decode};
+  $sevco ? {id: {""coding"": [$sevco, $nci]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyDesign,studyType
+Study Design cohort design (from intervention model),"study.versions.studyDesigns.(
+  $Recode := function($c) {
+    $c = ""C82640"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01016"", ""display"": ""uncontrolled cohort design""} :
+    $c = ""C82639"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01011"", ""display"": ""parallel cohort design""} :
+    $c = ""C82637"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01012"", ""display"": ""crossover cohort design""} :
+    null
+  };
+  $sevco := $Recode(model.code);
+  $sevco ? {id & ""_cohort_design"": {""coding"": [$sevco]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyDesign,model
+Study Design observational model (from observational model),"study.versions.studyDesigns.(
+  $Recode := function($c) {
+    $c = ""C15208"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""COHORT"", ""display"": ""Cohort""} :
+    $c = ""C15197"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""CASE_CONTROL"", ""display"": ""Case-Control""} :
+    $c = ""C15362"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""CASE_ONLY"", ""display"": ""Case-Only""} :
+    $c = ""C127779"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""CASE_CROSSOVER"", ""display"": ""Case-Crossover""} :
+    $c = ""C127780"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""ECOLOGIC_OR_COMMUNITY"", ""display"": ""Ecologic or Community""} :
+    $c = ""C15407"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""FAMILY_BASED"", ""display"": ""Family-Based""} :
+    $c = ""EXT0011"" ? {""system"": ""https://clinicaltrials.gov/data-about-studies/study-data-structure#enum-ObservationalModel"", ""code"": ""OTHER"", ""display"": ""Other""} :
+    null
+  };
+  $ctgov := $Recode(model.code);
+  $ctgov ? {id & ""_observational_model"": {""coding"": [$ctgov]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyDesign,model
+Study Design allocation (randomized/non-randomized characteristic),"study.versions.studyDesigns.(
+  $Recode := function($c) {
+    $c = ""C46079"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01003"", ""display"": ""randomized assignment""} :
+    $c = ""C93043"" ? {""system"": ""https://fevir.net/sevco"", ""code"": ""SEVCO:01005"", ""display"": ""non-randomized assignment""} :
+    null
+  };
+  $alloc := characteristics[code = ""C46079"" or code = ""C93043""];
+  $sevco := $Recode($alloc.code);
+  $sevco ? {id & ""_allocation"": {""coding"": [$sevco]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyDesign,characteristics
+Study Design masking (masked roles → SEVCO blinding codes),"study.versions.roles[
+  (code.code = ""C41189"" or code.code = ""C17445"" or code.code = ""C25936"" or code.code = ""C207599"")
+  and masking.isMasked = true
+].(
+  $Recode := function($c) {
+    $c = ""C41189"" ? {""code"": ""SEVCO:01060"", ""display"": ""Blinding of study participants""} :
+    $c = ""C17445"" ? {""code"": ""SEVCO:01061"", ""display"": ""Blinding of intervention providers""} :
+    $c = ""C25936"" ? {""code"": ""SEVCO:01063"", ""display"": ""Blinding of investigators""} :
+    $c = ""C207599"" ? {""code"": ""SEVCO:01062"", ""display"": ""Blinding of outcome assessors""} :
+    null
+  };
+  $sevco := $Recode(code.code);
+  $sevco ? {id: {""coding"": [{""system"": ""https://fevir.net/sevco"", ""code"": $sevco.code, ""display"": $sevco.display}]}} : null
+)",ResearchStudy,studyDesign,studyDesign,StudyRole,masking
+Study Design masking (open label — no masked role found),"study.versions.(
+  $maskingRoles := roles[
+    code.code = ""C41189"" or code.code = ""C17445"" or code.code = ""C25936"" or code.code = ""C207599""
+  ];
+  $count($maskingRoles) > 0 and $count($maskingRoles[masking.isMasked = true]) = 0 ?
+    {id & ""_masking_none"": {""text"": ""Design Masking: None (Open Label)""}} :
+    null
+)",ResearchStudy,studyDesign,studyDesign,StudyVersion,roles
+Study Population Source (population description free text),"study.versions.studyDesigns.(
+  population.description ? {id & ""_population_source"": {""text"": ""Study Population Source: "" & population.description}} : null
+)",ResearchStudy,classifier,classifier,StudyDesignPopulation,description
+Extension age range (artifact-useContext from plannedAge),"study.versions.studyDesigns.population.plannedAge.(
+  $minVal  := minValue.value;
+  $minUnit := minValue.unit.standardCode.decode;
+  $maxVal  := maxValue.value;
+  $maxUnit := maxValue.unit.standardCode.decode;
+  $minVal and $maxVal ?
+  {id: {
+    ""url"": ""http://hl7.org/fhir/StructureDefinition/artifact-useContext"",
+    ""valueUsageContext"": {
+      ""code"": {
+        ""system"": ""http://terminology.hl7.org/CodeSystem/usage-context-type"",
+        ""code"": ""age"",
+        ""display"": ""Age Range""
+      },
+      ""valueRange"": {
+        ""low"":  {""value"": $minVal,  ""unit"": $minUnit},
+        ""high"": {""value"": $maxVal,  ""unit"": $maxUnit}
+      }
+    }
+  }} : null
+)",ResearchStudy,extension,extension,PopulationDefinition,plannedAge
+Associated party name — lead-sponsor (organization label),"study.versions.roles[code.code = ""C70793""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
+Associated party role code — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""lead-sponsor""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""Lead sponsor""}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — lead-sponsor,"study.versions.roles[code.code = ""C70793""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party name — co-sponsor (organization label),"study.versions.roles[code.code = ""C215669""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
+Associated party role code — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""sponsor""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""Sponsor""}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — co-sponsor,"study.versions.roles[code.code = ""C215669""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party name (assigned person),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].text}",ResearchStudy,associatedParty.name,associatedParty,AssignedPerson,text
+Associated party role code,"study.versions.roles[code.code = ""EXT0003""].{id: ""sponsor-investigator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display,"study.versions.roles[code.code = ""EXT0003""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system,"study.versions.roles[code.code = ""EXT0003""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party reference (points to contained PractitionerRole),"study.versions.roles[code.code = ""EXT0003""].{id: ""#"" & id}",ResearchStudy,associatedParty.party.reference,associatedParty,StudyRole,id
+Associated party reference type,"study.versions.roles[code.code = ""EXT0003""].{id: ""PractitionerRole""}",ResearchStudy,associatedParty.party.type,associatedParty,,
+Contained PractitionerRole id,"study.versions.roles[code.code = ""EXT0003""].{id: id}",PractitionerRole,id,,StudyRole,id
+Contained PractitionerRole code text (assigned person job title),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
+Contained PractitionerRole organization display (role label),"study.versions.roles[code.code = ""EXT0003""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
+Contained PractitionerRole practitioner display (assigned person name),"study.versions.roles[code.code = ""EXT0003""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
+Associated party name — primary-investigator (assigned person),"study.versions.roles[code.code = ""C19924""].{id: assignedPersons[0].text}",ResearchStudy,associatedParty.name,associatedParty,AssignedPerson,text
+Associated party role code — primary-investigator,"study.versions.roles[code.code = ""C19924""].{id: ""primary-investigator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — primary-investigator,"study.versions.roles[code.code = ""C19924""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — primary-investigator,"study.versions.roles[code.code = ""C19924""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Associated party reference — primary-investigator (points to contained PractitionerRole),"study.versions.roles[code.code = ""C19924""].{id: ""#"" & id}",ResearchStudy,associatedParty.party.reference,associatedParty,StudyRole,id
+Associated party reference type — primary-investigator,"study.versions.roles[code.code = ""C19924""].{id: ""PractitionerRole""}",ResearchStudy,associatedParty.party.type,associatedParty,,
+Contained PractitionerRole id — primary-investigator,"study.versions.roles[code.code = ""C19924""].{id: id}",PractitionerRole,id,,StudyRole,id
+Contained PractitionerRole code text — primary-investigator (job title),"study.versions.roles[code.code = ""C19924""].{id: assignedPersons[0].jobTitle}",PractitionerRole,code.text,code,AssignedPerson,jobTitle
+Contained PractitionerRole organization display — primary-investigator (role label),"study.versions.roles[code.code = ""C19924""].{id: label}",PractitionerRole,organization.display,,StudyRole,label
+Contained PractitionerRole practitioner display — primary-investigator (assigned person name),"study.versions.roles[code.code = ""C19924""].{id: assignedPersons[0].text}",PractitionerRole,practitioner.display,,AssignedPerson,text
+Associated party name — collaborator (organization label),"study.versions.roles[code.code = ""EXT0004""].{id: label}",ResearchStudy,associatedParty.name,associatedParty,StudyRole,label
+Associated party role code — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: ""collaborator""}",ResearchStudy,associatedParty.role.coding.code,associatedParty,Code,code
+Associated party role display — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: code.decode}",ResearchStudy,associatedParty.role.coding.display,associatedParty,Code,decode
+Associated party role system — collaborator,"study.versions.roles[code.code = ""EXT0004""].{id: ""http://terminology.hl7.org/CodeSystem/research-study-party-role""}",ResearchStudy,associatedParty.role.coding.system,associatedParty,,
+Intervention evidence variable id,study.versions.studyInterventions.{id: id},EvidenceVariable,id,,StudyIntervention,id
+Intervention evidence variable meta profile,"study.versions.studyInterventions.{id: ""http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition""}",EvidenceVariable,meta.profile,profile,,
+Intervention evidence variable name,"study.versions.studyInterventions.{id: {""text"": label}}",EvidenceVariable,name,name,StudyIntervention,label
+Intervention evidence variable title,study.versions.studyInterventions.{id: label},EvidenceVariable,title,,StudyIntervention,label
+Intervention evidence variable status,"study.versions.studyInterventions.{id: ""active""}",EvidenceVariable,status,,,
+Intervention evidence variable handling (boolean variable),"study.versions.studyInterventions.{id: {""coding"": {
+    ""code"": ""STATO:0000724"",
+    ""system"": ""https://fevir.net/sevco"",
+    ""display"": ""boolean variable""
+  }}}",EvidenceVariable,handling,,,
+Intervention evidence variable classifier (intervention type),"study.versions.studyInterventions.{id: {""text"": ""Intervention Type: "" & type.decode}}",EvidenceVariable,classifier,classifier,StudyIntervention,type
+Intervention evidence variable description,study.versions.studyInterventions.{id: description},EvidenceVariable,description,,StudyIntervention,description

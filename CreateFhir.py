@@ -45,8 +45,8 @@ def get_USDM_info(MapFile,USDMFile):
                     except (ValueError, SyntaxError):
                         print(f"Warning: Could not parse row {i} at all, copied directly.")
                         print(f"USDM_Result: {USDM_Result}")
-                        
-                    
+                        continue  # skip this row — x would retain previous iteration's value
+
                 FHIR_resourcename= df.iloc[i, 2]
                 FHIR_path= df.iloc[i, 3]
                 FHIR_group= df.iloc[i, 4]
@@ -70,7 +70,7 @@ def get_USDM_info(MapFile,USDMFile):
                     if cell_id is not None:
                         if cell_id not in RowIds:
                             RowIds.append(cell_id)
-                        if (USDM_Path.find('criterionItem') != -1 or USDM_Path.find('objectives') != -1) and USDM_Path.find('text') != -1:
+                        if (USDM_Path.find('criterionItem') != -1 or USDM_Path.find('objectives') != -1) and USDM_Path.find('text') != -1 and isinstance(cell[cell_id], str):
                             try:
                                 cell[cell_id] = ResolveTags.ResolveTag(cell[cell_id], data)
                             except Exception as e:
@@ -159,18 +159,31 @@ def jsonpath_contains_class(path: str, class_name: str) -> bool:
             return True
     return False
 
-def create_fhir_resource(ResultMap, RowIds, resource_type, data):
-    # Get the mapping information from csv Mapping file based on the USDM mapping
-    # save the corresponding information to the FHIR message
-    fhir_resource = {
-        "resourceType": resource_type,
-        "id": data.get("id"),
-        "meta": {
-            "versionId": data.get("versionId"),
-            "lastUpdated": data.get("lastUpdated")
-        },        
-    }    
-    ResultMap = sorted(ResultMap, key=lambda t: (t[1], t[0]))
+def wrap_coding_arrays(obj):
+    """
+    Recursively walk a FHIR resource dict and wrap any 'coding' value
+    that is a plain dict {} into a list [{}], as required by FHIR spec.
+    Already-correct lists are left untouched.
+    """
+    if isinstance(obj, dict):
+        for key, val in list(obj.items()):
+            if key == "coding" and isinstance(val, dict):
+                obj[key] = [val]
+            else:
+                wrap_coding_arrays(val)
+    elif isinstance(obj, list):
+        for item in obj:
+            wrap_coding_arrays(item)
+
+
+def assemble_paths(result_map):
+    """
+    Group (cell_id, target_path, target_group, value, resource_name) tuples into
+    indexed paths (via add_index_path_by_name) and materialize them as a single
+    nested dict (via paths_to_json). Direction-agnostic: used both to build a FHIR
+    resource (create_fhir_resource) and a USDM document (CreateUsdm.create_usdm_resource).
+    """
+    result_map = sorted(result_map, key=lambda t: (t[1], t[0]))
     pairs=[]
     group=""
     path=""
@@ -182,17 +195,17 @@ def create_fhir_resource(ResultMap, RowIds, resource_type, data):
     for m in range(20): # support up to 20 levels of subgrouping
         id_level[m]=0
         subdef[m]=""
-    for cell_id, fhir_path, fhir_group, value, fhir_resourcename in ResultMap:
-        subgroup=parse_semicolon_list_safe(fhir_group)
-        fhir_path_idx=fhir_path
+    for cell_id, target_path, target_group, value, resourcename in result_map:
+        subgroup=parse_semicolon_list_safe(target_group)
+        path_idx=target_path
         for m in range(len(subgroup)):
             sg=subgroup[m]
-            if m==0: 
-                sub_path=head_through_class(fhir_path, sg)
+            if m==0:
+                sub_path=head_through_class(target_path, sg)
                 lookup_key = (sub_path, cell_id)
                 #if sg=="characteristic":
                 #    print(cell_id, lookup_key,value)
-                    
+
                 # based id no per cell id, but on the subgrouping, so that all paths with the same subgrouping get the same index
                 if cell_id != prev_cell_id:
                     if lookup_key in cell_id_to_idx:
@@ -202,44 +215,62 @@ def create_fhir_resource(ResultMap, RowIds, resource_type, data):
                     else:
                         idx=0
                     group=sg
-                    path=fhir_path
+                    path=target_path
                     cell_id_to_idx[lookup_key] = idx  # remember first one
-                elif fhir_path == path and len(subgroup) == 1:
+                elif target_path == path and len(subgroup) == 1:
                     idx+=1
                 # lower level value - no increase in index, but reset to 0 if subgrouping changes
-                elif fhir_path != path and lookup_key in cell_id_to_idx:
+                elif target_path != path and lookup_key in cell_id_to_idx:
                     idx = cell_id_to_idx[lookup_key]
-                    path=fhir_path
-                elif fhir_path != path:
+                    path=target_path
+                elif target_path != path:
                     idx=0
                     group=sg
-                    path=fhir_path
-                
-                id_level[0]=idx 
-                
+                    path=target_path
+
+                id_level[0]=idx
+
             else:
                # print (sg, subdef[m], id_level[m])
                 if subdef[m] != sg or cell_id != prev_cell_id:
-                    id_level[m]=0 
+                    id_level[m]=0
                     subdef[m]=sg
                 else:
-                    id_level[m]=id_level[m]+1    
+                    id_level[m]=id_level[m]+1
                 #print (sg, subdef[m], id_level[m])
-                            
+
             try:
-               # if len(subgroup) > 1: 
-                   # print("before:", m, cell_id, idx, id_level[m], fhir_path_idx)
-                fhir_path_idx=add_index_path_by_name(fhir_path_idx, sg, id_level[m], 0)
-               # if len(subgroup) > 1: 
-               #     print("after:", fhir_path_idx)
+               # if len(subgroup) > 1:
+                   # print("before:", m, cell_id, idx, id_level[m], path_idx)
+                path_idx=add_index_path_by_name(path_idx, sg, id_level[m], 0)
+               # if len(subgroup) > 1:
+               #     print("after:", path_idx)
             except:
-                fhir_path_idx=fhir_path_idx # No array path, use as is
+                path_idx=path_idx # No array path, use as is
         prev_cell_id = cell_id
         if value is not None and value != "[]" and value != "{}" and value != " " and value != "":
-            pairs.append((fhir_path_idx, value))
+            pairs.append((path_idx, value))
 
-    x = paths_to_json(pairs)
+    return paths_to_json(pairs)
+
+
+def create_fhir_resource(ResultMap, RowIds, resource_type, data):
+    # Get the mapping information from csv Mapping file based on the USDM mapping
+    # save the corresponding information to the FHIR message
+    fhir_resource = {
+        "resourceType": resource_type,
+        "id": data.get("id"),
+        "meta": {
+            "versionId": data.get("versionId"),
+            "lastUpdated": data.get("lastUpdated"),
+            "profile": [
+                "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+            ]
+        },
+    }
+    x = assemble_paths(ResultMap)
     fhir_resource.update(x)
+    wrap_coding_arrays(fhir_resource)
     return fhir_resource
 
 
@@ -352,6 +383,22 @@ def create_fhir_resources(result_map, row_ids,output_file="file.json"):
             
             MyResources.append(MyResource)
 
+    PractitionerRole_map = [item for item in result_map if item[4] == "PractitionerRole"]
+    for i in row_ids:
+        StudySubGroup_map = [item for item in PractitionerRole_map if item[0]==i]
+        if StudySubGroup_map != []:
+            MyResource=create_fhir_resource(
+            StudySubGroup_map,
+            row_ids,
+            "PractitionerRole",
+                {
+                    "versionId": args.version,
+                    "lastUpdated": args.updated
+                }
+                 )
+
+            MyResources.append(MyResource)
+
     create_fhir_output(MyResources, output_file=output_file)
 
 def add_index_path_by_name(fhir_path: str, segment_name: str, idx: int, occurrence: int = 0) -> str:
@@ -407,6 +454,31 @@ def add_index_path(fhir_path, segmentLevel, idx):
     return ".".join(new_parts)
 
 
+def parse_path(path: str) -> list:
+    """Parse a dot path with array notation (e.g. 'coding[0].display') into a list of keys."""
+    tokens = []
+    for part in path.split('.'):
+        match = re.match(r'(\w+)\[(\d+)\]', part)
+        if match:
+            tokens.append(match.group(1))
+            tokens.append(int(match.group(2)))
+        else:
+            tokens.append(part)
+    return tokens
+
+
+def get_by_path(obj, path: str):
+    """Navigate obj following a dot path with array notation. Returns None if any segment is missing."""
+    for key in parse_path(path):
+        if obj is None:
+            return None
+        if isinstance(key, int):
+            obj = obj[key] if isinstance(obj, list) and key < len(obj) else None
+        else:
+            obj = obj.get(key) if isinstance(obj, dict) else None
+    return obj
+
+
 def paths_to_json(path_value_pairs: list[tuple[str, any]]) -> dict:
     """
     Transform multiple path-value pairs into a single merged JSON structure.
@@ -441,18 +513,6 @@ def paths_to_json(path_value_pairs: list[tuple[str, any]]) -> dict:
             obj[final_key] = value
         else:
             obj[final_key] = value
-    
-    def parse_path(path: str) -> list:
-        """Parse path with array notation into list of keys."""
-        tokens = []
-        for part in path.split('.'):
-            match = re.match(r'(\w+)\[(\d+)\]', part)
-            if match:
-                tokens.append(match.group(1))
-                tokens.append(int(match.group(2)))
-            else:
-                tokens.append(part)
-        return tokens
     
     result = {}
     for path, value in path_value_pairs:

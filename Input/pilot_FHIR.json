@@ -1,0 +1,2395 @@
+{
+  "id": "422079",
+  "url": "https://fevir.net/resources/ResearchStudy/422079",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/ebm/StructureDefinition/study-registry-record"
+    ],
+    "versionId": "7",
+    "lastUpdated": "2026-07-29T12:24:15.193Z"
+  },
+  "name": "NCT04077723_FHIR_Transform",
+  "site": [
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-0"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-1"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-2"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-3"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-4"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-5"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-6"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-7"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-8"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-9"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-10"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-11"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-12"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-13"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-14"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-15"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-16"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-17"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-18"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-19"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-20"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-21"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-22"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-23"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-24"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-25"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-26"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-27"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-28"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-29"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-30"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-31"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-32"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-33"
+    },
+    {
+      "type": "Location",
+      "reference": "#NCT04077723-Location-34"
+    }
+  ],
+  "label": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "official",
+            "system": "http://hl7.org/fhir/title-type",
+            "display": "Official title"
+          }
+        ]
+      },
+      "value": "An Open-Label, Phase I/II Study to Evaluate the Safety, Pharmacokinetics and Preliminary Anti-Tumor Activity of Englumafusp Alfa (RO7227166, A CD19 Targeted 4-1BB Ligand) in Combination With Obinutuzumab and in Combination With Glofitamab Following a Pre-treatment Dose of Obinutuzumab Administered in Participants With Relapsed/Refractory B-Cell Non-Hodgkin's Lymphoma"
+    }
+  ],
+  "phase": {
+    "coding": [
+      {
+        "code": "phase-1-phase-2",
+        "system": "http://terminology.hl7.org/CodeSystem/research-study-phase",
+        "display": "Phase 1/Phase 2"
+      }
+    ]
+  },
+  "title": "A Study to Evaluate the Safety, Pharmacokinetics and Preliminary Anti-Tumor Activity of Englumafusp Alfa in Combination With Obinutuzumab and in Combination With Glofitamab Following a Pre-Treatment Dose of Obinutuzumab in Participants With Relapsed/Refractory B-Cell Non-Hodgkin's Lymphoma",
+  "citeAs": "A Study to Evaluate the Safety, Pharmacokinetics and Preliminary Anti-Tumor Activity of Englumafusp Alfa in Combination With Obinutuzumab and in Combination With Glofitamab Following a Pre-Treatment Dose of Obinutuzumab in Participants With Relapsed/Refractory B-Cell Non-Hodgkin's Lymphoma [Database Entry: FHIR ResearchStudy Resource]. Contributors: Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter [Authors/Creators]. In: Fast Evidence Interoperability Resources (FEvIR) Platform, FOI 422079. Revised 2026-07-29. Available at: https://fevir.net/resources/ResearchStudy/422079. Computable resource at: https://fevir.net/resources/ResearchStudy/422079#json.",
+  "status": "active",
+  "condition": [
+    {
+      "text": "Lymphoma, Non-Hodgkin"
+    }
+  ],
+  "contained": [
+    {
+      "id": "NCT04077723-drug------englumafusp-alfa",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "name": "NCT04077723_drug______englumafusp_alfa",
+      "note": [
+        {
+          "text": "suggested alternative name: A CD19 Targeted 4-1BB Ligand; RO7227166"
+        }
+      ],
+      "title": "Englumafusp alfa",
+      "status": "active",
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "description": "Englumafusp alfa will be administered by intravenous (IV) infusion three-weekly (Q3W) in combination with a fixed dose of obinutuzumab (Part I) and in combination with a fixed dose of glofitamab (Part II and Part III).",
+      "resourceType": "EvidenceVariable"
+    },
+    {
+      "id": "NCT04077723-drug------obinutuzumab",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "name": "NCT04077723_drug______obinutuzumab",
+      "note": [
+        {
+          "text": "suggested alternative name: Gpt, RO5072759, Gazyva, Gazyvaro"
+        }
+      ],
+      "title": "Obinutuzumab",
+      "status": "active",
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "description": "A fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa, then in combination with obinutuzumab Q3W (Part I).\n\nA fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa or between Day -3 and -7 (Part II and Part III).",
+      "resourceType": "EvidenceVariable"
+    },
+    {
+      "id": "NCT04077723-drug------glofitamab",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "name": "NCT04077723_drug______glofitamab",
+      "note": [
+        {
+          "text": "suggested alternative name: CD20-TCB, RO7082859"
+        }
+      ],
+      "title": "Glofitamab",
+      "status": "active",
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "description": "A fixed dose of glofitamab will be administered Q3W in combination with englumafusp alfa in Part II and Part III",
+      "resourceType": "EvidenceVariable"
+    },
+    {
+      "id": "NCT04077723-drug------tocilizumab",
+      "meta": {
+        "profile": [
+          "http://hl7.org/fhir/uv/ebm/StructureDefinition/variable-definition"
+        ]
+      },
+      "name": "NCT04077723_drug______tocilizumab",
+      "note": [
+        {
+          "text": "suggested alternative name: Actemra, RoActemra"
+        }
+      ],
+      "title": "Tocilizumab",
+      "status": "active",
+      "handling": {
+        "coding": [
+          {
+            "code": "STATO:0000724",
+            "system": "https://fevir.net/sevco",
+            "display": "boolean variable"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "Intervention Type: DRUG"
+        }
+      ],
+      "description": "Participants will receive IV tocilizumab as needed to treat cytokine release syndrome (CRS).",
+      "resourceType": "EvidenceVariable"
+    },
+    {
+      "id": "NCT04077723-comparison-group-0",
+      "code": {
+        "text": "Experimental"
+      },
+      "title": "NCT04077723 Comparison Group: Part I",
+      "status": "active",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+          "valueContactDetail": {
+            "name": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"
+          }
+        }
+      ],
+      "identifier": [
+        {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "value": "NCT04077723-comparison-group-0",
+          "system": "https://fevir.net/FLI",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      ],
+      "membership": "conceptual",
+      "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
+      "resourceType": "Group",
+      "characteristic": [
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Englumafusp alfa",
+            "reference": "#NCT04077723-drug------englumafusp-alfa"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Obinutuzumab",
+            "reference": "#NCT04077723-drug------obinutuzumab"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Tocilizumab",
+            "reference": "#NCT04077723-drug------tocilizumab"
+          }
+        }
+      ],
+      "combinationMethod": "all-of"
+    },
+    {
+      "id": "NCT04077723-comparison-group-1",
+      "code": {
+        "text": "Experimental"
+      },
+      "title": "NCT04077723 Comparison Group: Part II",
+      "status": "active",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+          "valueContactDetail": {
+            "name": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"
+          }
+        }
+      ],
+      "identifier": [
+        {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "value": "NCT04077723-comparison-group-1",
+          "system": "https://fevir.net/FLI",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      ],
+      "membership": "conceptual",
+      "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
+      "resourceType": "Group",
+      "characteristic": [
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Englumafusp alfa",
+            "reference": "#NCT04077723-drug------englumafusp-alfa"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Obinutuzumab",
+            "reference": "#NCT04077723-drug------obinutuzumab"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Glofitamab",
+            "reference": "#NCT04077723-drug------glofitamab"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Tocilizumab",
+            "reference": "#NCT04077723-drug------tocilizumab"
+          }
+        }
+      ],
+      "combinationMethod": "all-of"
+    },
+    {
+      "id": "NCT04077723-comparison-group-2",
+      "code": {
+        "text": "Experimental"
+      },
+      "title": "NCT04077723 Comparison Group: Part III",
+      "status": "active",
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+          "valueContactDetail": {
+            "name": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"
+          }
+        }
+      ],
+      "identifier": [
+        {
+          "type": {
+            "text": "FEvIR Linking Identifier"
+          },
+          "value": "NCT04077723-comparison-group-2",
+          "system": "https://fevir.net/FLI",
+          "assigner": {
+            "display": "Computable Publishing LLC"
+          }
+        }
+      ],
+      "membership": "conceptual",
+      "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
+      "resourceType": "Group",
+      "characteristic": [
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Englumafusp alfa",
+            "reference": "#NCT04077723-drug------englumafusp-alfa"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Obinutuzumab",
+            "reference": "#NCT04077723-drug------obinutuzumab"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Glofitamab",
+            "reference": "#NCT04077723-drug------glofitamab"
+          }
+        },
+        {
+          "code": {
+            "text": "Exposed to"
+          },
+          "exclude": false,
+          "valueReference": {
+            "type": "EvidenceVariable",
+            "display": "Drug: Tocilizumab",
+            "reference": "#NCT04077723-drug------tocilizumab"
+          }
+        }
+      ],
+      "combinationMethod": "all-of"
+    },
+    {
+      "id": "NCT04077723-Location-0",
+      "name": "City of Hope Medical Center",
+      "address": {
+        "city": "Pasadena",
+        "state": "California",
+        "country": "United States",
+        "postalCode": "91105"
+      },
+      "position": {
+        "latitude": 34.14778,
+        "longitude": -118.14452
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-1",
+      "name": "University of California San Francisco",
+      "address": {
+        "city": "San Francisco",
+        "state": "California",
+        "country": "United States",
+        "postalCode": "94158"
+      },
+      "position": {
+        "latitude": 37.77493,
+        "longitude": -122.41942
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-2",
+      "name": "Washington University School of Medicine",
+      "address": {
+        "city": "St Louis",
+        "state": "Missouri",
+        "country": "United States",
+        "postalCode": "63110"
+      },
+      "position": {
+        "latitude": 38.62727,
+        "longitude": -90.19789
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-3",
+      "name": "The University of Texas MD Anderson Cancer Center",
+      "address": {
+        "city": "Houston",
+        "state": "Texas",
+        "country": "United States",
+        "postalCode": "77030-4009"
+      },
+      "position": {
+        "latitude": 29.76328,
+        "longitude": -95.36327
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-4",
+      "name": "Peter Maccallum Cancer Centre",
+      "address": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "postalCode": "3000"
+      },
+      "position": {
+        "latitude": -37.814,
+        "longitude": 144.96332
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-5",
+      "name": "The Alfred Hospital",
+      "address": {
+        "city": "Melbourne",
+        "state": "Victoria",
+        "country": "Australia",
+        "postalCode": "3004"
+      },
+      "position": {
+        "latitude": -37.814,
+        "longitude": 144.96332
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-6",
+      "name": "UZ Gent",
+      "address": {
+        "city": "Ghent",
+        "country": "Belgium",
+        "postalCode": "9000"
+      },
+      "position": {
+        "latitude": 51.05,
+        "longitude": 3.71667
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-7",
+      "name": "Queen Elizabeth II Health Sciences Centre",
+      "address": {
+        "city": "Halifax",
+        "state": "Nova Scotia",
+        "country": "Canada",
+        "postalCode": "B3H 2Y9"
+      },
+      "position": {
+        "latitude": 44.64269,
+        "longitude": -63.57688
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-8",
+      "name": "Jewish General Hospital",
+      "address": {
+        "city": "Montreal",
+        "state": "Quebec",
+        "country": "Canada",
+        "postalCode": "H3T 1E2"
+      },
+      "position": {
+        "latitude": 45.50884,
+        "longitude": -73.58781
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-9",
+      "name": "Beijing Cancer Hospital",
+      "address": {
+        "city": "Beijing",
+        "country": "China",
+        "postalCode": "100142"
+      },
+      "position": {
+        "latitude": 39.9075,
+        "longitude": 116.39723
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-10",
+      "name": "Shandong Cancer Hospital",
+      "address": {
+        "city": "Jinan",
+        "country": "China",
+        "postalCode": "250117"
+      },
+      "position": {
+        "latitude": 36.66833,
+        "longitude": 116.99722
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-11",
+      "name": "Fudan University Shanghai Cancer Center",
+      "address": {
+        "city": "Shanghai",
+        "country": "China",
+        "postalCode": "201315"
+      },
+      "position": {
+        "latitude": 31.22222,
+        "longitude": 121.45806
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-12",
+      "name": "The First Affiliated Hospital of Xiamen University",
+      "address": {
+        "city": "Xiamen",
+        "country": "China",
+        "postalCode": "361003"
+      },
+      "position": {
+        "latitude": 24.47979,
+        "longitude": 118.08187
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-13",
+      "name": "Aarhus Universitetshospital Skejby",
+      "address": {
+        "city": "Aarhus N",
+        "country": "Denmark",
+        "postalCode": "8200"
+      },
+      "position": {
+        "latitude": 56.20367,
+        "longitude": 10.17317
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-14",
+      "name": "Rigshospitalet",
+      "address": {
+        "city": "København Ø",
+        "country": "Denmark",
+        "postalCode": "2100"
+      },
+      "position": {
+        "latitude": 55.70968,
+        "longitude": 12.56862
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-15",
+      "name": "Odense Universitetshospital",
+      "address": {
+        "city": "Odense C",
+        "country": "Denmark",
+        "postalCode": "5000"
+      },
+      "position": {
+        "latitude": 55.40841,
+        "longitude": 10.39538
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-16",
+      "name": "CHRU de Lille",
+      "address": {
+        "city": "Lille",
+        "country": "France",
+        "postalCode": "59037"
+      },
+      "position": {
+        "latitude": 50.63391,
+        "longitude": 3.05512
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-17",
+      "name": "CHU Montpellier - Saint ELOI",
+      "address": {
+        "city": "Montpellier",
+        "country": "France",
+        "postalCode": "34295"
+      },
+      "position": {
+        "latitude": 43.61093,
+        "longitude": 3.87635
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-18",
+      "name": "Centre Hospitalier Lyon Sud",
+      "address": {
+        "city": "Pierre-Bénite",
+        "country": "France",
+        "postalCode": "69495"
+      },
+      "position": {
+        "latitude": 45.70359,
+        "longitude": 4.82424
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-19",
+      "name": "CHU DE RENNES - CHU Pontchaillou",
+      "address": {
+        "city": "Rennes",
+        "country": "France",
+        "postalCode": "35033"
+      },
+      "position": {
+        "latitude": 48.11109,
+        "longitude": -1.67431
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-20",
+      "name": "Istituto Nazionale Tumori Irccs Fondazione g. Pascale",
+      "address": {
+        "city": "Naples",
+        "state": "Campania",
+        "country": "Italy",
+        "postalCode": "80131"
+      },
+      "position": {
+        "latitude": 40.85216,
+        "longitude": 14.26811
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-21",
+      "name": "Asst Papa Giovanni Xxiii",
+      "address": {
+        "city": "Bergamo",
+        "state": "Lombardy",
+        "country": "Italy",
+        "postalCode": "24127"
+      },
+      "position": {
+        "latitude": 45.69601,
+        "longitude": 9.66721
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-22",
+      "name": "Irccs Istituto Europeo Di Oncologia (IEO)",
+      "address": {
+        "city": "Milan",
+        "state": "Lombardy",
+        "country": "Italy",
+        "postalCode": "20141"
+      },
+      "position": {
+        "latitude": 45.46427,
+        "longitude": 9.18951
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-23",
+      "name": "Istituto Clinico Humanitas",
+      "address": {
+        "city": "Rozzano",
+        "state": "Lombardy",
+        "country": "Italy",
+        "postalCode": "20089"
+      },
+      "position": {
+        "latitude": 45.38193,
+        "longitude": 9.1559
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-24",
+      "name": "Auckland City Hospital, Cancer and Blood Research",
+      "address": {
+        "city": "Auckland",
+        "country": "New Zealand",
+        "postalCode": "1023"
+      },
+      "position": {
+        "latitude": -36.84853,
+        "longitude": 174.76349
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-25",
+      "name": "Waikato Hospital - Cancer and Blood Research Trials Unit",
+      "address": {
+        "city": "Hamilton",
+        "country": "New Zealand",
+        "postalCode": "3204"
+      },
+      "position": {
+        "latitude": -37.78333,
+        "longitude": 175.28333
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-26",
+      "name": "Pusan National University Hospital",
+      "address": {
+        "city": "Busan",
+        "country": "South Korea",
+        "postalCode": "49241"
+      },
+      "position": {
+        "latitude": 35.10168,
+        "longitude": 129.03004
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-27",
+      "name": "Seoul National University Hospital",
+      "address": {
+        "city": "Seoul",
+        "country": "South Korea",
+        "postalCode": "03080"
+      },
+      "position": {
+        "latitude": 37.566,
+        "longitude": 126.9784
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-28",
+      "name": "Asan Medical Center",
+      "address": {
+        "city": "Seoul",
+        "country": "South Korea",
+        "postalCode": "05505"
+      },
+      "position": {
+        "latitude": 37.566,
+        "longitude": 126.9784
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-29",
+      "name": "Samsung Medical Center",
+      "address": {
+        "city": "Seoul",
+        "country": "South Korea",
+        "postalCode": "06351"
+      },
+      "position": {
+        "latitude": 37.566,
+        "longitude": 126.9784
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-30",
+      "name": "Hospital Universitari Vall d'Hebron",
+      "address": {
+        "city": "Barcelona",
+        "country": "Spain",
+        "postalCode": "08035"
+      },
+      "position": {
+        "latitude": 41.38879,
+        "longitude": 2.15899
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-31",
+      "name": "Hospital Univ. 12 de Octubre",
+      "address": {
+        "city": "Madrid",
+        "country": "Spain",
+        "postalCode": "28041"
+      },
+      "position": {
+        "latitude": 40.4165,
+        "longitude": -3.70256
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-32",
+      "name": "Hospital Clinico Universitario Virgen de la Victoria",
+      "address": {
+        "city": "Málaga",
+        "country": "Spain",
+        "postalCode": "29010"
+      },
+      "position": {
+        "latitude": 36.72016,
+        "longitude": -4.42034
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-33",
+      "name": "The HOPE Clinical Trials Unit",
+      "address": {
+        "city": "Leicester",
+        "country": "United Kingdom",
+        "postalCode": "LE1 5WW"
+      },
+      "position": {
+        "latitude": 52.6386,
+        "longitude": -1.13169
+      },
+      "resourceType": "Location"
+    },
+    {
+      "id": "NCT04077723-Location-34",
+      "name": "University College London Hospitals NHS Foundation Trust",
+      "address": {
+        "city": "London",
+        "country": "United Kingdom",
+        "postalCode": "W1T 7HA"
+      },
+      "position": {
+        "latitude": 51.50853,
+        "longitude": -0.12574
+      },
+      "resourceType": "Location"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/uv/ebm/StructureDefinition/artifact-publication-status",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "active",
+            "system": "http://terminology.hl7.org/CodeSystem/cited-artifact-status-type",
+            "display": "Active"
+          }
+        ]
+      }
+    },
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/artifact-author",
+      "valueContactDetail": {
+        "name": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"
+      }
+    }
+  ],
+  "objective": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "primary",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+            "display": "Primary"
+          }
+        ]
+      },
+      "outcomeMeasure": [
+        {
+          "name": "Nature and frequency of dose-limiting toxicities (DLTs)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Nature and frequency of dose-limiting toxicities (DLTs)",
+            "reference": "EvidenceVariable/422081",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-0",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Proportion of Participants with Adverse Event (AE)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Proportion of Participants with Adverse Event (AE)",
+            "reference": "EvidenceVariable/422082",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-1",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          },
+          "description": "Incidence, nature, and severity of AEs graded according to the National Cancer Institute Common Terminology Criteria for Adverse Events (NCI CTCAE) v5.0"
+        },
+        {
+          "name": "Overall Response Rate (ORR)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Overall Response Rate (ORR)",
+            "reference": "EvidenceVariable/422083",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-2",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Disease Control Rate (DCR)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Disease Control Rate (DCR)",
+            "reference": "EvidenceVariable/422084",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-3",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Duration of Response (DOR)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Duration of Response (DOR)",
+            "reference": "EvidenceVariable/422085",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-4",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Progression-free Survival (PFS)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Progression-free Survival (PFS)",
+            "reference": "EvidenceVariable/422086",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-5",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Overall Survival (OS)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Overall Survival (OS)",
+            "reference": "EvidenceVariable/422087",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-6",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Complete Response (CR)",
+          "type": {
+            "coding": [
+              {
+                "code": "primary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Primary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Complete Response (CR)",
+            "reference": "EvidenceVariable/422088",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-primaryOutcome-7",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "secondary",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+            "display": "Secondary"
+          }
+        ]
+      },
+      "outcomeMeasure": [
+        {
+          "name": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+            "reference": "EvidenceVariable/422089",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-0",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+            "reference": "EvidenceVariable/422090",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-1",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+            "reference": "EvidenceVariable/422091",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-2",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Clearance (CL) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Clearance (CL) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+            "reference": "EvidenceVariable/422092",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-3",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with obinutuzumab and glofitamab",
+            "reference": "EvidenceVariable/422093",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-4",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "ORR",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "ORR",
+            "reference": "EvidenceVariable/422094",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-5",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "DCR",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "DCR",
+            "reference": "EvidenceVariable/422095",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-6",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "DOR",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "DOR",
+            "reference": "EvidenceVariable/422096",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-7",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "PFS",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "PFS",
+            "reference": "EvidenceVariable/422097",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-8",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "OS",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "OS",
+            "reference": "EvidenceVariable/422098",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-9",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Proportion of Participants with Adverse Event (AE)",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Proportion of Participants with Adverse Event (AE)",
+            "reference": "EvidenceVariable/422099",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-10",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          },
+          "description": "Incidence, nature, and severity of AEs graded according to the NCI CTCAE v5.0"
+        },
+        {
+          "name": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Total exposure (area under the concentration time curve [AUC]) of englumafusp alfa in combination with glofitamab",
+            "reference": "EvidenceVariable/422100",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-11",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Maximum serum concentration (peak concentration, Cmax) of englumafusp alfa in combination with glofitamab",
+            "reference": "EvidenceVariable/422101",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-12",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Minimum serum concentration (trough concentration, Cmin) of englumafusp alfa in combination with glofitamab",
+            "reference": "EvidenceVariable/422102",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-13",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Clearance (CL) of englumafusp alfa in combination with glofitamab",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Clearance (CL) of englumafusp alfa in combination with glofitamab",
+            "reference": "EvidenceVariable/422103",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-14",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with glofitamab Part I/II/III",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Volume of distribution of steady state (Vss) and half-life (t1/2) of englumafusp alfa in combination with glofitamab Part I/II/III",
+            "reference": "EvidenceVariable/422104",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-15",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "T-cell and Natural killer (NK)-cell status in blood, using markers of T and NK-cell lineage, function and activation including, but not limited to, CD3, CD8, 41BB, and Ki67 expression",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "T-cell and Natural killer (NK)-cell status in blood, using markers of T and NK-cell lineage, function and activation including, but not limited to, CD3, CD8, 41BB, and Ki67 expression",
+            "reference": "EvidenceVariable/422105",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-16",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "B-cell reduction in blood and tumor tissue",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "B-cell reduction in blood and tumor tissue",
+            "reference": "EvidenceVariable/422106",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-17",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Change from Baseline in englumafusp alfa Anti-Drug Antibody (ADA) Titer",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Change from Baseline in englumafusp alfa Anti-Drug Antibody (ADA) Titer",
+            "reference": "EvidenceVariable/422107",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-18",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Time to First Complete Response (TFCR)",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Time to First Complete Response (TFCR)",
+            "reference": "EvidenceVariable/422108",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-19",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Time to First Overall Response (TFOR)",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Time to First Overall Response (TFOR)",
+            "reference": "EvidenceVariable/422109",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-20",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Duration of Complete Response (DOCR)",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Duration of Complete Response (DOCR)",
+            "reference": "EvidenceVariable/422110",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-21",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Change from Baseline in Physical Function, Role Function, and Health-Related Quality of Life (HRQoL) Based on the European Organization for Research and Treatment of Cancer Quality of Life Questionnaire Core 30 (EORTC QLQ-C30)",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Change from Baseline in Physical Function, Role Function, and Health-Related Quality of Life (HRQoL) Based on the European Organization for Research and Treatment of Cancer Quality of Life Questionnaire Core 30 (EORTC QLQ-C30)",
+            "reference": "EvidenceVariable/422111",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-22",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        },
+        {
+          "name": "Change from Baseline in Physical Function, Role Function, and HRQoL According to the Functional Assessment of Cancer Therapy-Lymphoma (FACT-Lym) Lymphoma Scale",
+          "type": {
+            "coding": [
+              {
+                "code": "secondary",
+                "system": "http://terminology.hl7.org/CodeSystem/research-study-objective-type",
+                "display": "Secondary"
+              }
+            ]
+          },
+          "endpoint": {
+            "type": "EvidenceVariable",
+            "display": "Change from Baseline in Physical Function, Role Function, and HRQoL According to the Functional Assessment of Cancer Therapy-Lymphoma (FACT-Lym) Lymphoma Scale",
+            "reference": "EvidenceVariable/422112",
+            "identifier": {
+              "type": {
+                "text": "FEvIR Linking Identifier"
+              },
+              "value": "NCT04077723-secondaryOutcome-23",
+              "system": "https://fevir.net/FLI",
+              "assigner": {
+                "display": "Computable Publishing LLC"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "relatesTo": [
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "transforms",
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-relationship-type",
+            "display": "Transforms"
+          }
+        ]
+      },
+      "targetUri": "https://clinicaltrials.gov/api/v2/studies/NCT04077723?format=json"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "transformed-with",
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-relationship-type",
+            "display": "Transformed With"
+          }
+        ]
+      },
+      "targetAttachment": {
+        "url": "https://fevir.net/ctgovconvert",
+        "title": "Computable Publishing®: ClinicalTrials.gov-to-FEvIR Converter"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "code": "cites",
+            "system": "http://terminology.hl7.org/CodeSystem/artifact-relationship-type",
+            "display": "Cites"
+          }
+        ]
+      },
+      "targetReference": {
+        "type": "Citation",
+        "display": "Hutchings M, Dickinson M, Gritti G, Carlo-Stella C, Townsend W, Bosch F, Bartlett NL, Cartron G, Ghesquieres H, Houot R, Walter H, Offner F, Dimier N, Jamois C, Herter S, Keelara A, Wilson S, Gallien J, Hinton H, Gonzalez-Albo IP, Korfi K, Kazantzidis G, Wasmer MH, Lechner K, Morschhauser F. Englumafusp alfa plus glofitamab in B cell non-Hodgkin lymphoma: a phase 1 trial. Nat Med. 2026 Jul 16. doi: 10.1038/s41591-026-04533-0. Online ahead of print.",
+        "identifier": {
+          "value": "42463852",
+          "system": "https://pubmed.ncbi.nlm.nih.gov"
+        }
+      }
+    }
+  ],
+  "classifier": [
+    {
+      "text": "IPDSharing: Yes"
+    },
+    {
+      "text": "IPDSharingDescription: For eligible studies, qualified researchers may request access to individual patient level clinical data. See Roche's commitment to transparency of clinical study information here: https://go.roche.com/data\\_sharing"
+    },
+    {
+      "coding": [
+        {
+          "code": "does-not-include-healthy-volunteers",
+          "system": "https://fevir.net/resources/CodeSystem/419455",
+          "display": "Does not include healthy volunteers"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "code": "includes-females",
+          "system": "https://fevir.net/resources/CodeSystem/419455",
+          "display": "Includes female subjects"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "code": "includes-males",
+          "system": "https://fevir.net/resources/CodeSystem/419455",
+          "display": "Includes male subjects"
+        }
+      ]
+    },
+    {
+      "text": "Minimum Age: 18 Years"
+    },
+    {
+      "text": "Age Group: Adult"
+    },
+    {
+      "text": "Age Group: Older Adult"
+    },
+    {
+      "text": "Has Results: False"
+    },
+    {
+      "text": "Oversight Classifier: isFdaRegulatedDrug True"
+    },
+    {
+      "text": "Oversight Classifier: isFdaRegulatedDevice False"
+    }
+  ],
+  "identifier": [
+    {
+      "type": {
+        "text": "FEvIR Object Identifier",
+        "coding": [
+          {
+            "code": "ACSN",
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "display": "Accession ID"
+          }
+        ]
+      },
+      "value": "422079",
+      "system": "https://fevir.net/FOI",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    },
+    {
+      "use": "official",
+      "value": "NCT04077723",
+      "system": "https://clinicaltrials.gov/nctid"
+    },
+    {
+      "value": "BP41072",
+      "assigner": {
+        "display": "Hoffmann-La Roche"
+      }
+    },
+    {
+      "type": {
+        "text": "EudraCT Number"
+      },
+      "value": "2019-000416-28"
+    },
+    {
+      "type": {
+        "text": "Registry Identifier"
+      },
+      "value": "2022-502616-37-00",
+      "assigner": {
+        "display": "EU CT Number"
+      }
+    },
+    {
+      "type": {
+        "text": "FEvIR Linking Identifier"
+      },
+      "value": "NCT04077723 FHIR Transform",
+      "system": "https://fevir.net/FLI",
+      "assigner": {
+        "display": "Computable Publishing LLC"
+      }
+    }
+  ],
+  "purposeType": [
+    {
+      "coding": [
+        {
+          "code": "treatment",
+          "system": "http://terminology.hl7.org/CodeSystem/research-study-purpose-type",
+          "display": "Treatment Study"
+        }
+      ]
+    }
+  ],
+  "recruitment": {
+    "eligibility": {
+      "type": "Group",
+      "display": "NCT04077723 Eligibility Criteria",
+      "reference": "Group/422080",
+      "identifier": {
+        "type": {
+          "text": "FEvIR Linking Identifier"
+        },
+        "value": "NCT04077723 Eligibility Criteria",
+        "system": "https://fevir.net/FLI",
+        "assigner": {
+          "display": "Computable Publishing LLC"
+        }
+      }
+    },
+    "targetNumber": 498
+  },
+  "studyDesign": [
+    {
+      "text": "Design Masking: None (Open Label)"
+    },
+    {
+      "coding": [
+        {
+          "code": "SEVCO:01003",
+          "system": "https://fevir.net/sevco",
+          "display": "randomized assignment"
+        }
+      ]
+    },
+    {
+      "text": "Sequential Assignment"
+    },
+    {
+      "coding": [
+        {
+          "code": "SEVCO:01001",
+          "system": "https://fevir.net/sevco",
+          "display": "interventional research"
+        }
+      ]
+    }
+  ],
+  "resourceType": "ResearchStudy",
+  "progressStatus": [
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "active-but-not-recruiting",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-status",
+            "display": "Active, not recruiting"
+          }
+        ]
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "registration-submission",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Registration submission"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "start": "2019-08-09"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "registration-submission-qc",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Registration submission Quality Check"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "start": "2019-09-03"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "record-verification",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Record Verification"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "end": "2026-05"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "update-submission",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Update submission"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "end": "2026-05-28"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "registration-posting",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Registration posting"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "start": "2019-09-04"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "primary-outcome-data-collection",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Primary outcome data collection"
+          }
+        ]
+      },
+      "actual": false,
+      "period": {
+        "end": "2027-03-31"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "update-posting",
+            "system": "http://hl7.org/fhir/research-study-registration-activity",
+            "display": "Update posting"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "end": "2026-05-29"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "overall-study",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-status",
+            "display": "Overall study"
+          }
+        ]
+      },
+      "actual": true,
+      "period": {
+        "start": "2019-08-13"
+      }
+    },
+    {
+      "state": {
+        "coding": [
+          {
+            "code": "overall-study",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-status",
+            "display": "Overall study"
+          }
+        ]
+      },
+      "actual": false,
+      "period": {
+        "end": "2027-03-31"
+      }
+    }
+  ],
+  "associatedParty": [
+    {
+      "name": "Hoffmann-La Roche",
+      "role": {
+        "coding": [
+          {
+            "code": "sponsor",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-party-role",
+            "display": "Sponsor"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "INDUSTRY"
+        }
+      ]
+    },
+    {
+      "name": "Hoffmann-La Roche",
+      "role": {
+        "coding": [
+          {
+            "code": "lead-sponsor",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-party-role",
+            "display": "Lead sponsor"
+          }
+        ]
+      },
+      "classifier": [
+        {
+          "text": "INDUSTRY"
+        }
+      ]
+    },
+    {
+      "name": "Clinical Trials",
+      "role": {
+        "coding": [
+          {
+            "code": "study-chair",
+            "system": "http://terminology.hl7.org/CodeSystem/research-study-party-role",
+            "display": "Study chair"
+          }
+        ]
+      },
+      "party": {
+        "display": "Hoffmann-La Roche"
+      }
+    }
+  ],
+  "comparisonGroup": [
+    {
+      "name": "Part I",
+      "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
+      "eligibility": {
+        "type": "Group",
+        "display": "Part I",
+        "reference": "#NCT04077723-comparison-group-0"
+      }
+    },
+    {
+      "name": "Part II",
+      "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
+      "eligibility": {
+        "type": "Group",
+        "display": "Part II",
+        "reference": "#NCT04077723-comparison-group-1"
+      }
+    },
+    {
+      "name": "Part III",
+      "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
+      "eligibility": {
+        "type": "Group",
+        "display": "Part III",
+        "reference": "#NCT04077723-comparison-group-2"
+      }
+    }
+  ],
+  "descriptionSummary": "This is a phase I/II, open-label, dose-escalation study designed to evaluate the safety, tolerability, and efficacy of englumafusp alfa (RO7227166) in participants with relapsed/refractory Non-Hodgkin's Lymphoma (r/r NHL). Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab and in combination with glofitamab. A fixed dose of obinutuzumab (Gpt; pre-treatment) will be administered up to seven days prior to the first administration of englumafusp alfa and seven days prior to the first administration of glofitamab. This entry-into-human study is divided into a dose-escalation stage (Part I and Part II) and a dose expansion stage (Part III)."
+}
