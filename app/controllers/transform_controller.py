@@ -11,17 +11,17 @@ router = APIRouter()
 
 @router.post("/transform", tags=["Transform"])
 def transform(
-    body: Any = Body(..., description="JSON payload (USDM sau FHIR, în funcție de input_format)"),
-    input_format: Literal["usdm", "fhir"] = Query(default="usdm", description="Formatul input-ului: 'usdm' sau 'fhir'"),
-    output_format: Literal["usdm", "fhir"] = Query(default="fhir", description="Formatul output-ului: 'usdm' sau 'fhir'"),
-    resource_id: str = Query(default="123", alias="id", description="FHIR resource ID (folosit doar pentru usdm→fhir)"),
-    version: str = Query(default="1", description="FHIR versionId (folosit doar pentru usdm→fhir)"),
-    updated: str = Query(default=None, description="FHIR meta.lastUpdated ISO 8601 (folosit doar pentru usdm→fhir)"),
+    body: Any = Body(..., description="JSON payload (USDM or FHIR, depending on input_format)"),
+    input_format: Literal["usdm", "fhir"] = Query(default="usdm", description="Input format: 'usdm' or 'fhir'"),
+    output_format: Literal["usdm", "fhir"] = Query(default="fhir", description="Output format: 'usdm' or 'fhir'"),
+    resource_id: str = Query(default="123", alias="id", description="FHIR resource ID (used only for usdm→fhir)"),
+    version: str = Query(default="1", description="FHIR versionId (used only for usdm→fhir)"),
+    updated: str = Query(default=None, description="FHIR meta.lastUpdated ISO 8601 (used only for usdm→fhir)"),
 ):
     """
-    Transformă un JSON între formatele USDM și FHIR.
+    Transforms a JSON between USDM and FHIR formats.
 
-    - `input_format=usdm` + `output_format=fhir` (implicit): USDM → FHIR
+    - `input_format=usdm` + `output_format=fhir` (default): USDM → FHIR
     - `input_format=fhir` + `output_format=usdm`: FHIR → USDM
     """
     try:
@@ -38,8 +38,8 @@ def transform(
         else:
             raise HTTPException(
                 status_code=400,
-                detail=f"Combinație nesuportată: input_format='{input_format}', output_format='{output_format}'. "
-                       f"Combinații valide: usdm→fhir, fhir→usdm.",
+                detail=f"Unsupported combination: input_format='{input_format}', output_format='{output_format}'. "
+                       f"Valid combinations: usdm→fhir, fhir→usdm.",
             )
         return JSONResponse(content=result)
     except HTTPException:
