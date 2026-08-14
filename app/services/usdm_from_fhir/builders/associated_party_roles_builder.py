@@ -54,10 +54,12 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
 
         # Sync the "Organization" counter so that ctx.next_id("Organization")
         # never collides with IDs already emitted by OrganizationsBuilder.
-        top_orgs: list = list(context.get("version.organizations") or [])
+        # Use the pre-computed count stored by OrganizationsBuilder (priority 10)
+        # instead of loading the full organizations list.
+        org_count: int = context.get("version._orgCount") or 0
         context._entity_counters["Organization"] = max(
             context._entity_counters.get("Organization", 0),
-            len(top_orgs),
+            org_count,
         )
 
         # Build a quick lookup: contained resource id → resource dict
@@ -121,21 +123,10 @@ class AssociatedPartyRolesBuilder(AbstractSectionBuilder):
                     org_id_ref = orgs_by_name[candidate]
                     break
 
-        # Still no match — fall back to the first non-registry top-level organization
-        # (skip registries like ClinicalTrials.gov whose type code is C93453).
+        # Still no match — fall back to the lead-sponsor organization stored by
+        # OrganizationsBuilder (priority 10) at version._mainOrg.
         if org_id_ref is None:
-            top_orgs: list = ctx.get("version.organizations") or []
-            for candidate_org in top_orgs:
-                if not isinstance(candidate_org, dict):
-                    continue
-                type_code = (candidate_org.get("type") or {}).get("code", "")
-                if type_code == "C93453":   # Clinical Study Registry — skip
-                    continue
-                org_id_ref = candidate_org.get("id")
-                break
-            # Ultimate fallback: take the very first org if all are registries
-            if org_id_ref is None and top_orgs and isinstance(top_orgs[0], dict):
-                org_id_ref = top_orgs[0].get("id")
+            org_id_ref = ctx.get("version._mainOrg") or None
 
         # USDM rule CORE-000997: a StudyRole must NOT reference both assignedPersons
         # and organizationIds at the same time (XOR constraint).

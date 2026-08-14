@@ -86,6 +86,9 @@ class OrganizationsBuilder(AbstractSectionBuilder):
         organizations: list[dict] = []
         # dict[str, str] — name → org_id, used by IdentifiersBuilder to set scopeId
         by_name: dict[str, str] = {}
+        # ID of the lead-sponsor organization — used by AssociatedPartyRolesBuilder
+        # as the default organizationId for roles that have no other org match.
+        main_org_id: str | None = None
 
         # ── 1. associatedParty[party.type=Location] + contained[Location] ──────
         # Mirrors the INVERSE of readi_core ResearchAssociatedPartyBuilder (sponsors
@@ -136,6 +139,10 @@ class OrganizationsBuilder(AbstractSectionBuilder):
             organizations.append(org)
             by_name[org_name] = org_id
 
+            # Track the lead-sponsor as the main organization
+            if main_org_id is None and _extract_party_role_code(party_entry) == "lead-sponsor":
+                main_org_id = org_id
+
         # ── 2. associatedParty plain-name org roles (no party reference) ─────────
         # Handles lead-sponsor, sponsor (co-sponsor), collaborator entries that
         # carry only a `name` field (no party.reference / party.type).
@@ -172,6 +179,10 @@ class OrganizationsBuilder(AbstractSectionBuilder):
             )
             organizations.append(org)
             by_name[org_name] = org_id
+
+            # Track the lead-sponsor as the main organization
+            if main_org_id is None and fhir_role_code == "lead-sponsor":
+                main_org_id = org_id
 
         # ── 3. identifier[].assigner / system  (legacy / fallback) ─────────────
         # Keeps backward compatibility when associatedParty is absent (e.g. the
@@ -245,6 +256,12 @@ class OrganizationsBuilder(AbstractSectionBuilder):
 
         # Store name → org_id index for IdentifiersBuilder (and future builders)
         context.set("version._orgsByName", by_name)
+        # Store the lead-sponsor org ID so AssociatedPartyRolesBuilder can point
+        # roles to the sponsor without iterating the full organizations list.
+        context.set("version._mainOrg", main_org_id)
+        # Store the org count so AssociatedPartyRolesBuilder can sync its
+        # Organization ID counter without re-loading the full list.
+        context.set("version._orgCount", len(organizations))
         return organizations
 
 
