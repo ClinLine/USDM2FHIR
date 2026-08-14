@@ -50,6 +50,7 @@ class IdentifiersBuilder(AbstractSectionBuilder):
         orgs_by_name: dict[str, str] = context.get("version._orgsByName", {})
 
         result = []
+        used_scope_ids: set[str] = set()
         for i, identifier in enumerate(identifiers):
             # str — raw identifier value, e.g.: "NCT12345678"
             value: str = identifier.get("value") or ""
@@ -60,6 +61,11 @@ class IdentifiersBuilder(AbstractSectionBuilder):
             # skip if we couldn't resolve the issuing organization
             if not scope_id:
                 continue
+
+            # CORE-000956: each organization can appear at most once
+            if scope_id in used_scope_ids:
+                continue
+            used_scope_ids.add(scope_id)
 
             si_id = f"StudyIdentifier_{i}"
             result.append({

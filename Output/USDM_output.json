@@ -724,7 +724,7 @@
                 "label": "Part I",
                 "description": "Combination Dose-Escalation: Mixed r/r NHL participants will receive a fixed dose of obinutuzumab up to seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by intravenous (IV) infusion in combination with obinutuzumab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_96",
+                  "id": "Code_97",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -733,7 +733,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_97",
+                  "id": "Code_98",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -751,7 +751,7 @@
                 "label": "Part II",
                 "description": "Combination Dose-Escalation: Mixed r/r participants and participants with mixed r/r mantle cell lymphoma (MCL) and Richters transformation will receive a fixed dose of obinutuzumab seven days prior to first administration of englumafusp alfa. Englumafusp alfa will be administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_98",
+                  "id": "Code_99",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -760,7 +760,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_99",
+                  "id": "Code_100",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -778,7 +778,7 @@
                 "label": "Part III",
                 "description": "Dose-Expansion Stage: Participants with r/r diffuse large B-cell lymphoma not otherwise specified (DLBCL NOS), high-grade B-cell lymphoma (HGBCL), primary mediastinal B-cell lymphoma (PMBCL), and DLBCL arising from FL (transformed FL) will receive englumafusp alfa administered by IV infusion in combination with glofitamab in a three-weekly schedule (Q3W).",
                 "type": {
-                  "id": "Code_100",
+                  "id": "Code_101",
                   "code": "C174266",
                   "decode": "Investigational Arm",
                   "codeSystem": "http://www.cdisc.org",
@@ -787,7 +787,7 @@
                 },
                 "dataOriginDescription": "Data collected from subjects",
                 "dataOriginType": {
-                  "id": "Code_101",
+                  "id": "Code_102",
                   "code": "C188866",
                   "decode": "Data Generated Within Study",
                   "codeSystem": "http://www.cdisc.org",
@@ -869,7 +869,7 @@
                 "label": "Screening",
                 "description": "Screening Epoch",
                 "type": {
-                  "id": "Code_102",
+                  "id": "Code_103",
                   "code": "C202487",
                   "decode": "Screening Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -888,7 +888,7 @@
                 "label": "Treatment",
                 "description": "Treatment Epoch",
                 "type": {
-                  "id": "Code_103",
+                  "id": "Code_104",
                   "code": "C101526",
                   "decode": "Treatment Epoch",
                   "codeSystem": "http://www.cdisc.org",
@@ -968,7 +968,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_104",
+                      "id": "Code_105",
                       "code": "C201358",
                       "decode": "Fixed Reference",
                       "codeSystem": "http://www.cdisc.org",
@@ -978,7 +978,7 @@
                     "value": "P0D",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_105",
+                      "id": "Code_106",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1052,7 +1052,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_106",
+                      "id": "Code_107",
                       "code": "C201357",
                       "decode": "Before",
                       "codeSystem": "http://www.cdisc.org",
@@ -1062,7 +1062,7 @@
                     "value": "P120Y",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_107",
+                      "id": "Code_108",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1083,7 +1083,7 @@
                     "label": "",
                     "description": "",
                     "type": {
-                      "id": "Code_108",
+                      "id": "Code_109",
                       "code": "C201358",
                       "decode": "Fixed Reference",
                       "codeSystem": "http://www.cdisc.org",
@@ -1093,7 +1093,7 @@
                     "value": "P0D",
                     "valueLabel": "Screening index",
                     "relativeToFrom": {
-                      "id": "Code_109",
+                      "id": "Code_110",
                       "code": "C201355",
                       "decode": "Start to Start",
                       "codeSystem": "http://www.cdisc.org",
@@ -1199,25 +1199,19 @@
           {
             "id": "StudyIdentifier_0",
             "text": "422079",
-            "scopeId": "Organization_0",
+            "scopeId": "Organization_1",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_2",
             "text": "BP41072",
-            "scopeId": "Organization_1",
+            "scopeId": "Organization_0",
             "instanceType": "StudyIdentifier"
           },
           {
             "id": "StudyIdentifier_4",
             "text": "2022-502616-37-00",
             "scopeId": "Organization_2",
-            "instanceType": "StudyIdentifier"
-          },
-          {
-            "id": "StudyIdentifier_5",
-            "text": "NCT04077723 FHIR Transform",
-            "scopeId": "Organization_0",
             "instanceType": "StudyIdentifier"
           }
         ],
@@ -1242,19 +1236,19 @@
           {
             "id": "Organization_0",
             "extensionAttributes": [],
-            "name": "COMPUTABLE PUBLISHING LLC",
-            "label": "Computable Publishing LLC",
+            "name": "HOFFMANN-LA ROCHE",
+            "label": "Hoffmann-La Roche",
             "type": {
               "id": "Organization_0_Type",
-              "code": "C17998",
-              "decode": "Unknown",
+              "code": "EXT0015",
+              "decode": "Industry",
               "codeSystem": "http://www.cdisc.org",
               "codeSystemVersion": "2025-09-26",
               "instanceType": "Code"
             },
             "legalAddress": {
               "id": "Organization_0_Address",
-              "text": "Computable Publishing LLC",
+              "text": "Hoffmann-La Roche",
               "lines": [],
               "city": "",
               "state": "",
@@ -1269,8 +1263,8 @@
           {
             "id": "Organization_1",
             "extensionAttributes": [],
-            "name": "HOFFMANN-LA ROCHE",
-            "label": "Hoffmann-La Roche",
+            "name": "COMPUTABLE PUBLISHING LLC",
+            "label": "Computable Publishing LLC",
             "type": {
               "id": "Organization_1_Type",
               "code": "C17998",
@@ -1281,7 +1275,7 @@
             },
             "legalAddress": {
               "id": "Organization_1_Address",
-              "text": "Hoffmann-La Roche",
+              "text": "Computable Publishing LLC",
               "lines": [],
               "city": "",
               "state": "",
@@ -2846,44 +2840,7 @@
             ],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_0",
-              "Organization_1",
-              "Organization_2",
-              "Organization_3",
-              "Organization_4",
-              "Organization_5",
-              "Organization_6",
-              "Organization_7",
-              "Organization_8",
-              "Organization_9",
-              "Organization_10",
-              "Organization_11",
-              "Organization_12",
-              "Organization_13",
-              "Organization_14",
-              "Organization_15",
-              "Organization_16",
-              "Organization_17",
-              "Organization_18",
-              "Organization_19",
-              "Organization_20",
-              "Organization_21",
-              "Organization_22",
-              "Organization_23",
-              "Organization_24",
-              "Organization_25",
-              "Organization_26",
-              "Organization_27",
-              "Organization_28",
-              "Organization_29",
-              "Organization_30",
-              "Organization_31",
-              "Organization_32",
-              "Organization_33",
-              "Organization_34",
-              "Organization_35",
-              "Organization_36",
-              "Organization_37"
+              "Organization_0"
             ],
             "masking": {
               "id": "Masking_0",
@@ -2914,44 +2871,7 @@
             ],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_0",
-              "Organization_1",
-              "Organization_2",
-              "Organization_3",
-              "Organization_4",
-              "Organization_5",
-              "Organization_6",
-              "Organization_7",
-              "Organization_8",
-              "Organization_9",
-              "Organization_10",
-              "Organization_11",
-              "Organization_12",
-              "Organization_13",
-              "Organization_14",
-              "Organization_15",
-              "Organization_16",
-              "Organization_17",
-              "Organization_18",
-              "Organization_19",
-              "Organization_20",
-              "Organization_21",
-              "Organization_22",
-              "Organization_23",
-              "Organization_24",
-              "Organization_25",
-              "Organization_26",
-              "Organization_27",
-              "Organization_28",
-              "Organization_29",
-              "Organization_30",
-              "Organization_31",
-              "Organization_32",
-              "Organization_33",
-              "Organization_34",
-              "Organization_35",
-              "Organization_36",
-              "Organization_37"
+              "Organization_0"
             ],
             "masking": {
               "id": "Masking_1",
@@ -2982,44 +2902,7 @@
             ],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_0",
-              "Organization_1",
-              "Organization_2",
-              "Organization_3",
-              "Organization_4",
-              "Organization_5",
-              "Organization_6",
-              "Organization_7",
-              "Organization_8",
-              "Organization_9",
-              "Organization_10",
-              "Organization_11",
-              "Organization_12",
-              "Organization_13",
-              "Organization_14",
-              "Organization_15",
-              "Organization_16",
-              "Organization_17",
-              "Organization_18",
-              "Organization_19",
-              "Organization_20",
-              "Organization_21",
-              "Organization_22",
-              "Organization_23",
-              "Organization_24",
-              "Organization_25",
-              "Organization_26",
-              "Organization_27",
-              "Organization_28",
-              "Organization_29",
-              "Organization_30",
-              "Organization_31",
-              "Organization_32",
-              "Organization_33",
-              "Organization_34",
-              "Organization_35",
-              "Organization_36",
-              "Organization_37"
+              "Organization_0"
             ],
             "masking": {
               "id": "Masking_2",
@@ -3050,44 +2933,7 @@
             ],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_0",
-              "Organization_1",
-              "Organization_2",
-              "Organization_3",
-              "Organization_4",
-              "Organization_5",
-              "Organization_6",
-              "Organization_7",
-              "Organization_8",
-              "Organization_9",
-              "Organization_10",
-              "Organization_11",
-              "Organization_12",
-              "Organization_13",
-              "Organization_14",
-              "Organization_15",
-              "Organization_16",
-              "Organization_17",
-              "Organization_18",
-              "Organization_19",
-              "Organization_20",
-              "Organization_21",
-              "Organization_22",
-              "Organization_23",
-              "Organization_24",
-              "Organization_25",
-              "Organization_26",
-              "Organization_27",
-              "Organization_28",
-              "Organization_29",
-              "Organization_30",
-              "Organization_31",
-              "Organization_32",
-              "Organization_33",
-              "Organization_34",
-              "Organization_35",
-              "Organization_36",
-              "Organization_37"
+              "Organization_0"
             ],
             "masking": {
               "id": "Masking_3",
@@ -3107,6 +2953,31 @@
             "description": "",
             "code": {
               "id": "Code_87",
+              "code": "C215669",
+              "decode": "Co-Sponsor",
+              "codeSystem": "http://www.cdisc.org",
+              "codeSystemVersion": "2025-09-26",
+              "instanceType": "Code"
+            },
+            "appliesToIds": [
+              "StudyVersion_0"
+            ],
+            "assignedPersons": [],
+            "organizationIds": [
+              "Organization_0"
+            ],
+            "masking": null,
+            "notes": [],
+            "instanceType": "StudyRole"
+          },
+          {
+            "id": "StudyRole_5",
+            "extensionAttributes": [],
+            "name": "STUDYROLE_5",
+            "label": "Hoffmann-La Roche",
+            "description": "",
+            "code": {
+              "id": "Code_88",
               "code": "C70793",
               "decode": "Sponsor",
               "codeSystem": "http://www.cdisc.org",
@@ -3118,7 +2989,7 @@
             ],
             "assignedPersons": [],
             "organizationIds": [
-              "Organization_1"
+              "Organization_0"
             ],
             "masking": null,
             "notes": [],
@@ -3134,7 +3005,7 @@
             "label": "Englumafusp alfa",
             "description": "Englumafusp alfa will be administered by intravenous (IV) infusion three-weekly (Q3W) in combination with a fixed dose of obinutuzumab (Part I) and in combination with a fixed dose of glofitamab (Part II and Part III).",
             "type": {
-              "id": "Code_88",
+              "id": "Code_89",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -3142,7 +3013,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_89",
+              "id": "Code_90",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -3161,7 +3032,7 @@
             "label": "Obinutuzumab",
             "description": "A fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa, then in combination with obinutuzumab Q3W (Part I).\n\nA fixed dose of obinutuzumab will be administered up to 7 days prior to the first dose of englumafusp alfa or between Day -3 and -7 (Part II and Part III).",
             "type": {
-              "id": "Code_90",
+              "id": "Code_91",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -3169,7 +3040,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_91",
+              "id": "Code_92",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -3188,7 +3059,7 @@
             "label": "Glofitamab",
             "description": "A fixed dose of glofitamab will be administered Q3W in combination with englumafusp alfa in Part II and Part III",
             "type": {
-              "id": "Code_92",
+              "id": "Code_93",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -3196,7 +3067,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_93",
+              "id": "Code_94",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",
@@ -3215,7 +3086,7 @@
             "label": "Tocilizumab",
             "description": "Participants will receive IV tocilizumab as needed to treat cytokine release syndrome (CRS).",
             "type": {
-              "id": "Code_94",
+              "id": "Code_95",
               "code": "C1909",
               "decode": "Pharmacologic Substance",
               "codeSystem": "http://www.cdisc.org",
@@ -3223,7 +3094,7 @@
               "instanceType": "Code"
             },
             "role": {
-              "id": "Code_95",
+              "id": "Code_96",
               "code": "C41161",
               "decode": "Experimental Intervention",
               "codeSystem": "http://www.cdisc.org",

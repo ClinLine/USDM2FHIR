@@ -239,7 +239,9 @@ class FhirToUsdmService:
 
         # Set by StudyDesignTypeBuilder alongside studyType (side-channel key,
         # same pattern as OrganizationsBuilder's 'version._orgsByName').
-        study_design["instanceType"] = sd_bag.get("_instanceType") or "StudyDesign"
+        # Default to InterventionalStudyDesign — "StudyDesign" is not a valid
+        # USDM instanceType (CORE-000949 / CORE-000937).
+        study_design["instanceType"] = sd_bag.get("_instanceType") or "InterventionalStudyDesign"
 
         # Populate studyInterventionIds from the version-level studyInterventions
         # (fixes CORE-001077: parallel/crossover/factorial designs require ≥ 2 referenced interventions).
