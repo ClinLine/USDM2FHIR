@@ -71,14 +71,28 @@
 									"extensionAttributes": [],
 									"minValue": {
 									  "id": "Quantity_er9",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_1",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 0,
 									  "unit": null,
 									  "instanceType": "Quantity"
 									},
 									"maxValue": {
 									  "id": "Quantity_er10",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMax_2",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 1,
 									  "unit": null,
 									  "instanceType": "Quantity"
@@ -497,7 +511,14 @@
 									"extensionAttributes": [],
 									"minValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_3",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 2000,
 									  "unit": {
 										  "id": "Unit_Code_639",
@@ -586,7 +607,14 @@
 									"extensionAttributes": [],
 									"minValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_4",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 1500,
 									  "unit": {
 										  "id": "Unit_Code_641",
@@ -675,7 +703,14 @@
 									"extensionAttributes": [],
 									"minValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_5",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 100000,
 									  "unit": {
 										  "id": "Unit_Code_639",
@@ -764,7 +799,14 @@
 									"extensionAttributes": [],
 									"minValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_6",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 8.5,
 									  "unit": {
 										  "id": "Unit_Code_642",
@@ -854,7 +896,14 @@
 									"minValue": null,
 									"maxValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMin_7",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 1.5,
 									  "unit": {
 										  "id": "Unit_Code_645",
@@ -943,7 +992,14 @@
 									"minValue": null,
 									"maxValue": {
 									  "id": "Quantity_er11",
-									  "extensionAttributes": [],
+									  "extensionAttributes": [
+										{
+											"id": "OperatorMax_8",
+											"url": "//ExtensionLibrary/USDMv4_0/Operator/v1/isInclusive",
+											"valueBoolean": true,
+											"extensionAttributes": [],
+											"instanceType": "ExtensionAttribute"
+										}],
 									  "value": 3,
 									  "unit": {
 										  "id": "Unit_Code_647",
@@ -4426,8 +4482,8 @@
             "name": "IN01",
             "label": null,
             "description": null,
-            "text": "<p>Histologic confirmation of one of the following solid tumors that is advanced (unresectable or metastatic) for dose escalation or cohort expansion:<usdm:tag name=\"indic_1\"/>, <usdm:tag name=\"indic_2\"/>, <usdm:tag name=\"indic_3\"/></p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>Histologic confirmation of one of the following solid tumors that is advanced (unresectable or metastatic) for dose escalation or cohort expansion:Non-Small Cell Lung Cancer (NSCLC), Castrate Resistant Prostate Cancer (CRPC), Melanoma (MEL)</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4437,8 +4493,8 @@
             "name": "IN02",
             "label": null,
             "description": null,
-            "text": "<p>At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per <usdm:tag name=\"bc_recist_1\"/></p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4449,7 +4505,7 @@
             "label": null,
             "description": null,
             "text": "<p>Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk</p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4459,8 +4515,8 @@
             "name": "IN04",
             "label": null,
             "description": null,
-            "text": "<p><usdm:tag name=\"bc_ecog_1\"/> of 0 or 1</p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>Eastern Cooperative Oncology Group (ECOG) status of 0 or 1</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4481,8 +4537,8 @@
             "name": "IN06",
             "label": null,
             "description": null,
-            "text": "<p><usdm:tag name=\"bc_wbc_1\"/> &gt;=2000/&#181;L, <usdm:tag name=\"bc_neut_1\"/> &gt;=1500/&#181;L, <usdm:tag name=\"bc_plat_1\"/> &gt;= 100x1000/&#181;L, <usdm:tag name=\"bc_hgb_1\"/> &gt;= 8.5 g/dL, <usdm:tag name=\"bc_crcl_1\"/> &lt;= 1.5 X upper limit of normal (ULN) mL/min, <usdm:tag name=\"bc_alt_1\"/> and <usdm:tag name=\"bc_ast_1\"/> &lt;= 3x ULN</p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "White blood cell (WBC) ≥2000/μL, Neutrophils ≥1500/μL, Platelets ≥ 100x1000/μL, Hemoglobin ≥ 8.5 g/dL, creatinine ≤ 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) ≤ 3x ULN</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4492,8 +4548,8 @@
             "name": "IN07",
             "label": null,
             "description": null,
-            "text": "<p>Normal <usdm:tag name=\"bcCat_thyr_1\"/> or be on stable hormone supplementation</p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>Normal thyroid function or be on stable hormone supplementation</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4514,8 +4570,8 @@
             "name": "EX01",
             "label": null,
             "description": null,
-            "text": "<p>Subjects with known or suspected <usdm:tag name=\"contraIndic_1\"/></p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>Subjects with known or suspected brain metastasis</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4537,7 +4593,7 @@
             "label": null,
             "description": null,
             "text": "<p>Prior therapy with anti- Cytotoxic T-Lymphocyte Antigen 4 (CTLA4) antibody or anti- Killer cell immunoglobulin-like receptor (KIR) antibody</p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           },
@@ -4547,8 +4603,8 @@
             "name": "EX04",
             "label": null,
             "description": null,
-            "text": "<p>Grade 2 <usdm:tag name=\"contraIndic_2\"/></p>",
-            "dictionaryId": "SyntaxTemplateDictionary_1",
+            "text": "<p>Grade 2 neuropathy</p>",
+            "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
           }
@@ -8690,137 +8746,7 @@
 			"notes": []
           }],
         "bcSurrogates": [],
-        "dictionaries": [
-          {
-            "id": "SyntaxTemplateDictionary_1",
-            "extensionAttributes": [],
-            "name": "IE_Dict",
-            "label": "IE Dictionary",
-            "description": "Dictionary for IE",
-            "parameterMaps": [
-              {
-                "id": "ParameterMap_1",
-                "extensionAttributes": [],
-                "tag": "min_age",
-                "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_9\" attribute=\"value\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_2",
-                "extensionAttributes": [],
-                "tag": "max_age",
-                "reference": "<usdm:ref klass=\"Quantity\" id=\"Quantity_10\" attribute=\"value\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_3",
-                "extensionAttributes": [],
-                "tag": "indic_1",
-                "reference": "<usdm:ref klass=\"Indication\" id=\"Indication_1\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_4",
-                "extensionAttributes": [],
-                "tag": "indic_2",
-                "reference": "<usdm:ref klass=\"Indication\" id=\"Indication_2\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_5",
-                "extensionAttributes": [],
-                "tag": "indic_3",
-                "reference": "<usdm:ref klass=\"Indication\" id=\"Indication_3\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_6",
-                "extensionAttributes": [],
-                "tag": "bc_recist_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_07\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_7",
-                "extensionAttributes": [],
-                "tag": "bc_ecog_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_08\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_8",
-                "extensionAttributes": [],
-                "tag": "bc_wbc_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_01\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_9",
-                "extensionAttributes": [],
-                "tag": "bc_neut_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_02\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_10",
-                "extensionAttributes": [],
-                "tag": "bc_plat_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_03\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_11",
-                "extensionAttributes": [],
-                "tag": "bc_hgb_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_09\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_12",
-                "extensionAttributes": [],
-                "tag": "bc_crcl_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_10\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_13",
-                "extensionAttributes": [],
-                "tag": "bc_alt_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_25\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_14",
-                "extensionAttributes": [],
-                "tag": "bc_ast_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConcept\" id=\"BiomedicalConcept_28\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_15",
-                "extensionAttributes": [],
-                "tag": "bcCat_thyr_1",
-                "reference": "<usdm:ref klass=\"BiomedicalConceptCategory\" id=\"BCCat_5\" attribute=\"label\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_16",
-                "extensionAttributes": [],
-                "tag": "contraIndic_1",
-                "reference": "<usdm:ref klass=\"ExtensionAttribute\" id=\"ClassExtLabel_1\" attribute=\"valueString\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              },
-              {
-                "id": "ParameterMap_17",
-                "extensionAttributes": [],
-                "tag": "contraIndic_2",
-                "reference": "<usdm:ref klass=\"ExtensionAttribute\" id=\"ClassExtLabel_2\" attribute=\"valueString\"></usdm:ref>",
-                "instanceType": "ParameterMap"
-              }			  
-            ],
-            "instanceType": "SyntaxTemplateDictionary"
-          }
-        ],
+        "dictionaries": [],
         "conditions": [],
         "notes": [],
         "instanceType": "StudyVersion"
