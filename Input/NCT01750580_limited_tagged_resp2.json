@@ -14,7 +14,7 @@
 				{
 					"id": "ExtensionAttributeValue_1",
 					"url": "//readi/provider",
-					"valueString": "ClinicalTrials.gov",
+					"valueInteger": "ClinicalTrials.gov",
 					"extensionAttributes": [],
 					"instanceType": "ExtensionAttribute"
 				},
@@ -1283,11 +1283,11 @@
 				 "url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/class",
 				 "valueExtensionClass":{
 						 "id": "Status_001",
-						 "url": "https://cdisc.org/usdm/extension-studyProgressStatus/class1",
+						 "url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance",
 						 "extensionAttributes": [
 						{
 							"id": "ClassAttr_10902",
-							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/instance/state",
+							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/state",
 							"valueCode": {
 								  "id": "Ext_Code_10902",
 								  "extensionAttributes": [],
@@ -1302,21 +1302,21 @@
 						},
 						{
 							"id": "ClassAttr_10903",
-							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/instance/isActive",
+							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/isActive",
 							"valueBoolean": true,
 							"extensionAttributes": [],
 							"instanceType": "ExtensionAttribute"					
 						},
 						{
 							"id": "ClassAttr_10904",
-							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/instance/startDate",
+							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/startDate",
 							"valueString": "2012-12",
 							"extensionAttributes": [],
 							"instanceType": "ExtensionAttribute"					
 						},
 						{
 							"id": "ClassAttr_10905",
-							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/instance/endDate",
+							"url": "//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/endDate",
 							"valueString": "2015-04",
 							"extensionAttributes": [],
 							"instanceType": "ExtensionAttribute"					

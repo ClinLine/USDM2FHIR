@@ -1,4 +1,4 @@
-Item,USDM JSONata path,FHIR resourceType,FHIR path,FHIR Index level,USDM class,USDM attribute
+﻿Item,USDM JSONata path,FHIR resourceType,FHIR path,FHIR Index level,USDM class,USDM attribute
 Condition label,study.versions.studyDesigns.indications.{id: label},ResearchStudy,condition.text,condition,Indication,label
 Condition code,"study.versions.studyDesigns.indications.{id: {""code"": codes.code, ""display"": codes.decode, ""system"": codes.codeSystem}}",ResearchStudy,condition.coding,condition,Indication,codes
 Study Identifier,study.versions.studyIdentifiers.{id: text},ResearchStudy,identifier.value,identifier,StudyIdentifier,text
@@ -12,14 +12,14 @@ Title type,"study.versions.titles.(
     $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
     $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
     {id: {""code"": $titleCode(type.code), ""display"": $titleDisplay(type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
-Translated titles,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
-{$tr.id: $tr.extensionAttributes[url=""text""].valueString}",ResearchStudy,label.value,label,StudyTitle,extension
-Translated title type,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
+Translated titles,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/Translation/v1/Instance""])@$tr.
+{$tr.id: $tr.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/Translation/v1/Instance/text""].valueString}",ResearchStudy,label.value,label,StudyTitle,extension
+Translated title type,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/Translation/v1/Instance""])@$tr.
 (   $titleCode := function($c) {$c=""C207616"" ? ""official"" : $c=""C207615"" ? ""short-title"" :$c=""C94108"" ? ""acronym"" : $c=""C207618"" ? ""scientific""};
     $titleDisplay := function($c) {$c=""C207616"" ? ""Official title"" : $c=""C207615"" ? ""Short title"" :$c=""C94108"" ? ""Acronym""  : $c=""C207618"" ? ""Scientific title""};
     {$tr.id: {""code"": $titleCode($tt.type.code), ""display"": $titleDisplay($tt.type.code), ""system"":""http://hl7.org/fhir/title-type""}})",ResearchStudy,label.type.coding,label,StudyTitle,type
-Translated title language,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""http://cdisc.org/usdm/extensions/extensionR-1/class-1""])@$tr.
-{$tr.id: $tr.extensionAttributes[url=""language""].valueCode.code}",ResearchStudy,label.language,label,StudyTitle,extension
+Translated title language,"study.versions.titles@$tt.($tt.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/Translation/v1/Instance""])@$tr.
+{$tr.id: $tr.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/Translation/v1/Instance/language""].valueCode.code}",ResearchStudy,label.language,label,StudyTitle,extension
 Minimum Age text,"{""id01"": ""Minimum Age: "" & $min([study.versions.studyDesigns.population.plannedAge.minValue.value,study.versions.studyDesigns.population.cohorts.plannedAge.minValue.value]) &  
 "" "" & $distinct(study.versions.studyDesigns.population.plannedAge.minValue.unit.standardCode.decode) &""s""
 &  $substring($distinct(study.versions.studyDesigns.population.cohorts.plannedAge.minValue.unit.standardCode.decode),0,1)}",ResearchStudy,classifier.text,classifier,PopulationDefinition,plannedAge
@@ -70,8 +70,8 @@ Objective secondary level,"study.versions.studyDesigns.objectives[level.code=""C
 Objective exploratory level,"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""exploratory""}",ResearchStudy,objective.type.coding.code,objective,Objective,level
 Objective exploratory level,"study.versions.studyDesigns.objectives[level.code=""C163559""].{id: ""Exploratory""}",ResearchStudy,objective.type.coding.display,objective,Objective,level
 Outcome measurement reference or display,"study.versions.studyDesigns.objectives@$ob.$ob.endpoints.(
-    $bcId := extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-relatedAssessment""].valueId;
-    {$ob.id: $bcId ? {""reference"": ""#"" & extensionAttributes[url=""https://cdisc.org/usdm/extension-ExpResponse-1/attribute-relatedAssessment""].valueId, ""type"": ""EvidenceVariable"" }})",ResearchStudy,objective.outcomeMeasure.endpoint,objective;outcomeMeasure,Endpoint,text
+    $bcId := extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/EndpointReference/v1/forAssessment""].valueId;
+    {$ob.id: $bcId ? {""reference"": ""#"" & extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/EndpointReference/v1/forAssessment""].valueId, ""type"": ""EvidenceVariable"" }})",ResearchStudy,objective.outcomeMeasure.endpoint,objective;outcomeMeasure,Endpoint,text
 Outcome measurement display,study.versions.studyDesigns.objectives@$ob.$ob.endpoints.{$ob.id: text},ResearchStudy,objective.outcomeMeasure.endpoint.display,objective;outcomeMeasure,Endpoint,
 Endpoint level,"study.versions.studyDesigns.objectives@$ob.$ob.endpoints.(
     $firstWord := function($s) {$split($s, "" "")[0]};
@@ -96,13 +96,13 @@ purpose SubType,"study.versions.studyDesigns.subTypes.(
  : {""text"": decode}})",ResearchStudy,purposeType.coding,purposeType,InterventionalStudyDesign,subTypes
 Study Phase,"study.versions.studyDesigns.studyPhase.standardCodeAliases[codeSystem=""http://terminology.hl7.org/CodeSystem/research-study-phase""].
 {id: {""code"": code, ""display"": decode, ""system"": codeSystem}}",ResearchStudy,phase.coding,,StudyDesign,studyPhase
-progress status,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.$rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-state""].
+progress status,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance""])@$rp.$rp.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/state""].
 {$rp.id:{""code"": valueCode.code, ""display"": valueCode.decode, ""system"": valueCode.codeSystem}}",ResearchStudy,progressStatus.state.coding,progressStatus,extension studyProgressStatus,state
-progress status actual,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.$rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-isActive""].
+progress status actual,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance""])@$rp.$rp.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/isActive""].
 {$rp.id:valueBoolean}",ResearchStudy,progressStatus.actual,progressStatus,extension studyProgressStatus,isActual
-progress status period,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""https://cdisc.org/usdm/extension-studyProgressStatus/class1""])@$rp.
-{$rp.id: {""start"" : $rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-startDate""].valueString,
-            ""end"" : $rp.extensionAttributes[url=""https://cdisc.org/usdm/extension-studyProgressStatus-1/attribute-endDate""].valueString}}",ResearchStudy,progressStatus.period,progressStatus,extension studyProgressStatus,"startDate, endDate"
+progress status period,"(study.versions.extensionAttributes.extensionAttributes.valueExtensionClass[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance""])@$rp.
+{$rp.id: {""start"" : $rp.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/startDate""].valueString,
+            ""end"" : $rp.extensionAttributes[url=""//ExtensionLibrary/USDMv4_0/studyProgressStatus/v1/Instance/endDate""].valueString}}",ResearchStudy,progressStatus.period,progressStatus,extension studyProgressStatus,"startDate, endDate"
 Arm name,study.versions.studyDesigns.arms.label,ResearchStudy,comparisonGroup.name,comparisonGroup,StudyArm,label
 Arm description,study.versions.studyDesigns.arms.description,ResearchStudy,comparisonGroup.description,comparisonGroup,StudyArm,description
 Cohort name,study.versions.studyDesigns.population.cohorts.label,ResearchStudy,comparisonGroup.name,comparisonGroup,studyCohort,label
