@@ -520,15 +520,23 @@
 											"instanceType": "ExtensionAttribute"
 										}],
 									  "value": 2000,
-									  "unit": {
-										  "id": "Unit_Code_639",
+									  "unit": 
+									  {
+										  "id": "AliasCode_253",
 										  "extensionAttributes": [],
-										  "code": "C116237",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "copies/uL",
-										  "instanceType": "Code"
-										},
+										  "standardCode": {
+											  "id": "Unit_Code_639",
+											  "extensionAttributes": [],
+											  "code": "C116237",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "copies/uL",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
+										}
+									   ,
 									  "instanceType": "Quantity"
 									},
 									"maxValue": null,
@@ -617,13 +625,19 @@
 										}],
 									  "value": 1500,
 									  "unit": {
-										  "id": "Unit_Code_641",
+										  "id": "AliasCode_254",
 										  "extensionAttributes": [],
-										  "code": "C116237",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "copies/uL",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_641",
+											  "extensionAttributes": [],
+											  "code": "C116237",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "copies/uL",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -713,13 +727,19 @@
 										}],
 									  "value": 100000,
 									  "unit": {
-										  "id": "Unit_Code_639",
+										  "id": "AliasCode_255",
 										  "extensionAttributes": [],
-										  "code": "C116237",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "copies/uL",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_639",
+											  "extensionAttributes": [],
+											  "code": "C116237",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "copies/uL",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -809,13 +829,19 @@
 										}],
 									  "value": 8.5,
 									  "unit": {
-										  "id": "Unit_Code_642",
+										  "id": "AliasCode_255",
 										  "extensionAttributes": [],
-										  "code": "C64783",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "g/dL",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_642",
+											  "extensionAttributes": [],
+											  "code": "C64783",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "g/dL",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -906,13 +932,19 @@
 										}],
 									  "value": 1.5,
 									  "unit": {
-										  "id": "Unit_Code_645",
+										  "id": "AliasCode_256",
 										  "extensionAttributes": [],
-										  "code": "ULN",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "Upper Limit of Normal Range",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_645",
+											  "extensionAttributes": [],
+											  "code": "ULN",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "Upper Limit of Normal Range",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -979,7 +1011,7 @@
 							{
 								"id": "ClassAttr_132",
 								"url": "//ExtensionLibrary/USDMv4_0/ExpectedResponse/v1/Instance/label",
-								"valueString": "Creatinin",
+								"valueString": "ALT",
 								"extensionAttributes": [],
 								"instanceType": "ExtensionAttribute"					
 							},
@@ -1002,13 +1034,19 @@
 										}],
 									  "value": 3,
 									  "unit": {
-										  "id": "Unit_Code_647",
+										  "id": "AliasCode_257",
 										  "extensionAttributes": [],
-										  "code": "ULN",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "Upper Limit of Normal Range",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_647",
+											  "extensionAttributes": [],
+											  "code": "ULN",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "Upper Limit of Normal Range",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -1091,13 +1129,19 @@
 									  "extensionAttributes": [],
 									  "value": 3,
 									  "unit": {
-										  "id": "Unit_Code_675",
+										  "id": "AliasCode_258",
 										  "extensionAttributes": [],
-										  "code": "ULN",
-										  "codeSystem": "http://www.cdisc.org",
-										  "codeSystemVersion": "2025-09-26",
-										  "decode": "Upper Limit of Normal Range",
-										  "instanceType": "Code"
+										  "standardCode": {
+											  "id": "Unit_Code_675",
+											  "extensionAttributes": [],
+											  "code": "ULN",
+											  "codeSystem": "http://www.cdisc.org",
+											  "codeSystemVersion": "2025-09-26",
+											  "decode": "Upper Limit of Normal Range",
+											  "instanceType": "Code"
+											},
+										  "standardCodeAliases": [],
+										  "instanceType": "AliasCode"
 										},
 									  "instanceType": "Quantity"
 									},
@@ -2833,7 +2877,7 @@
 						{
 							"id": "BCAttr_01",
 							"url": "//ExtensionLibrary/USDMv4_0/EndpointReference/v1/forAssessment",
-							"valueId": "BiomedicalConcept_01",
+							"valueId": "BiomedicalConcept_07",
 							"extensionAttributes": [],
 							"instanceType": "ExtensionAttribute"					
 						}],

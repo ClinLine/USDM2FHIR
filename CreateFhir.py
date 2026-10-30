@@ -2,6 +2,7 @@ import json
 import ast
 from unittest import result
 import jsonata
+from numpy import nan
 import pandas as pd
 import re
 from collections.abc import Iterable
@@ -30,9 +31,6 @@ def get_USDM_info(MapFile,USDMFile):
         for i, row in df.iterrows():
             USDM_Path= df.iloc[i, 1]     
             USDM_Result=Parse_jsonata(codeSnip=USDM_Path,data=data,i=i)
-            #if i == 86:
-            #        print(f"Row {i}: USDM_Path='{USDM_Path}' -> USDM_Result='{USDM_Result}'"   )
-            #print(f"Row {i}: USDM_Path='{USDM_Path}' -> USDM_Result='{USDM_Result}'"   )
             if USDM_Result is None: USDM_Result = " "
             if USDM_Result != " ":
                 try:
@@ -87,17 +85,17 @@ def get_USDM_info(MapFile,USDMFile):
     return ResultMap, RowIds
             
 def Parse_jsonata(codeSnip,data,i=0):
-        if codeSnip is None:
+        if codeSnip is None or codeSnip != codeSnip:  # Check for NaN
             result = " "
         else:
             try:
                 expr = jsonata.Jsonata(codeSnip)
                 result = expr.evaluate(data)  
-                #if i == 86:
-                #    print(f"Row {i}: -> Result: {codeSnip} -> {result}")
+                # if i == 58:
+                   # print(f"Row {i}: {codeSnip} -> {result}")
             except:
                 result=" "
-                print(f"Error in expression {codeSnip}")
+                print(f"Error in expression Row {i}: {codeSnip}")
         if result is None: result = " "
         result= str(result)
         if result == "": result = " "
@@ -424,7 +422,7 @@ def paths_to_json(path_value_pairs: list[tuple[str, any]]) -> dict:
             elif isinstance(key, int):
                 try:
                     
-                    #print(f"Accessing index {key} in list at path segment '{keys[i-1]}'")
+                    #print(f"Accessing index {key} in list at path segment '{keys[i-1]}'" + str(obj))
                     obj = obj[key]
                 except (IndexError, TypeError):
                     raise ValueError(f"Invalid index {key} for path segment '{key}'")
