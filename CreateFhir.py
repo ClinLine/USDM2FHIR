@@ -167,8 +167,9 @@ def create_fhir_resource(ResultMap, RowIds, resource_type, data):
             "versionId": data.get("versionId"),
             "lastUpdated": data.get("lastUpdated")
         },        
-    }    
-    ResultMap = sorted(ResultMap, key=lambda t: (t[1], t[0]))
+    } 
+    if resource_type != "Group":   
+        ResultMap = sorted(ResultMap, key=lambda t: (t[1], t[0]))
     pairs=[]
     group=""
     path=""

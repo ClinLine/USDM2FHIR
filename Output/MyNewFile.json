@@ -379,26 +379,59 @@
         "versionId": "1",
         "lastUpdated": "2026-11-03T00:00:00Z"
       },
+      "combinationMethod": "all-of",
       "characteristic": [
         {
+          "description": "Histologic confirmation of one of the following solid tumors that is advanced (unresectable or metastatic) for dose escalation or cohort expansion:Non-Small Cell Lung Cancer (NSCLC), Castrate Resistant Prostate Cancer (CRPC), Melanoma (MEL)",
           "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "exclude": false,
+          "valueReference": {
+            "reference": "#ExtensionClass_ExpRespNode_1",
+            "type": "Group"
+          }
+        },
+        {
+          "description": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "valueCodeableConcept": {
+            "text": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria"
+          },
+          "exclude": false
+        },
+        {
+          "description": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "valueCodeableConcept": {
+            "text": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk"
+          },
+          "exclude": false
+        },
+        {
+          "description": "Eastern Cooperative Oncology Group (ECOG) status of 0 or 1",
+          "code": {
+            "text": "Defined by CodeableConcept",
             "coding": {
               "code": "89247-1",
               "display": "ECOG Performance Status Score",
               "system": "http://loinc.org"
-            },
-            "text": "Defined by CodeableConcept"
+            }
           },
-          "description": "Eastern Cooperative Oncology Group (ECOG) status of 0 or 1",
           "exclude": false,
-          "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
+          "valueRange": {
+            "low": {
+              "value": 0
             },
+            "high": {
+              "value": 1
+            }
+          },
+          "relativeTime": {
             "offsetRange": {
               "low": {
                 "value": -28,
@@ -408,36 +441,76 @@
                 "value": 0,
                 "unit": "d"
               }
-            }
-          },
-          "valueRange": {
-            "low": {
-              "value": 0
             },
-            "high": {
-              "value": 1
-            }
-          }
-        },
-        {
-          "code": {
-            "coding": {
-              "code": "75323-6",
-              "display": "Condition",
-              "system": "http://loinc.org"
-            },
-            "text": "Defined by CodeableConcept"
-          },
-          "description": "Subjects with known or suspected brain metastasis",
-          "exclude": true,
-          "relativeTime": {
             "contextCode": {
               "coding": {
                 "code": "709491003",
                 "decode": "Enrollment in clinical trial",
                 "system": "http://snomed.info/sct"
               }
-            },
+            }
+          }
+        },
+        {
+          "description": "Estimated life expectancy of >= 12 weeks",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "valueCodeableConcept": {
+            "text": "Estimated life expectancy of >= 12 weeks"
+          },
+          "exclude": false
+        },
+        {
+          "description": "White blood cell (WBC) \u00e2\u2030\u00a52000/\u00ce\u00bcL, Neutrophils \u00e2\u2030\u00a51500/\u00ce\u00bcL, Platelets \u00e2\u2030\u00a5 100x1000/\u00ce\u00bcL, Hemoglobin \u00e2\u2030\u00a5 8.5 g/dL, creatinine \u00e2\u2030\u00a4 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) \u00e2\u2030\u00a4 3x ULN",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "exclude": false,
+          "valueReference": {
+            "reference": "#ExtensionClass_ExpRespNode_2",
+            "type": "Group"
+          }
+        },
+        {
+          "description": "Normal thyroid function or be on stable hormone supplementation",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "valueCodeableConcept": {
+            "text": "Normal thyroid function or be on stable hormone supplementation"
+          },
+          "exclude": false
+        },
+        {
+          "description": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint",
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
+          "valueCodeableConcept": {
+            "text": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint"
+          },
+          "exclude": true
+        },
+        {
+          "description": "Subjects with known or suspected brain metastasis",
+          "code": {
+            "text": "Defined by CodeableConcept",
+            "coding": {
+              "code": "75323-6",
+              "display": "Condition",
+              "system": "http://loinc.org"
+            }
+          },
+          "exclude": true,
+          "valueCodeableConcept": {
+            "coding": {
+              "code": "94225005",
+              "display": "Metastatic malignant neoplasm to brain",
+              "system": "http://snomed.info/sct"
+            }
+          },
+          "relativeTime": {
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -447,80 +520,47 @@
                 "value": 0,
                 "unit": "d"
               }
-            }
-          },
-          "valueCodeableConcept": {
-            "coding": {
-              "code": "94225005",
-              "display": "Metastatic malignant neoplasm to brain",
-              "system": "http://snomed.info/sct"
             },
-            "text": "Estimated life expectancy of >= 12 weeks"
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
+            }
           }
         },
         {
+          "description": "Subjects with active autoimmune disease, uncontrolled or significant cardiovascular disease",
           "code": {
             "text": "Defined by CodeableConcept"
           },
-          "description": "White blood cell (WBC) \u00e2\u2030\u00a52000/\u00ce\u00bcL, Neutrophils \u00e2\u2030\u00a51500/\u00ce\u00bcL, Platelets \u00e2\u2030\u00a5 100x1000/\u00ce\u00bcL, Hemoglobin \u00e2\u2030\u00a5 8.5 g/dL, creatinine \u00e2\u2030\u00a4 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) \u00e2\u2030\u00a4 3x ULN",
-          "exclude": false,
-          "valueReference": {
-            "reference": "#ExtensionClass_ExpRespNode_2",
-            "type": "Group"
-          }
-        },
-        {
-          "code": {
-            "text": "Defined by CodeableConcept"
-          },
-          "description": "Normal thyroid function or be on stable hormone supplementation",
-          "exclude": false,
           "valueCodeableConcept": {
-            "text": "Normal thyroid function or be on stable hormone supplementation"
-          }
+            "text": "Subjects with active autoimmune disease, uncontrolled or significant cardiovascular disease"
+          },
+          "exclude": true
         },
         {
+          "description": "Prior therapy with anti- Cytotoxic T-Lymphocyte Antigen 4 (CTLA4) antibody or anti- Killer cell immunoglobulin-like receptor (KIR) antibody",
           "code": {
             "text": "Defined by CodeableConcept"
           },
-          "description": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint",
-          "exclude": true,
           "valueCodeableConcept": {
-            "text": "Participation in any prior clinical study with BMS-936558 or ipilimumab that has overall survival listed as a primary/co-primary endpoint"
-          }
+            "text": "Prior therapy with anti- Cytotoxic T-Lymphocyte Antigen 4 (CTLA4) antibody or anti- Killer cell immunoglobulin-like receptor (KIR) antibody"
+          },
+          "exclude": true
         },
         {
-          "code": {
-            "text": "Defined by CodeableConcept"
-          },
           "description": "Grade 2 neuropathy",
-          "exclude": true,
+          "code": {
+            "text": "Defined by CodeableConcept"
+          },
           "valueCodeableConcept": {
             "text": "Grade 2 neuropathy"
-          }
-        },
-        {
-          "code": {
-            "text": "Defined by CodeableConcept"
           },
-          "description": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria",
-          "exclude": false,
-          "valueCodeableConcept": {
-            "text": "At least one measurable lesion at baseline by Computed tomography (CT) or Magnetic resonance imaging (MRI) as per Response Evaluation Criteria in Solid Tumors (RECIST) 1.1 criteria"
-          }
-        },
-        {
-          "code": {
-            "text": "Defined by CodeableConcept"
-          },
-          "description": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk",
-          "exclude": false,
-          "valueCodeableConcept": {
-            "text": "Biopsies: Subjects in the melanoma cohort must have at least 1 tumor site that can be biopsied at acceptable clinical risk"
-          }
+          "exclude": true
         }
-      ],
-      "combinationMethod": "all-of"
+      ]
     },
     {
       "resourceType": "Group",
@@ -529,36 +569,12 @@
         "versionId": "1",
         "lastUpdated": "2026-11-03T00:00:00Z"
       },
+      "combinationMethod": "any-of",
+      "description": "Node",
       "characteristic": [
         {
-          "code": {
-            "coding": {
-              "code": "75323-6",
-              "display": "Condition",
-              "system": "http://loinc.org"
-            }
-          },
+          "valueRange": {},
           "description": "Solid tumor: Non-small cell lung cancer (NSCLC)) diagnosed during lifetime",
-          "exclude": false,
-          "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
-            "offsetRange": {
-              "low": {
-                "value": -43800,
-                "unit": "d"
-              },
-              "high": {
-                "value": 0,
-                "unit": "d"
-              }
-            }
-          },
           "valueCodeableConcept": {
             "coding": {
               "code": "254637007",
@@ -566,26 +582,7 @@
               "system": "http://snomed.info/sct"
             }
           },
-          "valueRange": {}
-        },
-        {
-          "code": {
-            "coding": {
-              "code": "75323-6",
-              "display": "Condition",
-              "system": "http://loinc.org"
-            }
-          },
-          "description": "Solid tumor: Castrate Resistant Prostate Cancer (CRPC) diagnosed during lifetime",
-          "exclude": false,
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -595,8 +592,27 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {
+              "code": "75323-6",
+              "display": "Condition",
+              "system": "http://loinc.org"
+            }
+          }
+        },
+        {
+          "valueRange": {},
+          "description": "Solid tumor: Castrate Resistant Prostate Cancer (CRPC) diagnosed during lifetime",
           "valueCodeableConcept": {
             "coding": {
               "code": " 427492003",
@@ -604,26 +620,7 @@
               "system": "http://snomed.info/sct"
             }
           },
-          "valueRange": {}
-        },
-        {
-          "code": {
-            "coding": {
-              "code": "75323-6",
-              "display": "Condition",
-              "system": "http://loinc.org"
-            }
-          },
-          "description": "Solid tumor: Melanoma (MEL) diagnosed during lifetime",
-          "exclude": false,
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -633,8 +630,27 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {
+              "code": "75323-6",
+              "display": "Condition",
+              "system": "http://loinc.org"
+            }
+          }
+        },
+        {
+          "valueRange": {},
+          "description": "Solid tumor: Melanoma (MEL) diagnosed during lifetime",
           "valueCodeableConcept": {
             "coding": {
               "code": " 372244006",
@@ -642,11 +658,35 @@
               "system": "http://snomed.info/sct"
             }
           },
-          "valueRange": {}
+          "relativeTime": {
+            "offsetRange": {
+              "low": {
+                "value": -43800,
+                "unit": "d"
+              },
+              "high": {
+                "value": 0,
+                "unit": "d"
+              }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
+            }
+          },
+          "exclude": false,
+          "code": {
+            "coding": {
+              "code": "75323-6",
+              "display": "Condition",
+              "system": "http://loinc.org"
+            }
+          }
         }
-      ],
-      "combinationMethod": "any-of",
-      "description": "Node"
+      ]
     },
     {
       "resourceType": "Group",
@@ -655,53 +695,18 @@
         "versionId": "1",
         "lastUpdated": "2026-11-03T00:00:00Z"
       },
+      "combinationMethod": "all-of",
+      "description": "Node",
       "characteristic": [
         {
-          "code": {
-            "coding": {}
-          },
-          "description": "White Blood Cell Count",
-          "exclude": false,
-          "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
-            "offsetRange": {
-              "low": {
-                "value": -43800,
-                "unit": "d"
-              },
-              "high": {
-                "value": 0,
-                "unit": "d"
-              }
-            }
-          },
           "valueRange": {
             "low": {
               "value": 2000,
               "unit": "copies/uL"
             }
-          }
-        },
-        {
-          "code": {
-            "coding": {}
           },
-          "description": "Neutrophil Count",
-          "exclude": false,
+          "description": "White Blood Cell Count",
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -711,29 +716,29 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {}
+          }
+        },
+        {
           "valueRange": {
             "low": {
               "value": 1500,
               "unit": "copies/uL"
             }
-          }
-        },
-        {
-          "code": {
-            "coding": {}
           },
-          "description": "Platelet Count",
-          "exclude": false,
+          "description": "Neutrophil Count",
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -743,29 +748,29 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {}
+          }
+        },
+        {
           "valueRange": {
             "low": {
               "value": 100000,
               "unit": "copies/uL"
             }
-          }
-        },
-        {
-          "code": {
-            "coding": {}
           },
-          "description": "Hemoglobin",
-          "exclude": false,
+          "description": "Platelet Count",
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -775,29 +780,29 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {}
+          }
+        },
+        {
           "valueRange": {
             "low": {
               "value": 8.5,
               "unit": "g/dL"
             }
-          }
-        },
-        {
-          "code": {
-            "coding": {}
           },
-          "description": "Creatinin",
-          "exclude": false,
+          "description": "Hemoglobin",
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -807,29 +812,61 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
+          "exclude": false,
+          "code": {
+            "coding": {}
+          }
+        },
+        {
           "valueRange": {
             "high": {
               "value": 1.5,
               "unit": "Upper Limit of Normal Range"
             }
+          },
+          "description": "Creatinin",
+          "relativeTime": {
+            "offsetRange": {
+              "low": {
+                "value": -43800,
+                "unit": "d"
+              },
+              "high": {
+                "value": 0,
+                "unit": "d"
+              }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
+            }
+          },
+          "exclude": false,
+          "code": {
+            "coding": {}
           }
         },
         {
-          "code": {
-            "coding": {}
+          "valueRange": {
+            "high": {
+              "value": 3,
+              "unit": "Upper Limit of Normal Range"
+            }
           },
           "description": "ALT",
-          "exclude": false,
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -839,29 +876,29 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
-          "valueRange": {
-            "high": {
-              "value": 3,
-              "unit": "Upper Limit of Normal Range"
-            }
+          "exclude": false,
+          "code": {
+            "coding": {}
           }
         },
         {
-          "code": {
-            "coding": {}
+          "valueRange": {
+            "high": {
+              "value": 3,
+              "unit": "Upper Limit of Normal Range"
+            }
           },
           "description": "ASAT",
-          "exclude": false,
           "relativeTime": {
-            "contextCode": {
-              "coding": {
-                "code": "709491003",
-                "decode": "Enrollment in clinical trial",
-                "system": "http://snomed.info/sct"
-              }
-            },
             "offsetRange": {
               "low": {
                 "value": -43800,
@@ -871,18 +908,21 @@
                 "value": 0,
                 "unit": "d"
               }
+            },
+            "contextCode": {
+              "coding": {
+                "code": "709491003",
+                "decode": "Enrollment in clinical trial",
+                "system": "http://snomed.info/sct"
+              }
             }
           },
-          "valueRange": {
-            "high": {
-              "value": 3,
-              "unit": "Upper Limit of Normal Range"
-            }
+          "exclude": false,
+          "code": {
+            "coding": {}
           }
         }
-      ],
-      "combinationMethod": "all-of",
-      "description": "Node"
+      ]
     },
     {
       "resourceType": "Location",
