@@ -1,4 +1,4 @@
-﻿Item,USDM JSONata path,FHIR resourceType,FHIR path,FHIR Index level,USDM class,USDM attribute
+Item,USDM JSONata path,FHIR resourceType,FHIR path,FHIR Index level,USDM class,USDM attribute
 Condition label,study.versions.studyDesigns.indications.{id: label},ResearchStudy,condition.text,condition,Indication,label
 Condition code,"study.versions.studyDesigns.indications.{id: {""code"": codes.code, ""display"": codes.decode, ""system"": codes.codeSystem}}",ResearchStudy,condition.coding,condition,Indication,codes
 Study Identifier,study.versions.studyIdentifiers.{id: text},ResearchStudy,identifier.value,identifier,StudyIdentifier,text
@@ -124,7 +124,7 @@ site name,study.versions.organizations.managedSites.{id: label},Location,name,,S
 site type,"study.versions.organizations.managedSites.{id: {""code"": ""DX"", ""display"": ""Diagnostics or therapeutics unit"", ""system"": ""http://terminology.hl7.org/CodeSystem/v3-RoleCode""}}",Location,type,,,
 site country,study.versions.organizations.managedSites.{id: country.code},Location,address.country,,StudySite,country
 Reference to group of criteria,"{""eligibility-criteria"": {""reference"": ""#eligibility-criteria"", ""type"":""Group""}}",ResearchStudy,recruitment.eligibility,recruitment,,
-Eligibility overall list id,"{""eligibility-criteria"": ""eligibility-criteria""}",Group-all,id,,,
+Eligibility overall list id,"{""eligibility-criteria"": ""#eligibility-criteria""}",Group-all,id,,,
 combination method general,"{""eligibility-criteria"": ""all-of""}",Group-all,combinationMethod,,,
 Eligibility criteria text,"study.versions@$sv.(
   $sv.studyDesigns.eligibilityCriteria@$ex.
