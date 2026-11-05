@@ -4570,7 +4570,7 @@
             "name": "IN05",
             "label": null,
             "description": null,
-            "text": "<p>Estimated life expectancy of >= 12 weeks</p>",
+            "text": "<p>Estimated life expectancy of &gt;= 12 weeks</p>",
 			"dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
@@ -4581,7 +4581,7 @@
             "name": "IN06",
             "label": null,
             "description": null,
-            "text": "White blood cell (WBC) ≥2000/μL, Neutrophils ≥1500/μL, Platelets ≥ 100x1000/μL, Hemoglobin ≥ 8.5 g/dL, creatinine ≤ 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) ≤ 3x ULN</p>",
+            "text": "<p>White blood cell (WBC) &#8805;2000/μL, Neutrophils &#8805;1500/μL, Platelets &#8805; 100x1000/μL, Hemoglobin &#8805; 8.5 g/dL, creatinine &#8804; 1.5 X upper limit of normal (ULN) mL/min, Alanine aminotransferase (ALT) and Aspartate aminotransferase (AST) &#8804; 3x ULN</p>",
             "dictionaryId": null,
             "notes": [],
             "instanceType": "EligibilityCriterionItem"
@@ -4732,6 +4732,28 @@
             },
             "identifierScheme": "DUNS",
             "identifier": "not available",
+			"legalAddress": {
+              "id": "Address_1",
+              "extensionAttributes": [],
+              "text": "Route 206 and Province Line Road, Princeton, NJ, 08543, United States of America",
+              "lines": [
+                "Route 206 and Province Line Road"
+              ],
+              "city": "Princeton",
+              "district": "Mercer County",
+              "state": "NJ",
+              "postalCode": "08543",
+              "country": {
+                "id": "Code_BMS_Country",
+                "extensionAttributes": [],
+                "code": "USA",
+                "codeSystem": "ISO 3166 1 alpha3",
+                "codeSystemVersion": "2020-08",
+                "decode": "United States of America",
+                "instanceType": "Code"
+              },
+              "instanceType": "Address"
+            },
             "managedSites": [],
             "instanceType": "Organization"
           },
@@ -7754,7 +7776,7 @@
                 "id": "a57a4672-b608-4a85-a9b7-6e97e8fb5cda",
                 "code": "C78541",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": null,
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Adverse Event Verbatim Description",
                 "instanceType": "Code"
               },
@@ -7778,7 +7800,7 @@
                 "id": "9cb5e21c-ff0a-402c-8820-f2bc45cdf5b3",
                 "code": "C83344",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": null,
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Adverse Event Dictionary Derived Term",
                 "instanceType": "Code"
               },
@@ -7802,7 +7824,7 @@
                 "id": "4c5dddd3-9a1c-46f5-8e95-0d27543bd2a8",
                 "code": "C83198",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": null,
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Adverse Event Category",
                 "instanceType": "Code"
               },
@@ -7826,7 +7848,7 @@
                 "id": "f3c7455f-381f-420a-83ab-a898259dc060",
                 "code": "C83212",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": null,
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Adverse Event Subcategory",
                 "instanceType": "Code"
               },
@@ -7850,7 +7872,7 @@
                 "id": "64450fea-78f7-422d-92da-bd4f2bf00663",
                 "code": "C53253",
                 "codeSystem": "http://www.cdisc.org",
-                "codeSystemVersion": null,
+                "codeSystemVersion": "2025-09-26",
                 "decode": "Severity of Adverse Event",
                 "instanceType": "Code"
               },
@@ -8733,23 +8755,11 @@
                 "decode": "Definition",
                 "instanceType": "Code"
               }
-            ]
-          },
-          {
-            "id": "f278e65e-d91c-4943-a224-71341d7b94a1",
-            "text": "Nominal",
-            "codes": [
-              {
-                "id": "201fceb7-63be-4453-af43-b052a128ca06",
-                "code": "C221799",
-                "codeSystem": "http://www.ncit.org",
-                "codeSystemVersion": "2026-02-23",
-                "decode": "Result scale",
-                "instanceType": "Code"
-              }
-            ]
+            ],
+			"instanceType": "CommentAnnotation"
           }
-        ]
+        ],
+        "instanceType": "BiomedicalConcept"
       }
         ],
         "bcCategories": [
